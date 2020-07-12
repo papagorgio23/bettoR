@@ -1,15 +1,15 @@
 Package: bettoR
 Title: Sports Betting Tools
 Version: 1.0.0.0
-Authors@R: 
+Authors@R: c(
     person(given = "Jason",
            family = "Lee",
            role = c("aut", "cre"),
-           email = "Jason@AISportsfirm.com")
+           email = "Jason@AISportsfirm.com"),
     person(given = "Jared",
            family = "Lee",
            role = c("aut", "ctb"),
-           email = "Jared@AISportsfirm.com")
+           email = "Jared@AISportsfirm.com"))
 Description: A series of tools to help a sports bettor make money.
 License: MIT + file LICENSE
 URL: https://github.com/papagorgio23/bettoR, https://github.com/a-i-sports/bettoR
@@ -18,4 +18,5 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-imports: MASS
+imports: 
+    MASS
