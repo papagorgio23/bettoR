@@ -9,7 +9,7 @@ implied_odds(prob, type = "us")
 \arguments{
 \item{prob}{Probability of winning a bet}
 
-\item{type}{Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds}
+\item{type}{Odds Type ("us", "dec", "frac", "all") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds}
 }
 \value{
 odds American Odds of that bet

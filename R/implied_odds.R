@@ -3,7 +3,7 @@
 #' This function provides the fair odds for a given win probability for a given bet.
 #'
 #' @param prob Probability of winning a bet
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Odds Type ("us", "dec", "frac", "all") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
 #'
 #'
 #' @return odds American Odds of that bet
@@ -17,19 +17,34 @@ implied_odds <- function(prob, type = "us"){
   if (!is.numeric(prob)) {
     stop("Probabilities must be numeric")
   }
+  if (type == "all") {
+    us <- prob
+    us[] <- NA_real_
+    us[which(prob > 0.5)] <- prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
+    us[which(prob <= 0.5)] <- (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
 
+    dec <- prob
+    dec[] <- NA_real_
+    dec[which(prob < 1)] <- 1 / prob[which(prob < 1)]
+
+    frac <- dec - 1
+    frac <- MASS::fractions(frac)
+
+    odds <- data.frame(Decimal = round(dec, 4),
+                       American = us,
+                       Fraction = as.character(frac),
+                       `Implied Probability` = prob)
+  }
   if (type == "us") {
     odds <- prob
     odds[] <- NA_real_
     odds[which(prob > 0.5)] <- prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
     odds[which(prob <= 0.5)] <- (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
-    odds
   }
   if (type == "dec") {
     odds <- prob
     odds[] <- NA_real_
     odds[which(prob < 1)] <- 1 / prob[which(prob < 1)]
-    odds
   }
   if (type == "frac") {
     odds <- prob
