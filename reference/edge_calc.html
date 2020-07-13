@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • bettoR</title>
+<title>Calculate Edge — edge_calc • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Calculate Edge — edge_calc" />
+<meta property="og:description" content="This function will calculate the edge of a given bet based on your predicted win probability of the bet and the bet's odds." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,72 +106,43 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Calculate Edge</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/edge_calc.R'><code>R/edge_calc.R</code></a></small>
+    <div class="hidden name"><code>edge_calc.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function will calculate the edge of a given bet based on your predicted win probability of the bet and the bet's odds.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>edge_calc</span>(<span class='kw'>win_prob</span>, <span class='kw'>odds</span>, type = <span class='st'>"us"</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="convert_odds.html">convert_odds()</a></code> </p>
-        </td>
-        <td><p>Odds converter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="edge_calc.html">edge_calc()</a></code> </p>
-        </td>
-        <td><p>Calculate Edge</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="expected_roi.html">expected_roi()</a></code> </p>
-        </td>
-        <td><p>Expected Return on Investment</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="hold_calc.html">hold_calc()</a></code> </p>
-        </td>
-        <td><p>Sportsbook Hold Percentage</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="implied_odds.html">implied_odds()</a></code> </p>
-        </td>
-        <td><p>Probability of Winning Conversion to Odds (American Odds)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="implied_prob.html">implied_prob()</a></code> </p>
-        </td>
-        <td><p>Implied Probability of Winning (American Odds)</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>win_prob</th>
+      <td><p>Your predicted probability for winning the bet (0-1)</p></td>
+    </tr>
+    <tr>
+      <th>odds</th>
+      <td><p>The odds for the given bet</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>edge The edge that you have for the given bet.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='op'>-</span><span class='fl'>175</span>, type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 0.1136364</div><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='fl'>1.2855</span>, type = <span class='st'>"dec"</span>)</div><div class='output co'>#&gt; [1] -0.02790743</div><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='fl'>3</span><span class='op'>/</span><span class='fl'>7</span>, type = <span class='st'>"frac"</span>)</div><div class='output co'>#&gt; [1] 0.05</div><div class='input'><span class='fu'>edge_calc</span>(win_prob = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.6</span>, <span class='fl'>0.7</span>, <span class='fl'>0.52</span>, <span class='fl'>0.6</span>), odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>150</span>, <span class='fl'>140</span>, <span class='fl'>150</span>), type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 0.07619048 0.10000000 0.10333333 0.20000000</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
