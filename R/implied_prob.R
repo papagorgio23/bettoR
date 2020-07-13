@@ -13,6 +13,13 @@
 #' @examples implied_prob(c(3.60, 5.00, 1.10, 1.40), type = "dec")
 #' @examples implied_prob(c(5/2, 1/2, 7/1, 20/1, 10/11), type = "frac")
 implied_prob <- function(odds, type = "us"){
+  ## Error Handling
+  if (!is.numeric(odds)) {
+    stop("Odds must be numeric")
+  }
+  if (!type %in% c("us", "frac", "dec")){
+    stop("type must be either: ('us', 'dec', or 'frac')")
+  }
   if (type == "us") {
     imp_prob <- odds
     imp_prob[] <- NA_real_

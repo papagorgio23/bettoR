@@ -12,6 +12,19 @@
 #' @examples expected_roi(100, 110, 0.55)
 #' @examples expected_roi(175, 100, 0.35)
 expected_roi <- function(payout, risk, win_prob){
+  ## Error handling
+  if (!is.numeric(payout)) {
+    stop("Payout must be numeric")
+  }
+  if (!is.numeric(risk)) {
+    stop("Risk must be numeric")
+  }
+  if (!is.numeric(win_prob)) {
+    stop("win_prob must be numeric and between 0-1")
+  }
+  if (win_prob < 0 | win_prob > 1) {
+    stop("win_prob must between 0-1")
+  }
   exp_roi <- ((payout * win_prob) - ((1 - win_prob) * risk)) / risk
   return(exp_roi)
 }
