@@ -7,11 +7,11 @@
 convert_odds(odds, input = "us", output = "all")
 }
 \arguments{
-\item{odds}{Vector of lines for a given bet (-115, -105)}
+\item{odds}{Odds, or lines, for a given bet(s) (-115, -105)}
 
-\item{input}{Vector of lines for a given bet ("us", "dec", "frac", "prob")}
+\item{input}{Type of odds for the input ("us", "dec", "frac", "prob")}
 
-\item{output}{Vector of lines for a given bet ("all", "us", "dec", "frac", "prob")}
+\item{output}{Type of odds for the output ("all", "us", "dec", "frac", "prob")}
 }
 \value{
 odds

@@ -19,7 +19,7 @@ This function provides the fair odds for a given win probability for a given bet
 }
 \examples{
 implied_odds(0.4)
-implied_odds(0.5238095)
+implied_odds(0.5238095, type = "all")
 implied_odds(c(0.3, 0.2, 0.909, 0.7143), type = "dec")
 implied_odds(c(0.3, 0.2, 0.95, 0.7), type = "frac")
 }
