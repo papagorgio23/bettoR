@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • bettoR</title>
+<title>Bet Probability — bet_prob • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Bet Probability — bet_prob" />
+<meta property="og:description" content="This function returns the win, loss, and push probabilities of a given bet based on the current line and your predicted line." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,84 +106,47 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Bet Probability</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/bet_prob.R'><code>R/bet_prob.R</code></a></small>
+    <div class="hidden name"><code>bet_prob.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function returns the win, loss, and push probabilities of a given bet based on the current line and your predicted line.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>bet_prob</span>(<span class='kw'>pred_spread</span>, <span class='kw'>spread</span>, sport = <span class='st'>"NBA"</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="bet_prob.html">bet_prob()</a></code> </p>
-        </td>
-        <td><p>Bet Probability</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="break_even.html">break_even()</a></code> </p>
-        </td>
-        <td><p>Break Even Probability</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="convert_odds.html">convert_odds()</a></code> </p>
-        </td>
-        <td><p>Odds converter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="edge_calc.html">edge_calc()</a></code> </p>
-        </td>
-        <td><p>Calculate Edge</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="expected_roi.html">expected_roi()</a></code> </p>
-        </td>
-        <td><p>Expected Return on Investment</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="hold_calc.html">hold_calc()</a></code> </p>
-        </td>
-        <td><p>Sportsbook Hold Percentage</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="implied_odds.html">implied_odds()</a></code> </p>
-        </td>
-        <td><p>Probability of Winning Conversion to Odds (American Odds)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="implied_prob.html">implied_prob()</a></code> </p>
-        </td>
-        <td><p>Implied Probability of Winning (American Odds)</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>pred_spread</th>
+      <td><p>Predicted spread for the team you want to bet on</p></td>
+    </tr>
+    <tr>
+      <th>spread</th>
+      <td><p>Spread for the team that you want to bet on (-3.5, -7, 4, 2.5)</p></td>
+    </tr>
+    <tr>
+      <th>sport</th>
+      <td><p>Type of odds for the output ("NBA", "NCAAB", "NFL", "NCAAF")</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>probs</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>bet_prob</span>(<span class='op'>-</span><span class='fl'>9</span>, <span class='op'>-</span><span class='fl'>3.5</span>, sport = <span class='st'>"NFL"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
+#&gt; 1       0.6542519        0.3457481                0</div><div class='input'><span class='fu'>bet_prob</span>(<span class='op'>-</span><span class='fl'>7</span>, <span class='op'>-</span><span class='fl'>3</span>, sport = <span class='st'>"NBA"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
+#&gt; 1       0.6147293        0.3538302       0.03144052</div><div class='input'><span class='fu'>bet_prob</span>(<span class='fl'>21</span>, <span class='fl'>10.5</span>, sport = <span class='st'>"NCAAF"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
+#&gt; 1       0.2558316        0.7441684                0</div><div class='input'><span class='fu'>bet_prob</span>(<span class='op'>-</span><span class='fl'>3</span>, <span class='fl'>5</span>, sport = <span class='st'>"NCAAB"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
+#&gt; 1       0.7733726        0.1976625       0.02896481</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
