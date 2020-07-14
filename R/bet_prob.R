@@ -38,20 +38,19 @@ bet_prob <- function(pred_spread, spread, sport = "NBA"){
   }
 
   # This checks if the spread is a whole number or not
-  # if (spread %% 1 == 0) {
-  #   win_prob <- 1 - (stats::pnorm(pred_spread + 0.5, mean = spread, sd = sd)) # correct for home winning probability
-  #   lose_prob <- (stats::pnorm(pred_spread - 0.5, mean = spread, sd = sd)) # correct for away team winning probability
-  #   push_prob <- 1 - win_prob - lose_prob
-  # } else {
-  #   win_prob <- 1 - (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for home winning probability
-  #   lose_prob <- (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for away team winning probability
-  #   push_prob <- 0
-  # }
-  #
-  # probs <- data.frame(`Win Probability` = win_prob,
-  #                     `Lose Probability` = lose_prob,
-  #                     `Push Probability` = push_prob)
-  probs <- 1
+  if (spread %% 1 == 0) {
+    win_prob <- 1 - (stats::pnorm(pred_spread + 0.5, mean = spread, sd = sd)) # correct for home winning probability
+    lose_prob <- (stats::pnorm(pred_spread - 0.5, mean = spread, sd = sd)) # correct for away team winning probability
+    push_prob <- 1 - win_prob - lose_prob
+  } else {
+    win_prob <- 1 - (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for home winning probability
+    lose_prob <- (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for away team winning probability
+    push_prob <- 0
+  }
+
+  probs <- data.frame(`Win Probability` = win_prob,
+                      `Lose Probability` = lose_prob,
+                      `Push Probability` = push_prob)
 
   return(probs)
 }

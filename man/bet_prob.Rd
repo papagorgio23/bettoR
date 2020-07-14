@@ -11,7 +11,7 @@ bet_prob(pred_spread, spread, sport = "NBA")
 
 \item{spread}{Spread for the team that you want to bet on (-3.5, -7, 4, 2.5)}
 
-\item{sport}{Type of odds for the output ("NBA", "NCAAB", "NFL", "NCAAF")}
+\item{sport}{Sport/League of the teams being bet on ("NBA", "NCAAB", "NFL", "NCAAF")}
 }
 \value{
 probs
