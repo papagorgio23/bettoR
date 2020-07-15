@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • bettoR</title>
+<title>Expected Value — expected_value • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Expected Value — expected_value" />
+<meta property="og:description" content="This function calculates the expected value for a given bet." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,84 +106,43 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Expected Value</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/expected_value.R'><code>R/expected_value.R</code></a></small>
+    <div class="hidden name"><code>expected_value.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function calculates the expected value for a given bet.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>expected_value</span>(<span class='kw'>payout</span>, <span class='kw'>risk</span>, <span class='kw'>win_prob</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="bet_prob.html">bet_prob()</a></code> </p>
-        </td>
-        <td><p>Bet Probability</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="break_even.html">break_even()</a></code> </p>
-        </td>
-        <td><p>Break Even Probability</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="convert_odds.html">convert_odds()</a></code> </p>
-        </td>
-        <td><p>Odds converter</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="edge_calc.html">edge_calc()</a></code> </p>
-        </td>
-        <td><p>Calculate Edge</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="expected_value.html">expected_value()</a></code> </p>
-        </td>
-        <td><p>Expected Value</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="hold_calc.html">hold_calc()</a></code> </p>
-        </td>
-        <td><p>Sportsbook Hold Percentage</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="implied_odds.html">implied_odds()</a></code> </p>
-        </td>
-        <td><p>Probability of Winning Conversion to Odds (American Odds)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="implied_prob.html">implied_prob()</a></code> </p>
-        </td>
-        <td><p>Implied Probability of Winning (American Odds)</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>payout</th>
+      <td><p>The dollar amount won if the bet pays out (500)</p></td>
+    </tr>
+    <tr>
+      <th>risk</th>
+      <td><p>The dollar amount risked (550)</p></td>
+    </tr>
+    <tr>
+      <th>win_prob</th>
+      <td><p>The probability that the bet wins (0.54)</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Expected Return on Investment</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>expected_value</span>(<span class='fl'>100</span>, <span class='fl'>110</span>, <span class='fl'>0.55</span>)</div><div class='output co'>#&gt; [1] 0.05</div><div class='input'><span class='fu'>expected_value</span>(<span class='fl'>175</span>, <span class='fl'>100</span>, <span class='fl'>0.35</span>)</div><div class='output co'>#&gt; [1] -0.0375</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
