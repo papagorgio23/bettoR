@@ -1,17 +1,17 @@
-#' Expected Return on Investment
+#' Expected Value
 #'
-#' This function calculates the expected return on investment for a given bet.
+#' This function calculates the expected value for a given bet.
 #'
 #' @param payout The dollar amount won if the bet pays out (500)
-#' @param risk The dollar amount wagered (550)
+#' @param risk The dollar amount risked (550)
 #' @param win_prob The probability that the bet wins (0.54)
 #'
 #' @return Expected Return on Investment
 #' @export
 #'
-#' @examples expected_roi(100, 110, 0.55)
-#' @examples expected_roi(175, 100, 0.35)
-expected_roi <- function(payout, risk, win_prob){
+#' @examples expected_value(100, 110, 0.55)
+#' @examples expected_value(175, 100, 0.35)
+expected_value <- function(payout, risk, win_prob){
   ## Error handling
   if (!is.numeric(payout)) {
     stop("Payout must be numeric")
