@@ -14,7 +14,12 @@ status](https://github.com/papagorgio23/bettoR/workflows/R-CMD-check/badge.svg)]
 [![Travis build
 status](https://travis-ci.com/papagorgio23/bettoR.svg?branch=master)](https://travis-ci.com/github/papagorgio23/bettoR)
 <!--[![Coverage Status](https://img.shields.io/coveralls/github/papagorgio23/bettoR)](https://img.shields.io/coveralls/github/papagorgio23/bettoR)
+https://img.shields.io/codecov/c/github/papagorgio23/bettoR?style=plastic&token=4dcb468f-32ee-42a9-b610-92f9a6d0c896
 [![Coverage Status](https://img.shields.io/codecov/c/github/ellessenne/rsimsum/master.svg)](https://codecov.io/github/ellessenne/rsimsum?branch=master) -->
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/papagorgio23/bettoR?style=plastic&token=4dcb468f-32ee-42a9-b610-92f9a6d0c896)](https://codecov.io/github/papagorgio23/bettoR?branch=master)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Twitter
 Follow](https://img.shields.io/twitter/follow/theFirmAISports?style=social)](https://twitter.com/theFirmAISports)
 <!-- badges: end -->
@@ -106,6 +111,9 @@ implied_odds(0.75, type = "dec")
 ``` r
 implied_odds(0.75, type = "all")
 ```
+
+    ##   Decimal American Fraction Implied.Probability
+    ## 1  1.3333     -300      1/3                0.75
 
 #### Converting Odds
 

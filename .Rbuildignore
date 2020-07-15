@@ -5,3 +5,6 @@ README\.Rmd$
 README\.md$
 \.travis\.yml$
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

@@ -2,9 +2,9 @@
 #'
 #' This function converts any odds or probability.
 #'
-#' @param odds Vector of lines for a given bet (-115, -105)
-#' @param input Vector of lines for a given bet ("us", "dec", "frac", "prob")
-#' @param output Vector of lines for a given bet ("all", "us", "dec", "frac", "prob")
+#' @param odds Odds, or lines, for a given bet(s) (-115, -105)
+#' @param input Type of odds for the input ("us", "dec", "frac", "prob")
+#' @param output Type of odds for the output ("all", "us", "dec", "frac", "prob")
 #'
 #' @return odds
 #' @export
@@ -13,6 +13,16 @@
 #' @examples convert_odds(odds = c(1.1, 2.1, 13, 6.5, 1.909), input = "dec", output = "us")
 #' @examples convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
 convert_odds <- function(odds, input = "us", output = "all"){
+  ## Error handling
+  if (!is.numeric(odds)) {
+    stop("Odds must be numeric")
+  }
+  if (!input %in% c("us", "frac", "dec", "prob")){
+    stop("Input must be either: ('us', 'dec', 'frac', or 'prob')")
+  }
+  if (!output %in% c("all", "us", "frac", "dec", "prob")){
+    stop("Output must be either: ('all', 'us', 'dec', 'frac', or 'prob')")
+  }
   ## American Odds
   if (input == "us") {
     if (output == "all") {

@@ -17,5 +17,6 @@ This function calculates the hold perrcentage that the sportsbook has for the gi
 }
 \examples{
 hold_calc(-110, -110)
+hold_calc(-125, -125)
 hold_calc(285, -122, 258)
 }
