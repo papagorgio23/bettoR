@@ -37,7 +37,8 @@ bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_lengt
   edge <- round(edge_calc(win_prob = win_rate, odds = avg_odds, type = odds_type), 4)
 
   # initialize result dataframe
-  results_bank_sim <- data.frame()
+  #results_bank_sim <- data.frame()
+  results_bank_sim <- data.frame(bet = NA, Bankroll = NA, color = NA, Sim = NA)
 
   ## need to loop this many times
   for (i in 1:sim_length) {

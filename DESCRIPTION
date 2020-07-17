@@ -21,6 +21,8 @@ RoxygenNote: 7.1.1
 Imports: 
     MASS,
     stats,
-    magrittr
+    magrittr,
+    ggplot2,
+    glue
 Suggests: 
     testthat
