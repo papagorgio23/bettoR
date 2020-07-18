@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Odds converter — convert_odds • bettoR</title>
+<title>Parlay Calculation — parlay_calc • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Odds converter — convert_odds" />
-<meta property="og:description" content="This function converts any odds or probability." />
+<meta property="og:title" content="Parlay Calculation — parlay_calc" />
+<meta property="og:description" content="This function calculates the payout of parlay bets." />
 
 
 
@@ -108,57 +108,44 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Odds converter</h1>
-    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/convert_odds.R'><code>R/convert_odds.R</code></a></small>
-    <div class="hidden name"><code>convert_odds.Rd</code></div>
+    <h1>Parlay Calculation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/parlay_calc.R'><code>R/parlay_calc.R</code></a></small>
+    <div class="hidden name"><code>parlay_calc.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function converts any odds or probability.</p>
+    <p>This function calculates the payout of parlay bets.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convert_odds</span>(<span class='kw'>odds</span>, input = <span class='st'>"us"</span>, output = <span class='st'>"all"</span>)</pre>
+    <pre class="usage"><span class='fu'>parlay_calc</span>(<span class='kw'>risk</span>, <span class='kw'>odds</span>, type = <span class='st'>"us"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>risk</th>
+      <td><p>Odds for your bet(s)</p></td>
+    </tr>
+    <tr>
       <th>odds</th>
-      <td><p>Odds, or lines, for a given bet(s) (-115, -105)</p></td>
+      <td><p>Vector of odds for each leg of the parlay (-132, -115, -110, -110)</p></td>
     </tr>
     <tr>
-      <th>input</th>
-      <td><p>Type of odds for the input. Possible values are:</p><ul>
+      <th>type</th>
+      <td><p>Type of odds. Possible values are:</p><ul>
 <li><p><code>us</code>, American Odds</p></li>
 <li><p><code>dec</code>, Decimal Odds</p></li>
 <li><p><code>frac</code>, Fractional Odds</p></li>
-</ul></td>
-    </tr>
-    <tr>
-      <th>output</th>
-      <td><p>Type of odds for the output. Possible values are:</p><ul>
-<li><p><code>all</code>, Returns all Odds</p></li>
-<li><p><code>us</code>, American Odds</p></li>
-<li><p><code>dec</code>, Decimal Odds</p></li>
-<li><p><code>frac</code>, Fractional Odds</p></li>
-<li><p><code>prob</code>, Implied Probability</p></li>
 </ul></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>odds</p>
+    <p>payout Parlay payout</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>convert_odds</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>))</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability
-#&gt; 1  1.9091     -110    10/11           0.5238095
-#&gt; 2  1.9091     -110    10/11           0.5238095</div><div class='input'><span class='fu'>convert_odds</span>(odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>, <span class='fl'>2.1</span>, <span class='fl'>13</span>, <span class='fl'>6.5</span>, <span class='fl'>1.909</span>), input = <span class='st'>"dec"</span>, output = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] -1000   110  1200   550  -110</div><div class='input'><span class='fu'>convert_odds</span>(odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>11</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>12</span><span class='op'>/</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>/</span><span class='fl'>11</span>), input = <span class='st'>"frac"</span>, output = <span class='st'>"all"</span>)</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability
-#&gt; 1  1.1000    -1000     1/10          0.90909091
-#&gt; 2  2.1000      110    11/10          0.47619048
-#&gt; 3 13.0000     1200       12          0.07692308
-#&gt; 4  6.5000      550     11/2          0.15384615
-#&gt; 5  1.9091     -110    10/11          0.52380952</div><div class='input'></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>parlay_calc</span>(risk = <span class='fl'>75</span>, odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>), type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 447</div><div class='input'><span class='fu'>parlay_calc</span>(risk = <span class='fl'>50</span>, odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>), type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 614</div><div class='input'><span class='fu'>parlay_calc</span>(risk = <span class='fl'>100</span>, odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>150</span>, <span class='op'>-</span><span class='fl'>175</span>, <span class='op'>-</span><span class='fl'>325</span>, <span class='op'>-</span><span class='fl'>220</span>), type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 851</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

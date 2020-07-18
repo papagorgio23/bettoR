@@ -132,7 +132,11 @@
     </tr>
     <tr>
       <th>type</th>
-      <td><p>Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds</p></td>
+      <td><p>Type of odds. Possible values are:</p><ul>
+<li><p><code>us</code>, American Odds</p></li>
+<li><p><code>dec</code>, Decimal Odds</p></li>
+<li><p><code>frac</code>, Fractional Odds</p></li>
+</ul></td>
     </tr>
     </table>
 
@@ -141,7 +145,7 @@
     <p>edge The edge that you have for the given bet.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='op'>-</span><span class='fl'>175</span>, type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 0.1136364</div><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='fl'>1.2855</span>, type = <span class='st'>"dec"</span>)</div><div class='output co'>#&gt; [1] -0.02790743</div><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='fl'>3</span><span class='op'>/</span><span class='fl'>7</span>, type = <span class='st'>"frac"</span>)</div><div class='output co'>#&gt; [1] 0.05</div><div class='input'><span class='fu'>edge_calc</span>(win_prob = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.6</span>, <span class='fl'>0.7</span>, <span class='fl'>0.52</span>, <span class='fl'>0.6</span>), odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>150</span>, <span class='fl'>140</span>, <span class='fl'>150</span>), type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 0.07619048 0.10000000 0.10333333 0.20000000</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='op'>-</span><span class='fl'>175</span>, type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 0.1136364</div><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='fl'>1.2855</span>, type = <span class='st'>"dec"</span>)</div><div class='output co'>#&gt; [1] -0.02790743</div><div class='input'><span class='fu'>edge_calc</span>(<span class='fl'>0.75</span>, <span class='fl'>3</span><span class='op'>/</span><span class='fl'>7</span>, type = <span class='st'>"frac"</span>)</div><div class='output co'>#&gt; [1] 0.05</div><div class='input'><span class='fu'>edge_calc</span>(win_prob = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.6</span>, <span class='fl'>0.7</span>, <span class='fl'>0.52</span>, <span class='fl'>0.6</span>), odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>150</span>, <span class='fl'>140</span>, <span class='fl'>150</span>), type = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] 0.07619048 0.10000000 0.10333333 0.20000000</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

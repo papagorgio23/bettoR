@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Odds converter — convert_odds • bettoR</title>
+<title>Random Bet Result — random_bet • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Odds converter — convert_odds" />
-<meta property="og:description" content="This function converts any odds or probability." />
+<meta property="og:title" content="Random Bet Result — random_bet" />
+<meta property="og:description" content="This function simulates a bet" />
 
 
 
@@ -108,47 +108,41 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Odds converter</h1>
-    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/convert_odds.R'><code>R/convert_odds.R</code></a></small>
-    <div class="hidden name"><code>convert_odds.Rd</code></div>
+    <h1>Random Bet Result</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/random_bet.R'><code>R/random_bet.R</code></a></small>
+    <div class="hidden name"><code>random_bet.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function converts any odds or probability.</p>
+    <p>This function simulates a bet</p>
     </div>
 
-    <pre class="usage"><span class='fu'>convert_odds</span>(<span class='kw'>odds</span>, input = <span class='st'>"us"</span>, output = <span class='st'>"all"</span>)</pre>
+    <pre class="usage"><span class='fu'>random_bet</span>(risk = <span class='fl'>110</span>, payout = <span class='fl'>100</span>, num_bets = <span class='fl'>1</span>, win_rate = <span class='fl'>0.55</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>odds</th>
-      <td><p>Odds, or lines, for a given bet(s) (-115, -105)</p></td>
+      <th>risk</th>
+      <td><p>The dollar amount risked to place the bet</p></td>
     </tr>
     <tr>
-      <th>input</th>
-      <td><p>Type of odds for the input. Possible values are:</p><ul>
-<li><p><code>us</code>, American Odds</p></li>
-<li><p><code>dec</code>, Decimal Odds</p></li>
-<li><p><code>frac</code>, Fractional Odds</p></li>
-</ul></td>
+      <th>payout</th>
+      <td><p>The dollar amount the bet pays out if it wins</p></td>
     </tr>
     <tr>
-      <th>output</th>
-      <td><p>Type of odds for the output. Possible values are:</p><ul>
-<li><p><code>all</code>, Returns all Odds</p></li>
-<li><p><code>us</code>, American Odds</p></li>
-<li><p><code>dec</code>, Decimal Odds</p></li>
-<li><p><code>frac</code>, Fractional Odds</p></li>
-<li><p><code>prob</code>, Implied Probability</p></li>
-</ul></td>
+      <th>num_bets</th>
+      <td><p>Number of bets to simulate</p></td>
+    </tr>
+    <tr>
+      <th>win_rate</th>
+      <td><p>The average expected win rate of the bets (0-1)</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>odds</p>
+    <p>The dollar amount won/lost from the bet</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>convert_odds</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>))</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability

@@ -132,20 +132,30 @@
     </tr>
     <tr>
       <th>sport</th>
-      <td><p>Sport/League of the teams being bet on ("NBA", "NCAAB", "NFL", "NCAAF")</p></td>
+      <td><p>Sport/League of the teams being bet on. Possible values are:</p><ul>
+<li><p><code>NBA</code>, National Basketball Association</p></li>
+<li><p><code>NCAAB</code>, College Basketball</p></li>
+<li><p><code>NFL</code>, National Football League</p></li>
+<li><p><code>NCAAF</code>, College Football</p></li>
+</ul></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>probs</p>
+    <p>probs Plot of the simulation as well as the percentage of simulations that were positive and negative.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>Stern, Hal. "The Probability of Winning a Football Game as a function of the Pointspread." The American Statistician 45, no. 3 (1991): 179-83. Accessed July 18, 2020. doi:10.2307/2684286. <a href='https://statistics.stanford.edu/sites/g/files/sbiybj6031/f/COV%20NSF%2059.pdf'>https://statistics.stanford.edu/sites/g/files/sbiybj6031/f/COV%20NSF%2059.pdf</a></p>
+<p>Stern, Hal. "On the Probability of Winning a Football Game." The American Statistician 45, no. 3 (1991): 179-83. Accessed July 18, 2020. doi:10.2307/2684286. <a href='https://www-jstor-org.turing.library.northwestern.edu/stable/2684286'>https://www-jstor-org.turing.library.northwestern.edu/stable/2684286</a></p>
+<p>Winston, Wayne L. "From Point Ratings to Probabilities." In Mathletics: How Gamblers, Managers, and Sports Enthusiasts Use Mathematics in Baseball, Basketball, and Football, 290-97. PRINCETON; OXFORD: Princeton University Press, 2009. Accessed July 18, 2020. doi:10.2307/j.ctt7sj9q.48.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>bet_prob</span>(<span class='op'>-</span><span class='fl'>9</span>, <span class='op'>-</span><span class='fl'>3.5</span>, sport = <span class='st'>"NFL"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
 #&gt; 1       0.6542519        0.3457481                0</div><div class='input'><span class='fu'>bet_prob</span>(<span class='op'>-</span><span class='fl'>7</span>, <span class='op'>-</span><span class='fl'>3</span>, sport = <span class='st'>"NBA"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
 #&gt; 1       0.6147293        0.3538302       0.03144052</div><div class='input'><span class='fu'>bet_prob</span>(<span class='fl'>21</span>, <span class='fl'>10.5</span>, sport = <span class='st'>"NCAAF"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
 #&gt; 1       0.2558316        0.7441684                0</div><div class='input'><span class='fu'>bet_prob</span>(<span class='op'>-</span><span class='fl'>3</span>, <span class='fl'>5</span>, sport = <span class='st'>"NCAAB"</span>)</div><div class='output co'>#&gt;   Win.Probability Lose.Probability Push.Probability
-#&gt; 1       0.7733726        0.1976625       0.02896481</div></pre>
+#&gt; 1       0.7733726        0.1976625       0.02896481</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
