@@ -1,25 +1,30 @@
-#' Probability of Winning Conversion to Odds (American Odds)
+#' @title Probability of Winning Conversion to Odds (American Odds)
 #'
-#' This function provides the fair odds for a given win probability for a given bet.
+#' @description This function provides the fair odds for a given win probability for a given bet.
 #'
 #' @param prob Probability of winning a bet
-#' @param type Odds Type ("us", "dec", "frac", "all") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Type of odds. Possible values are:
+#' * `all`, All types
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
 #'
 #'
 #' @return odds American Odds of that bet
-#' @export
 #'
 #' @examples implied_odds(0.4)
 #' @examples implied_odds(0.5238095, type = "all")
 #' @examples implied_odds(c(0.3, 0.2, 0.909, 0.7143), type = "dec")
 #' @examples implied_odds(c(0.3, 0.2, 0.95, 0.7), type = "frac")
+#'
+#' @export
 implied_odds <- function(prob, type = "us"){
   ## Error Handling
   if (!is.numeric(prob)) {
     stop("Probabilities must be numeric")
   }
-  if (!type %in% c("all", "us", "frac", "dec", "prob")){
-    stop("type must be either: ('all', 'us', 'dec', 'frac', or 'prob')")
+  if (!type %in% c("all", "us", "frac", "dec")){
+    stop("type must be either: ('all', 'us', 'dec', 'frac')")
   }
   if (type == "all") {
     us <- prob

@@ -24,4 +24,5 @@ Gives you the percent chance you need to break even on the bet
 \examples{
 break_even(110, 210, 1)
 break_even(50, 750, 4)
+
 }

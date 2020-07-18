@@ -1,17 +1,26 @@
-#' Odds converter
+#' @title Odds converter
 #'
-#' This function converts any odds or probability.
+#' @description This function converts any odds or probability.
 #'
 #' @param odds Odds, or lines, for a given bet(s) (-115, -105)
-#' @param input Type of odds for the input ("us", "dec", "frac", "prob")
-#' @param output Type of odds for the output ("all", "us", "dec", "frac", "prob")
+#' @param input Type of odds for the input. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
+#' @param output Type of odds for the output. Possible values are:
+#' * `all`, Returns all Odds
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
+#' * `prob`, Implied Probability
 #'
 #' @return odds
-#' @export
 #'
 #' @examples convert_odds(c(-110, -110))
 #' @examples convert_odds(odds = c(1.1, 2.1, 13, 6.5, 1.909), input = "dec", output = "us")
 #' @examples convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
+#'
+#' @export
 convert_odds <- function(odds, input = "us", output = "all"){
   ## Error handling
   if (!is.numeric(odds)) {

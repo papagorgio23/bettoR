@@ -2,14 +2,14 @@
 % Please edit documentation in R/expected_roi.R
 \name{expected_roi}
 \alias{expected_roi}
-\title{Expected Return on Investment}
+\title{Expected Return}
 \usage{
 expected_roi(payout, risk, win_prob)
 }
 \arguments{
 \item{payout}{The dollar amount won if the bet pays out (500)}
 
-\item{risk}{The dollar amount wagered (550)}
+\item{risk}{The dollar amount risked (550)}
 
 \item{win_prob}{The probability that the bet wins (0.54)}
 }
@@ -17,9 +17,10 @@ expected_roi(payout, risk, win_prob)
 Expected Return on Investment
 }
 \description{
-This function calculates the expected return on investment for a given bet.
+This function calculates the expected return on investment (ROI) for a given bet.
 }
 \examples{
 expected_roi(100, 110, 0.55)
 expected_roi(175, 100, 0.35)
+
 }

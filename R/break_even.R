@@ -1,6 +1,6 @@
-#' Break Even Probability
+#' @title Break Even Probability
 #'
-#' This function returns the break even win percentage needed based on the amount risked and the amount returned on the bet.
+#' @description This function returns the break even win percentage needed based on the amount risked and the amount returned on the bet.
 #' It also factors in parlay bets with the number of legs needed to convert to payout.
 #' Gives you the percent chance you need to break even on the bet
 #'
@@ -9,10 +9,11 @@
 #' @param legs The number of legs needed to win the bet. (straight bets = 1, parlay >= 2)
 #'
 #' @return prob
-#' @export
 #'
 #' @examples break_even(110, 210, 1)
 #' @examples break_even(50, 750, 4)
+#'
+#' @export
 break_even <- function(risk, rtrn, legs = 1){
   ## Error handling
   if (!is.numeric(risk)) {

@@ -7,7 +7,7 @@
 hold_calc(...)
 }
 \arguments{
-\item{...}{Vector of lines for a given bet (-115, -105)}
+\item{...}{Lines for a given bet (-115, -105)}
 }
 \value{
 Hold percent
@@ -19,4 +19,5 @@ This function calculates the hold perrcentage that the sportsbook has for the gi
 hold_calc(-110, -110)
 hold_calc(-125, -125)
 hold_calc(285, -122, 258)
+
 }

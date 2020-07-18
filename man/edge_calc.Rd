@@ -11,7 +11,12 @@ edge_calc(win_prob, odds, type = "us")
 
 \item{odds}{The odds for the given bet}
 
-\item{type}{Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds}
+\item{type}{Type of odds. Possible values are:
+\itemize{
+\item \code{us}, American Odds
+\item \code{dec}, Decimal Odds
+\item \code{frac}, Fractional Odds
+}}
 }
 \value{
 edge The edge that you have for the given bet.
@@ -24,4 +29,5 @@ edge_calc(0.75, -175, type = "us")
 edge_calc(0.75, 1.2855, type = "dec")
 edge_calc(0.75, 3/7, type = "frac")
 edge_calc(win_prob = c(0.6, 0.7, 0.52, 0.6), odds = c(-110, -150, 140, 150), type = "us")
+
 }

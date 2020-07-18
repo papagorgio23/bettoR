@@ -20,6 +20,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     MASS,
-    stats
+    stats,
+    magrittr,
+    ggplot2,
+    glue
 Suggests: 
     testthat
