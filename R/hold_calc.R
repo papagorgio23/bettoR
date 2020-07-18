@@ -1,8 +1,8 @@
-#' Sportsbook Hold Percentage
+#' @title Sportsbook Hold Percentage
 #'
-#' This function calculates the hold perrcentage that the sportsbook has for the given bet.
+#' @description This function calculates the hold perrcentage that the sportsbook has for the given bet.
 #'
-#' @param ... Vector of lines for a given bet (-115, -105)
+#' @param ... Lines for a given bet (-115, -105)
 #'
 #' @return Hold percent
 #'

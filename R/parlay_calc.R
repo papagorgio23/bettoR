@@ -1,10 +1,13 @@
-#' Closing Line Value
+#' @title Parlay Calculation
 #'
-#' This function calculates the Closing Line Value (CLV) of your bets.
+#' @description This function calculates the payout of parlay bets.
 #'
 #' @param risk Odds for your bet(s)
 #' @param odds Vector of odds for each leg of the parlay (-132, -115, -110, -110)
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Type of odds. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
 #'
 #' @return payout Parlay payout
 #'

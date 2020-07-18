@@ -1,10 +1,13 @@
-#' Calculate Edge
+#' @title Calculate Edge
 #'
-#' This function will calculate the edge of a given bet based on your predicted win probability of the bet and the bet's odds.
+#' @description This function will calculate the edge of a given bet based on your predicted win probability of the bet and the bet's odds.
 #'
 #' @param win_prob Your predicted probability for winning the bet (0-1)
 #' @param odds The odds for the given bet
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Type of odds. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
 #'
 #'
 #' @return edge The edge that you have for the given bet.

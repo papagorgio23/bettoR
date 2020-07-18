@@ -25,4 +25,5 @@ This function simulates a bet
 convert_odds(c(-110, -110))
 convert_odds(odds = c(1.1, 2.1, 13, 6.5, 1.909), input = "dec", output = "us")
 convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
+
 }

@@ -1,11 +1,18 @@
-#' Closing Line Value
+#' @title Kelly Criterion Calculation
 #'
-#' This function calculates the Closing Line Value (CLV) of your bets.
+#' @description This function calculates the Kelly Criterion percentage of your bankroll to bet in order to maximize returns.
 #'
 #' @param win_prob Probability of winning a bet (0.55)
 #' @param odds Odds for a bet (-110)
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
-#' @param kelly_type Optional input altering the kelly formula. Either c("Half", "Quarter", or Eighth")
+#' @param type Type of odds. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
+#' @param kelly_type Optional input altering the kelly formula. Possible values are:
+#' * `Half`, Half Kelly
+#' * `Quarter`, Quarter Kelly
+#' * `Eighth`, Eighth Kelly
+#'
 #' @return Percentage of bankroll to risk on bet
 #'
 #'

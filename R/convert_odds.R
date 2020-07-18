@@ -1,10 +1,18 @@
-#' Odds converter
+#' @title Odds converter
 #'
-#' This function converts any odds or probability.
+#' @description This function converts any odds or probability.
 #'
 #' @param odds Odds, or lines, for a given bet(s) (-115, -105)
-#' @param input Type of odds for the input ("us", "dec", "frac", "prob")
-#' @param output Type of odds for the output ("all", "us", "dec", "frac", "prob")
+#' @param input Type of odds for the input. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
+#' @param output Type of odds for the output. Possible values are:
+#' * `all`, Returns all Odds
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
+#' * `prob`, Implied Probability
 #'
 #' @return odds
 #'

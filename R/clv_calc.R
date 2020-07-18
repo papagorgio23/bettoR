@@ -1,10 +1,13 @@
-#' Closing Line Value
+#' @title Closing Line Value
 #'
-#' This function calculates the Closing Line Value (CLV) of your bets.
+#' @description This function calculates the Closing Line Value (CLV) of your bets.
 #'
 #' @param bet_odds Odds for your bet(s) (-110, -105)
 #' @param closing_odds Closing Odds for the same bet (-132, -115)
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Type of odds. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
 #'
 #' @return clv Closing Line Value of your bet
 #'

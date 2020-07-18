@@ -9,7 +9,12 @@ implied_prob(odds, type = "us")
 \arguments{
 \item{odds}{American Odds of the bet}
 
-\item{type}{Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds}
+\item{type}{Type of odds. Possible values are:
+\itemize{
+\item \code{us}, American Odds
+\item \code{dec}, Decimal Odds
+\item \code{frac}, Fractional Odds
+}}
 }
 \value{
 Implied probability of winning or the "Break Even" percentage
@@ -23,4 +28,5 @@ implied_prob(360)
 implied_prob(c(360, -500, -110, 140))
 implied_prob(c(3.60, 5.00, 1.10, 1.40), type = "dec")
 implied_prob(c(5/2, 1/2, 7/1, 20/1, 10/11), type = "frac")
+
 }

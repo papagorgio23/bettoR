@@ -26,7 +26,12 @@ bankroll_plot(
 
 \item{avg_odds}{The average odds of the bets (-110)}
 
-\item{odds_type}{Type of odds for the output ("us", "dec", "frac")}
+\item{odds_type}{Type of odds for the output. Possible values are:
+\itemize{
+\item \code{us}, American Odds
+\item \code{dec}, Decimal Odds
+\item \code{frac}, Fractional Odds
+}}
 
 \item{current_bet}{Optional input - Your current total number of tracked bets. (125)}
 
@@ -44,4 +49,6 @@ bankroll_plot(sim_length = 500, avg_odds = -110, win_rate = 0.5455)
 bankroll_plot(sim_length = 250, avg_odds = -115, win_rate = 0.5255, current_bet = 100, current_win = -500)
 bankroll_plot(sim_length = 300, avg_odds = -109, win_rate = 0.57, current_bet = 175, current_win = 5000)
 bankroll_plot()
+
+
 }

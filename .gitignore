@@ -40,3 +40,6 @@ vignettes/*.pdf
 .Rproj.user
 # docs
 docs
+
+# Misc file
+misc.R

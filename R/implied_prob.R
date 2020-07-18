@@ -1,9 +1,13 @@
-#' Implied Probability of Winning (American Odds)
+#' @title Implied Probability of Winning (American Odds)
 #'
-#' This function provides the implied probability or "Break Even" win percentage for a given bet.
+#' @description This function provides the implied probability or "Break Even" win percentage for a given bet.
 #'
 #' @param odds American Odds of the bet
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Type of odds. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
+#'
 #' @return Implied probability of winning or the "Break Even" percentage
 #'
 #' @examples implied_prob(-150)

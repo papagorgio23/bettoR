@@ -1,12 +1,15 @@
-#' Closing Line Value
+#' @title Calculate Bet Payout
 #'
-#' This function calculates the Closing Line Value (CLV) of your bets.
+#' @description This function calculates the payout for a given bet.
 #'
 #' @param risk Amount risked for your bet(s) (110, 105)
 #' @param odds Odds for the bet (-132, -115)
-#' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
+#' @param type Type of odds. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Oddss
 #'
-#' @return payout Closing Line Value of your bet
+#' @return payout Payout of a bet
 #'
 #' @examples bet_calc(risk = 100, odds = -132, type = "us")
 #' @examples bet_calc(risk = 500, odds = 2.3, type = "dec")

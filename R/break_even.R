@@ -1,6 +1,6 @@
-#' Break Even Probability
+#' @title Break Even Probability
 #'
-#' This function returns the break even win percentage needed based on the amount risked and the amount returned on the bet.
+#' @description This function returns the break even win percentage needed based on the amount risked and the amount returned on the bet.
 #' It also factors in parlay bets with the number of legs needed to convert to payout.
 #' Gives you the percent chance you need to break even on the bet
 #'

@@ -9,9 +9,21 @@ convert_odds(odds, input = "us", output = "all")
 \arguments{
 \item{odds}{Odds, or lines, for a given bet(s) (-115, -105)}
 
-\item{input}{Type of odds for the input ("us", "dec", "frac", "prob")}
+\item{input}{Type of odds for the input. Possible values are:
+\itemize{
+\item \code{us}, American Odds
+\item \code{dec}, Decimal Odds
+\item \code{frac}, Fractional Odds
+}}
 
-\item{output}{Type of odds for the output ("all", "us", "dec", "frac", "prob")}
+\item{output}{Type of odds for the output. Possible values are:
+\itemize{
+\item \code{all}, Returns all Odds
+\item \code{us}, American Odds
+\item \code{dec}, Decimal Odds
+\item \code{frac}, Fractional Odds
+\item \code{prob}, Implied Probability
+}}
 }
 \value{
 odds
@@ -23,4 +35,5 @@ This function converts any odds or probability.
 convert_odds(c(-110, -110))
 convert_odds(odds = c(1.1, 2.1, 13, 6.5, 1.909), input = "dec", output = "us")
 convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
+
 }

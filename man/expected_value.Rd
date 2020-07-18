@@ -14,7 +14,7 @@ expected_value(payout, risk, win_prob)
 \item{win_prob}{The probability that the bet wins (0.54)}
 }
 \value{
-Expected Return on Investment
+Expected Value of a bet
 }
 \description{
 This function calculates the expected value for a given bet.
@@ -22,4 +22,5 @@ This function calculates the expected value for a given bet.
 \examples{
 expected_value(100, 110, 0.55)
 expected_value(175, 100, 0.35)
+
 }

@@ -1,17 +1,26 @@
-#' Bet Probability
+#' @title Bet Probability
 #'
-#' This function returns the win, loss, and push probabilities of a given bet based on the current line and your predicted line.
+#' @description This function returns the win, loss, and push probabilities of a given bet based on the current line and your predicted line.
 #'
 #' @param pred_spread Predicted spread for the team you want to bet on
 #' @param spread Spread for the team that you want to bet on (-3.5, -7, 4, 2.5)
-#' @param sport Sport/League of the teams being bet on ("NBA", "NCAAB", "NFL", "NCAAF")
+#' @param sport Sport/League of the teams being bet on. Possible values are:
+#' * `NBA`, National Basketball Association
+#' * `NCAAB`, College Basketball
+#' * `NFL`, National Football League
+#' * `NCAAF`, College Football
 #'
-#' @return probs
+#' @return probs Plot of the simulation as well as the percentage of simulations that were positive and negative.
 #'
 #' @examples bet_prob(-9, -3.5, sport = "NFL")
 #' @examples bet_prob(-7, -3, sport = "NBA")
 #' @examples bet_prob(21, 10.5, sport = "NCAAF")
 #' @examples bet_prob(-3, 5, sport = "NCAAB")
+#'
+#' @references Stern, Hal. "The Probability of Winning a Football Game as a function of the Pointspread." The American Statistician 45, no. 3 (1991): 179-83. Accessed July 18, 2020. doi:10.2307/2684286. \url{https://statistics.stanford.edu/sites/g/files/sbiybj6031/f/COV%20NSF%2059.pdf}
+#' @references Stern, Hal. "On the Probability of Winning a Football Game." The American Statistician 45, no. 3 (1991): 179-83. Accessed July 18, 2020. doi:10.2307/2684286. \url{https://www-jstor-org.turing.library.northwestern.edu/stable/2684286}
+#' @references Winston, Wayne L. "From Point Ratings to Probabilities." In Mathletics: How Gamblers, Managers, and Sports Enthusiasts Use Mathematics in Baseball, Basketball, and Football, 290-97. PRINCETON; OXFORD: Princeton University Press, 2009. Accessed July 18, 2020. doi:10.2307/j.ctt7sj9q.48.
+#'
 #'
 #' @export
 bet_prob <- function(pred_spread, spread, sport = "NBA"){

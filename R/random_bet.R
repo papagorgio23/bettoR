@@ -1,6 +1,6 @@
-#' Random Bet Result
+#' @title Random Bet Result
 #'
-#' This function simulates a bet
+#' @description This function simulates a bet
 #'
 #' @param risk The dollar amount risked to place the bet
 #' @param payout The dollar amount the bet pays out if it wins

@@ -1,13 +1,16 @@
-#' Bankroll Simulation
+#' @title Bankroll Simulation
 #'
-#' This function simulates and visualizes a bettors bankroll over a number of bets using their edge.
+#' @description This function simulates and visualizes a bettors bankroll over a number of bets using their edge.
 #'
 #' @param bets The number of bets (256)
 #' @param win_rate The average expected win rate of the bets (0-1)
 #' @param bet_size The dollar amount of each bet. (100)
 #' @param sim_length The number of simulations. (1,000)
 #' @param avg_odds The average odds of the bets (-110)
-#' @param odds_type Type of odds for the output ("us", "dec", "frac")
+#' @param odds_type Type of odds for the output. Possible values are:
+#' * `us`, American Odds
+#' * `dec`, Decimal Odds
+#' * `frac`, Fractional Odds
 #' @param current_bet Optional input - Your current total number of tracked bets. (125)
 #' @param current_win Optional input - Your current total amount won/loss from your tracked bets. (950)
 #'
@@ -18,6 +21,7 @@
 #' @examples bankroll_plot(sim_length = 250, avg_odds = -115, win_rate = 0.5255, current_bet = 100, current_win = -500)
 #' @examples bankroll_plot(sim_length = 300, avg_odds = -109, win_rate = 0.57, current_bet = 175, current_win = 5000)
 #' @examples bankroll_plot()
+#'
 #'
 #' @export
 bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_length = 1000, avg_odds = -110, odds_type = "us", current_bet = NULL, current_win = NULL){
@@ -38,8 +42,7 @@ bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_lengt
   edge <- round(edge_calc(win_prob = win_rate, odds = avg_odds, type = odds_type), 4)
 
   # initialize result dataframe
-  #results_bank_sim <- data.frame()
-  results_bank_sim <- data.frame(bet = NA, Bankroll = NA, color = NA, Sim = NA)
+  results_bank_sim <- data.frame()
 
   ## need to loop this many times
   for (i in 1:sim_length) {
