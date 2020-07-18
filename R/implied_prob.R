@@ -5,13 +5,14 @@
 #' @param odds American Odds of the bet
 #' @param type Odds Type ("us", "dec", "frac") "us" == American Odds, "dec" == Decimal Odds, "frac" == Fractual Odds
 #' @return Implied probability of winning or the "Break Even" percentage
-#' @export
 #'
 #' @examples implied_prob(-150)
 #' @examples implied_prob(360)
 #' @examples implied_prob(c(360, -500, -110, 140))
 #' @examples implied_prob(c(3.60, 5.00, 1.10, 1.40), type = "dec")
 #' @examples implied_prob(c(5/2, 1/2, 7/1, 20/1, 10/11), type = "frac")
+#'
+#' @export
 implied_prob <- function(odds, type = "us"){
   ## Error Handling
   if (!is.numeric(odds)) {

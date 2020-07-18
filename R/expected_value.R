@@ -7,10 +7,11 @@
 #' @param win_prob The probability that the bet wins (0.54)
 #'
 #' @return Expected Return on Investment
-#' @export
 #'
 #' @examples expected_value(100, 110, 0.55)
 #' @examples expected_value(175, 100, 0.35)
+#'
+#' @export
 expected_value <- function(payout, risk, win_prob){
   ## Error handling
   if (!is.numeric(payout)) {

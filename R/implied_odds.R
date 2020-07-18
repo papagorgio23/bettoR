@@ -7,12 +7,13 @@
 #'
 #'
 #' @return odds American Odds of that bet
-#' @export
 #'
 #' @examples implied_odds(0.4)
 #' @examples implied_odds(0.5238095, type = "all")
 #' @examples implied_odds(c(0.3, 0.2, 0.909, 0.7143), type = "dec")
 #' @examples implied_odds(c(0.3, 0.2, 0.95, 0.7), type = "frac")
+#'
+#' @export
 implied_odds <- function(prob, type = "us"){
   ## Error Handling
   if (!is.numeric(prob)) {

@@ -7,12 +7,13 @@
 #' @param sport Sport/League of the teams being bet on ("NBA", "NCAAB", "NFL", "NCAAF")
 #'
 #' @return probs
-#' @export
 #'
 #' @examples bet_prob(-9, -3.5, sport = "NFL")
 #' @examples bet_prob(-7, -3, sport = "NBA")
 #' @examples bet_prob(21, 10.5, sport = "NCAAF")
 #' @examples bet_prob(-3, 5, sport = "NCAAB")
+#'
+#' @export
 bet_prob <- function(pred_spread, spread, sport = "NBA"){
   ## Error handling
   if (!is.numeric(pred_spread)) {
