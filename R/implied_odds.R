@@ -40,7 +40,7 @@ implied_odds <- function(prob, type = "us"){
     frac <- MASS::fractions(frac)
 
     odds <- data.frame(Decimal = round(dec, 4),
-                       American = us,
+                       American = round(us),
                        Fraction = as.character(frac),
                        `Implied Probability` = prob)
   }
@@ -49,6 +49,7 @@ implied_odds <- function(prob, type = "us"){
     odds[] <- NA_real_
     odds[which(prob > 0.5)] <- prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
     odds[which(prob <= 0.5)] <- (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
+    odds <- round(odds)
   }
   if (type == "dec") {
     odds <- prob
