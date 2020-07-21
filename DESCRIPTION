@@ -23,6 +23,9 @@ Imports:
     stats,
     magrittr,
     ggplot2,
-    glue
+    glue,
+    rvest,
+    xml2,
+    dplyr
 Suggests: 
     testthat
