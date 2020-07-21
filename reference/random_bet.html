@@ -87,6 +87,9 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li>
+  <a href="../articles/index.html">Articles</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -145,9 +148,9 @@
     <p>The dollar amount won/lost from the bet</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>convert_odds</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>))</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability
+    <pre class="examples"><div class='input'><span class='fu'><a href='convert_odds.html'>convert_odds</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span>))</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability
 #&gt; 1  1.9091     -110    10/11           0.5238095
-#&gt; 2  1.9091     -110    10/11           0.5238095</div><div class='input'><span class='fu'>convert_odds</span>(odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>, <span class='fl'>2.1</span>, <span class='fl'>13</span>, <span class='fl'>6.5</span>, <span class='fl'>1.909</span>), input = <span class='st'>"dec"</span>, output = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] -1000   110  1200   550  -110</div><div class='input'><span class='fu'>convert_odds</span>(odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>11</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>12</span><span class='op'>/</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>/</span><span class='fl'>11</span>), input = <span class='st'>"frac"</span>, output = <span class='st'>"all"</span>)</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability
+#&gt; 2  1.9091     -110    10/11           0.5238095</div><div class='input'><span class='fu'><a href='convert_odds.html'>convert_odds</a></span>(odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.1</span>, <span class='fl'>2.1</span>, <span class='fl'>13</span>, <span class='fl'>6.5</span>, <span class='fl'>1.909</span>), input = <span class='st'>"dec"</span>, output = <span class='st'>"us"</span>)</div><div class='output co'>#&gt; [1] -1000   110  1200   550  -110</div><div class='input'><span class='fu'><a href='convert_odds.html'>convert_odds</a></span>(odds = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>11</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>12</span><span class='op'>/</span><span class='fl'>1</span>, <span class='fl'>11</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fl'>10</span><span class='op'>/</span><span class='fl'>11</span>), input = <span class='st'>"frac"</span>, output = <span class='st'>"all"</span>)</div><div class='output co'>#&gt;   Decimal American Fraction Implied.Probability
 #&gt; 1  1.1000    -1000     1/10          0.90909091
 #&gt; 2  2.1000      110    11/10          0.47619048
 #&gt; 3 13.0000     1200       12          0.07692308
