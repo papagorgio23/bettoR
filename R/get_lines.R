@@ -19,15 +19,15 @@
 #' * `full`, Full game
 #' * `1H`, 1st Half
 #' * `2H`, 2nd Half
-#' * `1Q`, 1Q
-#' * `2Q`, 2Q
-#' * `3Q`, 3Q
-#' * `4Q`, 4Q
+#' * `1Q`, 1st Quarter
+#' * `2Q`, 2nd Quarter
+#' * `3Q`, 3rd Quarter
+#' * `4Q`, 4th Quarter
 #'
 #'
 #' @param start_date Date of sporting events
 #'
-#' @return dataframe with betting lines
+#' @return dataframe conatining betting lines for the given day
 #'
 #' @examples get_lines(sport = "NFL", bet_type = "spread", period = "full", start_date = "20191222")
 #' @examples get_lines(sport = "NBA", bet_type = "total", period = "2Q", start_date = "20191221")
@@ -84,10 +84,6 @@ get_lines <- function(sport = "NFL",
   if (is.na(PERIOD)) {
     stop("Period must be in c('full', '1H', '2H', '1Q', '2Q', '3Q', '4Q')")
   }
-
-
-
-
 
   DATE <- start_date
 
@@ -276,7 +272,7 @@ get_lines <- function(sport = "NFL",
                                     sportsbet1,
                                     sportsbet2,
                                     oddsURL
-                                    )))
+    )))
 
     ## save game results
     final_lines <- rbind(final_lines, game_lines)
@@ -324,5 +320,7 @@ get_lines <- function(sport = "NFL",
                              "oddsURL")
 
 
+  # Done and done
+  message(glue::glue("Scraped Day: {DATE}"))
   return(final_lines)
 }
