@@ -86,6 +86,6 @@ bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_lengt
 
   # Return the ratio of positive and negative results
   print(table(results_bank_sim$win[results_bank_sim$bet == bets]) / sim_length)
-  print(paste0("Median Profit/Loss = ", stats::median(results_bank_sim$Bankroll[results_bank_sim$bet == bets], na.rm = TRUE)))
+  cat("\n", paste0("Median Profit/Loss = ", scales::dollar(stats::median(results_bank_sim$Bankroll[results_bank_sim$bet == bets], na.rm = TRUE))))
   return(p)
 }

@@ -129,7 +129,7 @@ The increase in juice for this is:
 (hold_calc(-125, -125) - hold_calc(-110, -110)) / hold_calc(-110, -110)
 ```
 
-133% increase in price.
+120% increase in price.
 
 
 

@@ -1,6 +1,6 @@
-#' @title Sportsbook Hold Percentage
+#' @title Sportsbook's Over Round Percentage
 #'
-#' @description This function calculates the hold perrcentage that the sportsbook has for the given bet.
+#' @description This function calculates the extra implied probability from each line of the bet. House Edge or Over Round.
 #'
 #' @param ... Lines for a given bet (-115, -105)
 #'
@@ -11,13 +11,13 @@
 #' @examples hold_calc(285, -122, 258)
 #'
 #' @export
-hold_calc <- function(...){
+over_round <- function(...){
   lines <- c(...)
   ## Error handling
   if (!is.numeric(lines)) {
     stop("Lines must be numeric")
   }
   imp_probs <- sapply(lines, implied_prob)
-  hold <- 1 - (1 / sum(imp_probs))
-  return(hold)
+  house_edge <- sum(imp_probs) - 1
+  return(house_edge)
 }

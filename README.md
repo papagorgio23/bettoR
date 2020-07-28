@@ -123,7 +123,7 @@ Let’s say you want to convert the American Odds you see on the screen
 convert_odds(-175)
 ```
 
-    ##   Decimal American Fraction Implied.Probability
+    ##   Decimal American Fraction Implied_Probability
     ## 1  1.5714     -175      4/7           0.6363636
 
 #### Calculate Sportsbook’s hold
@@ -136,7 +136,7 @@ standard. The hold, or vig/juice, for this bet can be found like this:
 hold_calc(-110, -110)
 ```
 
-    ## [1] 0.04761905
+    ## [1] 0.04545455
 
 Some sportsbooks in newly legalized states are taking advantage of
 bettors with lines (-125, -125)
@@ -145,7 +145,7 @@ bettors with lines (-125, -125)
 hold_calc(-125, -125)
 ```
 
-    ## [1] 0.1111111
+    ## [1] 0.1
 
 The increase in juice for this is:
 
@@ -153,9 +153,9 @@ The increase in juice for this is:
 (hold_calc(-125, -125) - hold_calc(-110, -110)) / hold_calc(-110, -110)
 ```
 
-    ## [1] 1.333333
+    ## [1] 1.2
 
-133% increase in price.
+120% increase in price.
 
 ## Special Thanks
 
