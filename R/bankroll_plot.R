@@ -66,6 +66,7 @@ bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_lengt
     ggplot2::geom_line(ggplot2::aes(colour = color), alpha = 0.3) +
     ggplot2::scale_colour_manual(values = c("green", "red"), guide = FALSE) +
     ggplot2::geom_hline(yintercept = 0) +
+    ggplot2::scale_y_continuous(labels = scales::dollar) +
     ggplot2::labs(title = glue::glue("{sim_length} Simulations of {bets} Wagers"),
          subtitle = glue::glue("with a {win_rate * 100}% Win Rate, Risking ${avg_odds * -1} to win ${bet_size}  ({edge * 100}% Edge)"),
          caption = "A.I. Sports",
@@ -73,7 +74,7 @@ bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_lengt
          y = "Profit") +
     ggplot2::theme_bw()
 
-  if (!is.null(current_bet) & !is.null(current_bet)) {
+  if (!is.null(current_bet) & !is.null(current_win)) {
     p <- p +
       ggplot2::geom_hline(yintercept = current_win, linetype = "dashed") +
       ggplot2::annotate("label", x = current_bet, y = current_win, label = "Current")
@@ -84,6 +85,7 @@ bankroll_plot <- function(bets = 256, win_rate = 0.55, bet_size = 100, sim_lengt
   results_bank_sim$win <- factor(results_bank_sim$win, levels = c("Positive", "Negative"))
 
   # Return the ratio of positive and negative results
-  print(table(results_bank_sim$win[results_bank_sim$bet == bets])/sim_length)
+  print(table(results_bank_sim$win[results_bank_sim$bet == bets]) / sim_length)
+  cat("\n", paste0("Median Profit/Loss = ", scales::dollar(stats::median(results_bank_sim$Bankroll[results_bank_sim$bet == bets], na.rm = TRUE))))
   return(p)
 }

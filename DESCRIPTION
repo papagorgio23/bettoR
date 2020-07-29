@@ -26,6 +26,10 @@ Imports:
     glue,
     rvest,
     xml2,
-    dplyr
+    dplyr,
+    scales
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

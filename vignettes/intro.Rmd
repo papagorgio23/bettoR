@@ -1,0 +1,63 @@
+---
+title: "Introduction to bettoR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to bettoR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(bettoR)
+```
+
+[**BettoR**](https://github.com/papagorgio23/bettoR) is a package that makes life as a sports bettor much easier. 
+This package has functions covering all the basic functions and math that a sports bettor will need, such as converting odds, calculating implied probabilities or bet payouts, and determining the sportsbook's hold percentage for a given bet. 
+This vignette will serve as a quick introduction into the bettoR package.
+
+The primary goal of this package is to move sports bettors out of Excel and into R. 
+Many of these calculations are simple but having functions pre-built enables clean, consistent coding with reliable results.
+
+
+## Sports Betting Math 101
+
+
+
+
+### Converting Odds
+
+There are three primary odds types you will come across in America:  
+
+* American (-150, +130)  
+* Fractional (2/3, 13/10)  
+* Decimal (1.667, 2.3)  
+
+The `convert_odds` function can easily switch each of these odds around to whatever format you are most comfortable with.
+
+For example:  
+
+*  The LA Lakers are playing the LA Clippers and my bookie has the Lakers' moneyline bet at 1.667... I'm not very familiar with decimal odds (even though they are actually the simplest form to work with but I digress...). I would like to convert this to American odds. The `convert_odds` function takes in 3 arguments - the odds, the input odds type, and the type of odds you would like the output to be. If you aren't exactly sure about the output, simply set `output = "all"` or leave the output argument blank and the function will return all odds types plus the implied probability of the bet.  
+
+
+```{r}
+convert_odds(odds = -150, input = "us", output = "all")
+```
+
+
+<br>
+
+
+### Calculate Sportsbooks' Hold Percentage
+
+
+```{r}
+hold_calc(-150, 130)
+```
+
