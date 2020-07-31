@@ -4,7 +4,7 @@
 \alias{kelly_bet}
 \title{Kelly Criterion Bet Size}
 \usage{
-kelly_bet(unit_size, win_prob, odds, type = "dec", kelly_type = "Full")
+kelly_bet(unit_size, win_prob, odds, type = "dec", kelly_type = "full")
 }
 \arguments{
 \item{unit_size}{Unit size of your bankroll, typically 1\% of bankroll (100)}
@@ -22,9 +22,9 @@ kelly_bet(unit_size, win_prob, odds, type = "dec", kelly_type = "Full")
 
 \item{kelly_type}{Optional input altering the Kelly formula. Possible values are:
 \itemize{
-\item \code{Half}, Half Kelly
-\item \code{Quarter}, Quarter Kelly
-\item \code{Eighth}, Eighth Kelly
+\item \code{half}, Half Kelly
+\item \code{quarter}, Quarter Kelly
+\item \code{eighth}, Eighth Kelly
 }}
 }
 \value{

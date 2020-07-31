@@ -9,23 +9,23 @@
 #' * `dec`, Decimal Odds
 #' * `frac`, Fractional Odds
 #' @param kelly_type Optional input altering the kelly formula. Possible values are:
-#' * `Half`, Half Kelly
-#' * `Quarter`, Quarter Kelly
-#' * `Eighth`, Eighth Kelly
+#' * `half`, Half Kelly
+#' * `quarter`, Quarter Kelly
+#' * `eighth`, Eighth Kelly
 #'
 #' @return Percentage of bankroll to risk on bet
 #'
 #'
 #' @examples kelly(win_prob = 0.58, odds = -132, type = "us")
-#' @examples kelly(win_prob = 0.53, odds = -105, type = "us", kelly_type = "Half")
+#' @examples kelly(win_prob = 0.53, odds = -105, type = "us", kelly_type = "half")
 #' @examples kelly(win_prob = 0.545, odds = 2.1, type = "dec")
-#' @examples kelly(win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "Quarter")
+#' @examples kelly(win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "quarter")
 #' @examples kelly(win_prob = 0.10, odds = 40/1, type = "frac")
 #'
 #' @references [Kelly Criterion wikipedia](https://en.wikipedia.org/wiki/Kelly_criterion) page
 #'
 #' @export
-kelly <- function(win_prob, odds, type = "dec", kelly_type = "Full"){
+kelly <- function(win_prob, odds, type = "dec", kelly_type = "full"){
   ## Error handling
   if (!is.numeric(win_prob)) {
     stop("Win Probability must be numeric")
@@ -46,15 +46,15 @@ kelly <- function(win_prob, odds, type = "dec", kelly_type = "Full"){
   # Kelly Criterion equation
   kelly <- round(((odds * win_prob) - (1 - win_prob)) / odds, 4)
 
-  if (kelly_type == "Half") {
+  if (kelly_type == "half") {
     kelly <- round(kelly / 2, 4)
   }
 
-  if (kelly_type == "Quarter") {
+  if (kelly_type == "quarter") {
     kelly <- round(kelly / 4, 4)
   }
 
-  if (kelly_type == "Eighth") {
+  if (kelly_type == "eighth") {
     kelly <- round(kelly / 8, 4)
   }
 

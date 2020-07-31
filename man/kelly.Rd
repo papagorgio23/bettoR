@@ -4,7 +4,7 @@
 \alias{kelly}
 \title{Kelly Criterion Calculation}
 \usage{
-kelly(win_prob, odds, type = "dec", kelly_type = "Full")
+kelly(win_prob, odds, type = "dec", kelly_type = "full")
 }
 \arguments{
 \item{win_prob}{Probability of winning a bet (0.55)}
@@ -20,9 +20,9 @@ kelly(win_prob, odds, type = "dec", kelly_type = "Full")
 
 \item{kelly_type}{Optional input altering the kelly formula. Possible values are:
 \itemize{
-\item \code{Half}, Half Kelly
-\item \code{Quarter}, Quarter Kelly
-\item \code{Eighth}, Eighth Kelly
+\item \code{half}, Half Kelly
+\item \code{quarter}, Quarter Kelly
+\item \code{eighth}, Eighth Kelly
 }}
 }
 \value{
@@ -33,9 +33,9 @@ This function calculates the Kelly Criterion percentage of your bankroll to bet 
 }
 \examples{
 kelly(win_prob = 0.58, odds = -132, type = "us")
-kelly(win_prob = 0.53, odds = -105, type = "us", kelly_type = "Half")
+kelly(win_prob = 0.53, odds = -105, type = "us", kelly_type = "half")
 kelly(win_prob = 0.545, odds = 2.1, type = "dec")
-kelly(win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "Quarter")
+kelly(win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "quarter")
 kelly(win_prob = 0.10, odds = 40/1, type = "frac")
 
 }

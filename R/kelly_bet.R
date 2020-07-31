@@ -10,9 +10,9 @@
 #' * `dec`, Decimal Odds
 #' * `frac`, Fractional Odds
 #' @param kelly_type Optional input altering the Kelly formula. Possible values are:
-#' * `Half`, Half Kelly
-#' * `Quarter`, Quarter Kelly
-#' * `Eighth`, Eighth Kelly
+#' * `half`, Half Kelly
+#' * `quarter`, Quarter Kelly
+#' * `eighth`, Eighth Kelly
 #'
 #' @return Percentage of bankroll to risk on bet
 #'
@@ -25,7 +25,7 @@
 #' @references [https://en.wikipedia.org/wiki/Kelly_criterion](https://en.wikipedia.org/wiki/Kelly_criterion)
 #'
 #' @export
-kelly_bet <- function(unit_size, win_prob, odds, type = "dec", kelly_type = "Full"){
+kelly_bet <- function(unit_size, win_prob, odds, type = "dec", kelly_type = "full"){
   ## Error handling
   if (!is.numeric(unit_size)) {
     stop("Unit size must be numeric")
@@ -49,15 +49,15 @@ kelly_bet <- function(unit_size, win_prob, odds, type = "dec", kelly_type = "Ful
   # Kelly Criterion equation
   kelly <- round(((odds * win_prob) - (1 - win_prob)) / odds, 4)
 
-  if (kelly_type == "Half") {
+  if (kelly_type == "half") {
     kelly <- round(kelly / 2, 4)
   }
 
-  if (kelly_type == "Quarter") {
+  if (kelly_type == "quarter") {
     kelly <- round(kelly / 4, 4)
   }
 
-  if (kelly_type == "Eighth") {
+  if (kelly_type == "eighth") {
     kelly <- round(kelly / 8, 4)
   }
 
