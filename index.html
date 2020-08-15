@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">bettoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.1</span>
       </span>
     </div>
 
@@ -48,6 +48,9 @@
 </li>
 <li>
   <a href="articles/index.html">Articles</a>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -157,7 +160,7 @@
 <div class="sourceCode" id="cb22"><pre class="downlit">
 <span class="fu"><a href="reference/convert_odds.html">convert_odds</a></span>(<span class="op">-</span><span class="fl">175</span>)
 </pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">##   Decimal American Fraction Implied.Probability</span></span>
+<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">##   Decimal American Fraction Implied_Probability</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="co">## 1  1.5714     -175      4/7           0.6363636</span></span></code></pre></div>
 </div>
 <div id="calculate-sportsbooks-hold" class="section level4">
@@ -167,18 +170,18 @@
 <div class="sourceCode" id="cb24"><pre class="downlit">
 <span class="fu"><a href="reference/hold_calc.html">hold_calc</a></span>(<span class="op">-</span><span class="fl">110</span>, <span class="op">-</span><span class="fl">110</span>)
 </pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">## [1] 0.04761905</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">## [1] 0.04545455</span></span></code></pre></div>
 <p>Some sportsbooks in newly legalized states are taking advantage of bettors with lines (-125, -125)</p>
 <div class="sourceCode" id="cb26"><pre class="downlit">
 <span class="fu"><a href="reference/hold_calc.html">hold_calc</a></span>(<span class="op">-</span><span class="fl">125</span>, <span class="op">-</span><span class="fl">125</span>)
 </pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">## [1] 0.1111111</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">## [1] 0.1</span></span></code></pre></div>
 <p>The increase in juice for this is:</p>
 <div class="sourceCode" id="cb28"><pre class="downlit">
 (<span class="fu"><a href="reference/hold_calc.html">hold_calc</a></span>(<span class="op">-</span><span class="fl">125</span>, <span class="op">-</span><span class="fl">125</span>) <span class="op">-</span> <span class="fu"><a href="reference/hold_calc.html">hold_calc</a></span>(<span class="op">-</span><span class="fl">110</span>, <span class="op">-</span><span class="fl">110</span>)) <span class="op">/</span> <span class="fu"><a href="reference/hold_calc.html">hold_calc</a></span>(<span class="op">-</span><span class="fl">110</span>, <span class="op">-</span><span class="fl">110</span>)
 </pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">## [1] 1.333333</span></span></code></pre></div>
-<p>133% increase in price.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co">## [1] 1.2</span></span></code></pre></div>
+<p>120% increase in price.</p>
 </div>
 </div>
 <div id="special-thanks" class="section level2">

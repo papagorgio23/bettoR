@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bettoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.1</span>
       </span>
     </div>
 
@@ -89,6 +89,9 @@
 </li>
 <li>
   <a href="../articles/index.html">Articles</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -177,12 +180,12 @@
     <p>dataframe conatining betting lines for the given day</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_lines_range</span>(sport = <span class='st'>"NFL"</span>, bet_type = <span class='st'>"spread"</span>, period = <span class='st'>"full"</span>, start_date = <span class='fl'>20191222</span>, end_date = <span class='fl'>20191231</span>)</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191222</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191223</span></div><div class='output co'>#&gt; No games played on 20191224
-#&gt; No games played on 20191225
-#&gt; No games played on 20191226
-#&gt; No games played on 20191227
-#&gt; No games played on 20191228</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191229</span></div><div class='output co'>#&gt; No games played on 20191230
-#&gt; No games played on 20191231</div><div class='output co'>#&gt; <span class='message'></span>
+    <pre class="examples"><div class='input'><span class='fu'>get_lines_range</span>(sport = <span class='st'>"NFL"</span>, bet_type = <span class='st'>"spread"</span>, period = <span class='st'>"full"</span>, start_date = <span class='fl'>20191222</span>, end_date = <span class='fl'>20191231</span>)</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191222</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191223</span></div><div class='output co'>#&gt; No games played on 2019-12-24
+#&gt; No games played on 2019-12-25
+#&gt; No games played on 2019-12-26
+#&gt; No games played on 2019-12-27
+#&gt; No games played on 2019-12-28</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191229</span></div><div class='output co'>#&gt; No games played on 2019-12-30
+#&gt; No games played on 2019-12-31</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Completed Scrape: </span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>Sport - NFL</span>
@@ -197,7 +200,7 @@
 #&gt; 5  20191222   NFL   spread   full     Baltimore     Cleveland       0      14
 #&gt; 6  20191222   NFL   spread   full      Carolina  Indianapolis       0       3
 #&gt; 7  20191222   NFL   spread   full  Jacksonville       Atlanta       0       3
-#&gt; 8  20191222   NFL   spread   full       Oakland L.A. Chargers       7       7
+#&gt; 8  20191222   NFL   spread   full     Las Vegas L.A. Chargers       7       7
 #&gt; 9  20191222   NFL   spread   full       Detroit        Denver       3       7
 #&gt; 10 20191222   NFL   spread   full       Arizona       Seattle       7      10
 #&gt; 11 20191222   NFL   spread   full        Dallas  Philadelphia       0       6
@@ -213,7 +216,7 @@
 #&gt; 21 20191229   NFL   spread   full     N.Y. Jets       Buffalo       0       3
 #&gt; 22 20191229   NFL   spread   full    Pittsburgh     Baltimore       0       7
 #&gt; 23 20191229   NFL   spread   full       Arizona     L.A. Rams       7       3
-#&gt; 24 20191229   NFL   spread   full       Oakland        Denver       0       3
+#&gt; 24 20191229   NFL   spread   full     Las Vegas        Denver       0       3
 #&gt; 25 20191229   NFL   spread   full     Tennessee       Houston       7       7
 #&gt; 26 20191229   NFL   spread   full    Washington        Dallas       0      10
 #&gt; 27 20191229   NFL   spread   full  Indianapolis  Jacksonville      10      10
@@ -398,7 +401,307 @@
 #&gt; 26 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
 #&gt; 27 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
 #&gt; 28 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
-#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229</div><div class='input'></div></pre>
+#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229</div><div class='input'><span class='fu'>get_lines_range</span>(sport = <span class='st'>"NBA"</span>, bet_type = <span class='st'>"moneyline"</span>, period = <span class='st'>"1H"</span>, start_date = <span class='fl'>20191230</span>, end_date = <span class='fl'>20200105</span>)</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191230</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191231</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200101</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200102</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200103</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200104</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200105</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Completed Scrape: </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Sport - NBA</span>
+#&gt; <span class='message'>Bet Type - moneyline </span>
+#&gt; <span class='message'>Period - 1H </span>
+#&gt; <span class='message'>Dates - 20191230 - 20200105</span>
+#&gt; <span class='message'>Total Games - 48 </span></div><div class='output co'>#&gt;        Date Sport  bet_type period     away_Team     home_Team away_1Q away_2Q
+#&gt; 1  20191230   NBA moneyline     1H         Miami    Washington      39      24
+#&gt; 2  20191230   NBA moneyline     1H       Atlanta       Orlando      25      22
+#&gt; 3  20191230   NBA moneyline     1H      Brooklyn     Minnesota      29      21
+#&gt; 4  20191230   NBA moneyline     1H     Milwaukee       Chicago      31      24
+#&gt; 5  20191230   NBA moneyline     1H       Detroit          Utah      21      19
+#&gt; 6  20191230   NBA moneyline     1H       Phoenix      Portland      19      36
+#&gt; 7  20191231   NBA moneyline     1H  Philadelphia       Indiana      27      16
+#&gt; 8  20191231   NBA moneyline     1H        Boston     Charlotte      24      26
+#&gt; 9  20191231   NBA moneyline     1H L.A. Clippers    Sacramento      28      29
+#&gt; 10 20191231   NBA moneyline     1H     Cleveland       Toronto      25      18
+#&gt; 11 20191231   NBA moneyline     1H  Golden State   San Antonio      32      23
+#&gt; 12 20191231   NBA moneyline     1H        Denver       Houston      26      26
+#&gt; 13 20191231   NBA moneyline     1H        Dallas Oklahoma City      32      19
+#&gt; 14 20200101   NBA moneyline     1H       Orlando    Washington      31      31
+#&gt; 15 20200101   NBA moneyline     1H      Portland      New York      27      21
+#&gt; 16 20200101   NBA moneyline     1H     Minnesota     Milwaukee      23      28
+#&gt; 17 20200101   NBA moneyline     1H       Phoenix   L.A. Lakers      17      24
+#&gt; 18 20200102   NBA moneyline     1H     Charlotte     Cleveland      31      21
+#&gt; 19 20200102   NBA moneyline     1H        Denver       Indiana      27      35
+#&gt; 20 20200102   NBA moneyline     1H       Toronto         Miami      20      19
+#&gt; 21 20200102   NBA moneyline     1H          Utah       Chicago      25      22
+#&gt; 22 20200102   NBA moneyline     1H  Golden State     Minnesota      19      22
+#&gt; 23 20200102   NBA moneyline     1H      Brooklyn        Dallas      30      35
+#&gt; 24 20200102   NBA moneyline     1H Oklahoma City   San Antonio      27      19
+#&gt; 25 20200102   NBA moneyline     1H       Memphis    Sacramento      42      18
+#&gt; 26 20200102   NBA moneyline     1H       Detroit L.A. Clippers      33      30
+#&gt; 27 20200103   NBA moneyline     1H         Miami       Orlando      22      22
+#&gt; 28 20200103   NBA moneyline     1H       Atlanta        Boston      32      23
+#&gt; 29 20200103   NBA moneyline     1H      Portland    Washington      27      39
+#&gt; 30 20200103   NBA moneyline     1H  Philadelphia       Houston      27      26
+#&gt; 31 20200103   NBA moneyline     1H      New York       Phoenix      37      24
+#&gt; 32 20200103   NBA moneyline     1H   New Orleans   L.A. Lakers      30      32
+#&gt; 33 20200104   NBA moneyline     1H       Memphis L.A. Clippers      40      25
+#&gt; 34 20200104   NBA moneyline     1H       Toronto      Brooklyn      24      24
+#&gt; 35 20200104   NBA moneyline     1H          Utah       Orlando      33      19
+#&gt; 36 20200104   NBA moneyline     1H Oklahoma City     Cleveland      34      32
+#&gt; 37 20200104   NBA moneyline     1H       Indiana       Atlanta      26      34
+#&gt; 38 20200104   NBA moneyline     1H        Denver    Washington      19      36
+#&gt; 39 20200104   NBA moneyline     1H        Boston       Chicago      30      25
+#&gt; 40 20200104   NBA moneyline     1H       Detroit  Golden State      25      31
+#&gt; 41 20200104   NBA moneyline     1H     Charlotte        Dallas      32      25
+#&gt; 42 20200104   NBA moneyline     1H   San Antonio     Milwaukee      31      35
+#&gt; 43 20200104   NBA moneyline     1H   New Orleans    Sacramento      25      27
+#&gt; 44 20200105   NBA moneyline     1H      New York L.A. Clippers      45      24
+#&gt; 45 20200105   NBA moneyline     1H      Portland         Miami      19      27
+#&gt; 46 20200105   NBA moneyline     1H     Minnesota     Cleveland      24      42
+#&gt; 47 20200105   NBA moneyline     1H       Memphis       Phoenix      27      35
+#&gt; 48 20200105   NBA moneyline     1H       Detroit   L.A. Lakers      22      25
+#&gt;    away_3Q away_4Q home_1Q home_2Q home_3Q home_4Q away_score home_score
+#&gt; 1       18      24      29      42      19      33        105        123
+#&gt; 2       27      27      21      36      15      21        101         93
+#&gt; 3       30      23      12      27      22      25        115        122
+#&gt; 4       40      28      20      32      25      25        123        102
+#&gt; 5       18      23      19      20      29      36         81        104
+#&gt; 6       28      39      38      26      25      27        122        116
+#&gt; 7       23      31      29      38      29      19         97        115
+#&gt; 8       30      29      18      25      30      19        109         92
+#&gt; 9       31      17      23      17      33      14        105         87
+#&gt; 10      26      28      27      32      27      31         97        117
+#&gt; 11      20      25      13      25      28      24        113        117
+#&gt; 12      37      15      38      31      23      38        104        130
+#&gt; 13      27      23      20      30      27      29        101        106
+#&gt; 14      32      28      29      29      25      18        122        101
+#&gt; 15      29      16      25      26      32      34         93        117
+#&gt; 16      20      33      19      33      25      29        104        106
+#&gt; 17      38      28      43      31      27      16        107        117
+#&gt; 18      30      27      29      30      26      21        109        106
+#&gt; 19      30      32      37      27      24      28        124        116
+#&gt; 20      21      16      18      24      21      21         76         84
+#&gt; 21      29      26      22      29      19      28        102         98
+#&gt; 22      26      17      34      24      23      18         84         99
+#&gt; 23      28      18      31      29      33      30        111        123
+#&gt; 24      28      35      27      28      21      27        109        103
+#&gt; 25      37      26      26      37      27      38        123        128
+#&gt; 26      16      33      30      39      37      20        112        126
+#&gt; 27      35       6      27      29      28      21         85        105
+#&gt; 28      25      26      19      34      29      27        106        109
+#&gt; 29      25      31      31      27      20      25        122        103
+#&gt; 30      31      24      20      40      36      22        108        118
+#&gt; 31      26      25      29      22      32      37        112        120
+#&gt; 32      21      30      42      32      31      18        113        123
+#&gt; 33      39      36      27      30      23      34        140        114
+#&gt; 34      35      38      33      19      28      22        121        102
+#&gt; 35      24      33      25      22      28      21        109         96
+#&gt; 36      25      30      27      26      26      27        121        106
+#&gt; 37      35      16      43      21      32      20        111        116
+#&gt; 38      35      24      31      30      34      33        114        128
+#&gt; 39      30      26      28      24      21      31        111        104
+#&gt; 40      27      28      23      36      21      24        111        104
+#&gt; 41      23      23      20      20      24      40        123        120
+#&gt; 42      25      27      29      42      32      24        118        127
+#&gt; 43      24      41      26      22      32      35        117        115
+#&gt; 44      31      32      29      47      38      21        132        135
+#&gt; 45      35      30      31      34      29      28        111        122
+#&gt; 46      28      24      20      28      31      24        118        103
+#&gt; 47      34      25      31      26      20      37        121        114
+#&gt; 48      32      20      23      33      19      31         99        106
+#&gt;    away_open home_open pinnacle1 pinnacle2 fiveDimes1 fiveDimes2 bookmaker1
+#&gt; 1       -230      +192      -284      +239       -320       +260       -300
+#&gt; 2       +281      -350      +295      -361       +300       -360       +267
+#&gt; 3       -135      +115      -157      +138       -150       +130       -155
+#&gt; 4       -180      +155      -222      +191       -240       +200       -230
+#&gt; 5       +263      -325      +231      -273       +230       -270       +234
+#&gt; 6       +140      -160      +135      -153       +135       -155       +128
+#&gt; 7       -120      +100      +130      -147       +120       -140       +130
+#&gt; 8       -185      +160      -197      +171       -190       +165       -185
+#&gt; 9       -190      +163      -179      +157       -175       +155       -185
+#&gt; 10      +230      -280      +194      -226       +205       -245       +180
+#&gt; 11      +289      -360      +278      -337       +270       -330       +260
+#&gt; 12      +140      -160      +174      -201       +175       -210       +176
+#&gt; 13      -135      +115      -128      +114       -135       +115       -125
+#&gt; 14      -140      +120      -125      +111       -140       +120       -135
+#&gt; 15      -145      +125      -145      +128       -150       +130       -140
+#&gt; 16      +837     -1400      +756     -1161       +775      -1200       +912
+#&gt; 17      +306      -385      +265      -319       +280       -340       +252
+#&gt; 18      +100      -120      +108      -122       +105       -125       +105
+#&gt; 19      +100      -120      -103      -109       -110       -110       -110
+#&gt; 20      +155      -180      +146      -167       +150       -170       +145
+#&gt; 21      -140      +120      -125      +111       -125       +105       -130
+#&gt; 22      +130      -150      +120      -135       +115       -135       +120
+#&gt; 23      +184      -220      +214      -251       +210       -250       +203
+#&gt; 24      +105      -125      +118      -133       +115       -135       +110
+#&gt; 25      +130      -150      +139      -158       +145       -165       +140
+#&gt; 26      +358      -460      +345      -434       +360       -450       +384
+#&gt; 27      -120      +100      +105      -118       -105       -115       -105
+#&gt; 28      +317      -400      +285      -348       +310       -370       +281
+#&gt; 29      -165      +144      -181      +158       -200       +170       -181
+#&gt; 30      +148      -170      +144      -164       +160       -185       +151
+#&gt; 31      +170      -200      +175      -201       +170       -200       +167
+#&gt; 32      +281      -350      +279      -339       +310       -370       +256
+#&gt; 33      +260      -320      +246      -293       +250       -300       +272
+#&gt; 34      -105      -115      +104      -117       +105       -125       +114
+#&gt; 35      -140      +120      -149      +132       -145       +125       -147
+#&gt; 36      -180      +155      -195      +170       -200       +170       -205
+#&gt; 37      -215      +180      -216      +186       -215       +178       -200
+#&gt; 38      -340      +274      -371      +302       -365       +305       -384
+#&gt; 39      -115      -105      +104      -116       +100       -120       +100
+#&gt; 40      -130      +110      -121      +107       -130       +110       -135
+#&gt; 41      +306      -385      +268      -324       +285       -345       +274
+#&gt; 42      +306      -385      +278      -338       +300       -360       +306
+#&gt; 43      +115      -135      +103      -116       +113       -133       -105
+#&gt; 44      +218      -265      +240      -286       +230       -270       +274
+#&gt; 45      +155      -180      +136      -154       +130       -150       +135
+#&gt; 46      -120      +100      -180      +158       -170       +150       -170
+#&gt; 47      +172      -205      +164      -188       +170       -200       +176
+#&gt; 48      +562      -800      +495      -673       +518       -735       +461
+#&gt;    bookmaker2 BOL1  BOL2 Bovada1 Bovada2 Heritage1 Heritage2 Intertops1
+#&gt; 1        +245 -300  +240    -330    +235      -315      +255           
+#&gt; 2        -330 +265  -335    +285    -420      +280      -350           
+#&gt; 3        +135 -155  +135    -165    +125      -155      +135           
+#&gt; 4        +192 -240  +200    -290    +210      -235      +200           
+#&gt; 5        -285 +230  -280    +220    -300      +220      -270           
+#&gt; 6        -148 +135  -155    +120    -160      +140      -160           
+#&gt; 7        -150 +130  -150    +110    -145      +130      -150           
+#&gt; 8        +160 -190  +165    -215    +160      -190      +165           
+#&gt; 9        +160 -180  +160    -200    +150      -185      +160           
+#&gt; 10       -215 +210  -250    +200    -275      +205      -245           
+#&gt; 11       -320 +270  -340    +260    -370      +265      -325           
+#&gt; 12       -210 +165  -190    +165    -220      +175      -205           
+#&gt; 13       +105 -135  +115    -150    +115      -135      +115           
+#&gt; 14       +115 -135  +115    -135    +105      -135      +115           
+#&gt; 15       +120 -145  +125    -160    +120      -150      +130           
+#&gt; 16      -1600 +750 -1200    +600   -1200      +740     -1040           
+#&gt; 17       -310 +255  -325    +275    -400      +255      -315           
+#&gt; 18       -125 +100  -120    +100    -130      +105      -125           
+#&gt; 19       -110 -105  -115    -120    -110      -105      -115           
+#&gt; 20       -167 +150  -170    +135    -180      +145      -165           
+#&gt; 21       +110 -130  +110    -135    +105      -130      +110           
+#&gt; 22       -140 +115  -135    +105    -135      +115      -135           
+#&gt; 23       -245 +220  -260    +205    -280      +205      -245           
+#&gt; 24       -130 +115  -135    +110    -145      +115      -135           
+#&gt; 25       -160 +140  -160    +125    -165      +140      -160           
+#&gt; 26       -500 +340  -425    +350    -550      +360      -450           
+#&gt; 27       -115 -115  -105    -120    -110      -120      +100           
+#&gt; 28       -350 +285  -360    +285    -420      +290      -360           
+#&gt; 29       +156 -190  +165    -215    +160      -205      +175           
+#&gt; 30       -175 +151  -171    +150    -200      +150      -170           
+#&gt; 31       -196 +170  -195    +165    -220      +170      -195           
+#&gt; 32       -316 +275  -350    +270    -390      +280      -350           
+#&gt; 33       -337 +255  -325    +275    -400      +260      -320           
+#&gt; 34       -134 +105  -125    -105    -125      +105      -125           
+#&gt; 35       +127 -148  +128    -145    +110      -145      +125           
+#&gt; 36       +172 -182  +162    -200    +150      -190      +165           
+#&gt; 37       +170 -195  +170    -220    +165      -205      +175           
+#&gt; 38       +306 -375  +300    -420    +285      -390      +310           
+#&gt; 39       -120 -120  +100    -105    -125      +100      -120           
+#&gt; 40       +115 -128  +108    -135    +105      -130      +110           
+#&gt; 41       -340 +285  -360    +270    -390      +280      -350           
+#&gt; 42       -385 +300  -375    +300    -450      +280      -350           
+#&gt; 43       -115 +110  -130    +100    -130      +105      -125           
+#&gt; 44       -340 +240  -300    +220    -300      +235      -285           
+#&gt; 45       -155 +145  -165    +145    -190      +145      -165           
+#&gt; 46       +148 -180  +160    -190    +145      -170      +150           
+#&gt; 47       -210 +165  -190    +160    -215      +170      -195           
+#&gt; 48       -624 +525  -750    +460    -800      +525      -675           
+#&gt;    Intertops2 youwager1 youwager2 justbet1 justbet2 sportsbet1 sportsbet2
+#&gt; 1                  -310      +245     -300     +245       -300       +240
+#&gt; 2                  +280      -360     +267     -330       +265       -335
+#&gt; 3                  -150      +130     -155     +135       -155       +135
+#&gt; 4                  -240      +200     -230     +192       -240       +200
+#&gt; 5                  +230      -270     +234     -285       +230       -280
+#&gt; 6                  +130      -150     +128     -148       +135       -155
+#&gt; 7                  +120      -150     +130     -150       +130       -150
+#&gt; 8                  -190      +165     -185     +160       -190       +165
+#&gt; 9                  -180      +160     -185     +160       -180       +160
+#&gt; 10                 +210      -250     +180     -215       +210       -250
+#&gt; 11                 +270      -350     +260     -320       +270       -340
+#&gt; 12                 +175      -210     +176     -210       +165       -190
+#&gt; 13                 -145      +125     -125     +105       -135       +115
+#&gt; 14                 -130      +110     -135     +115       -135       +115
+#&gt; 15                 -150      +130     -140     +120       -145       +125
+#&gt; 16                                    +912    -1600       +750      -1200
+#&gt; 17                 +280      -340     +252     -310       +255       -325
+#&gt; 18                 +103      -123     +105     -125       +100       -120
+#&gt; 19                                    -110     -110       -105       -115
+#&gt; 20                 +150      -170     +145     -167       +150       -170
+#&gt; 21                 -125      +105     -130     +110       -130       +110
+#&gt; 22                 +115      -135     +120     -140       +115       -135
+#&gt; 23                 +210      -250     +203     -245       +220       -260
+#&gt; 24                 +115      -135     +110     -130       +115       -135
+#&gt; 25                 +145      -165     +140     -160       +140       -160
+#&gt; 26                 +360      -450     +384     -500       +340       -425
+#&gt; 27                                    -105     -115       -115       -105
+#&gt; 28                 +310      -370     +281     -350       +285       -360
+#&gt; 29                 -200      +170     -181     +156       -190       +165
+#&gt; 30                 +155      -175     +148     -170       +151       -171
+#&gt; 31                 +170      -200     +167     -196       +170       -195
+#&gt; 32                 +310      -370     +256     -316       +275       -350
+#&gt; 33                 +250      -300     +272     -337       +255       -325
+#&gt; 34                 +100      -120     +114     -134       +105       -125
+#&gt; 35                 -145      +125     -147     +127       -148       +128
+#&gt; 36                 -200      +170     -205     +172       -182       +162
+#&gt; 37                 -210      +175     -200     +170       -195       +170
+#&gt; 38                 -365      +305     -384     +306       -375       +300
+#&gt; 39                                    +100     -120       -120       +100
+#&gt; 40                 -130      +110     -135     +115       -128       +108
+#&gt; 41                 +285      -345     +274     -340       +285       -360
+#&gt; 42                 +300      -360     +306     -385       +300       -375
+#&gt; 43                 +113      -133     -105     -115       +110       -130
+#&gt; 44                 +225      -270     +274     -340       +240       -300
+#&gt; 45                 +140      -160     +135     -155       +145       -165
+#&gt; 46                 -170      +150     -170     +148       -180       +160
+#&gt; 47                 +165      -190     +176     -210       +165       -190
+#&gt; 48                 +535      -710     +461     -624       +525       -750
+#&gt;                                                                                                oddsURL
+#&gt; 1  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 2  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 3  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 4  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 5  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 6  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 7  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 8  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 9  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 10 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 11 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 12 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 13 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 14 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 15 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 16 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 17 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 18 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 19 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 20 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 21 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 22 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 23 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 24 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 25 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 26 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 27 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 28 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 30 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 31 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 32 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 33 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 34 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 35 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 36 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 37 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 38 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 39 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 40 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 41 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 42 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 43 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 44 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 45 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 46 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 47 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 48 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
