@@ -31,6 +31,7 @@
 #' @return dataframe conatining betting lines for the given day
 #'
 #' @examples get_lines_range(sport = "NFL", bet_type = "spread", period = "full", start_date = 20191222, end_date = 20191231)
+#' @examples get_lines_range(sport = "NBA", bet_type = "moneyline", period = "1H", start_date = 20191230, end_date = 20200105)
 #'
 #' @export
 #'
@@ -39,6 +40,18 @@ get_lines_range <- function(sport = "NFL",
                             period = "full",
                             start_date = 20191222,
                             end_date = 20191223){
+  ## Error handling
+  if (is.na(as.Date(as.character(start_date), "%Y%m%d"))) {
+    stop("Start Date format is wrong")
+  }
+  if (is.na(as.Date(as.character(end_date), "%Y%m%d"))) {
+    stop("End Date format is wrong")
+  }
+
+
+  range <- seq(as.Date(as.character(start_date), "%Y%m%d"),
+               as.Date(as.character(end_date), "%Y%m%d"),
+               "day")
 
   df_names <- c("Date",
                 "Sport",
@@ -84,8 +97,9 @@ get_lines_range <- function(sport = "NFL",
   all_lines <- data.frame()
 
   # loop through the days
-  for (day in start_date:end_date) {
-    tryCatch(temp <- get_lines(sport = sport, bet_type = bet_type, period = period, start_date = day),
+  for (day in as.list(range)) {
+    current_day <- gsub("-", "", x = day)
+    tryCatch(temp <- get_lines(sport = sport, bet_type = bet_type, period = period, start_date = current_day),
              error = function(e){
                print(glue::glue("No games played on {day}"))
                temp <- data.frame(matrix(ncol = 39, nrow = 0))

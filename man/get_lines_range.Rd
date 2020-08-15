@@ -53,5 +53,6 @@ This function scrapes the sportsbookreview.com website to return betting lines
 }
 \examples{
 get_lines_range(sport = "NFL", bet_type = "spread", period = "full", start_date = 20191222, end_date = 20191231)
+get_lines_range(sport = "NBA", bet_type = "moneyline", period = "1H", start_date = 20191230, end_date = 20200105)
 
 }

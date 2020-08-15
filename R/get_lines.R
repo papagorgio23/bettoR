@@ -39,6 +39,12 @@ get_lines <- function(sport = "NFL",
                       bet_type = "spread",
                       period = "full",
                       start_date = "20191222"){
+
+  ## Error handling
+  if (is.na(as.Date(as.character(start_date), "%Y%m%d"))) {
+    stop("Start Date format is wrong")
+  }
+
   # initialize results
   final_lines <- data.frame()
 
