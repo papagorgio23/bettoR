@@ -175,7 +175,8 @@
     <p>dataframe conatining betting lines for the given day</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_lines</span>(sport = <span class='st'>"NFL"</span>, bet_type = <span class='st'>"spread"</span>, period = <span class='st'>"full"</span>, start_date = <span class='st'>"20191222"</span>)</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191222</span></div><div class='output co'>#&gt;        Date Sport bet_type period    away_Team     home_Team away_1Q away_2Q
+    <pre class="examples"><div class='input'><span class='fu'>get_lines</span>(sport = <span class='st'>"NFL"</span>, bet_type = <span class='st'>"spread"</span>, period = <span class='st'>"full"</span>, start_date = <span class='st'>"20191222"</span>)
+</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191222</span></div><div class='output co'>#&gt;        Date Sport bet_type period    away_Team     home_Team away_1Q away_2Q
 #&gt; 1  20191222   NFL   spread   full  N.Y. Giants    Washington      14      14
 #&gt; 2  20191222   NFL   spread   full   Cincinnati         Miami       0       6
 #&gt; 3  20191222   NFL   spread   full  New Orleans     Tennessee       0      10
@@ -265,7 +266,8 @@
 #&gt; 9  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
 #&gt; 10 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
 #&gt; 11 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
-#&gt; 12 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222</div><div class='input'><span class='fu'>get_lines</span>(sport = <span class='st'>"NBA"</span>, bet_type = <span class='st'>"total"</span>, period = <span class='st'>"2Q"</span>, start_date = <span class='st'>"20191221"</span>)</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191221</span></div><div class='output co'>#&gt;       Date Sport bet_type period     away_Team    home_Team away_1Q away_2Q
+#&gt; 12 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222</div><div class='input'><span class='fu'>get_lines</span>(sport = <span class='st'>"NBA"</span>, bet_type = <span class='st'>"total"</span>, period = <span class='st'>"2Q"</span>, start_date = <span class='st'>"20191221"</span>)
+</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191221</span></div><div class='output co'>#&gt;       Date Sport bet_type period     away_Team    home_Team away_1Q away_2Q
 #&gt; 1 20191221   NBA    total     2Q          Utah    Charlotte      31      25
 #&gt; 2 20191221   NBA    total     2Q       Atlanta     Brooklyn      34      39
 #&gt; 3 20191221   NBA    total     2Q    Washington Philadelphia      25      28
@@ -324,18 +326,19 @@
 #&gt; 6 https://classic.sportsbookreview.com/betting-odds/nba-basketball/totals/2nd-quarter/?date=20191221
 #&gt; 7 https://classic.sportsbookreview.com/betting-odds/nba-basketball/totals/2nd-quarter/?date=20191221
 #&gt; 8 https://classic.sportsbookreview.com/betting-odds/nba-basketball/totals/2nd-quarter/?date=20191221
-#&gt; 9 https://classic.sportsbookreview.com/betting-odds/nba-basketball/totals/2nd-quarter/?date=20191221</div><div class='input'><span class='fu'>get_lines</span>(sport = <span class='st'>"NCAAF"</span>, bet_type = <span class='st'>"moneyline"</span>, period = <span class='st'>"1H"</span>, start_date = <span class='st'>"20191019"</span>)</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191019</span></div><div class='output co'>#&gt;         Date Sport  bet_type period                   away_Team
+#&gt; 9 https://classic.sportsbookreview.com/betting-odds/nba-basketball/totals/2nd-quarter/?date=20191221</div><div class='input'><span class='fu'>get_lines</span>(sport = <span class='st'>"NCAAF"</span>, bet_type = <span class='st'>"moneyline"</span>, period = <span class='st'>"1H"</span>, start_date = <span class='st'>"20191019"</span>)
+</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191019</span></div><div class='output co'>#&gt;         Date Sport  bet_type period                   away_Team
 #&gt; 1   20191019 NCAAF moneyline     1H                Morgan State
 #&gt; 2   20191019 NCAAF moneyline     1H                  Iowa State
 #&gt; 3   20191019 NCAAF moneyline     1H                   Lafayette
 #&gt; 4   20191019 NCAAF moneyline     1H               (8) Wisconsin
-#&gt; 5   20191019 NCAAF moneyline     1H                      Purdue
-#&gt; 6   20191019 NCAAF moneyline     1H                   Dartmouth
-#&gt; 7   20191019 NCAAF moneyline     1H                  Kent State
-#&gt; 8   20191019 NCAAF moneyline     1H                 (9) Florida
-#&gt; 9   20191019 NCAAF moneyline     1H                 (3) Clemson
-#&gt; 10  20191019 NCAAF moneyline     1H                    Duquesne
-#&gt; 11  20191019 NCAAF moneyline     1H        North Carolina State
+#&gt; 5   20191019 NCAAF moneyline     1H        North Carolina State
+#&gt; 6   20191019 NCAAF moneyline     1H                      Purdue
+#&gt; 7   20191019 NCAAF moneyline     1H                   Dartmouth
+#&gt; 8   20191019 NCAAF moneyline     1H                  Kent State
+#&gt; 9   20191019 NCAAF moneyline     1H                 (9) Florida
+#&gt; 10  20191019 NCAAF moneyline     1H                 (3) Clemson
+#&gt; 11  20191019 NCAAF moneyline     1H                    Duquesne
 #&gt; 12  20191019 NCAAF moneyline     1H               West Virginia
 #&gt; 13  20191019 NCAAF moneyline     1H                 (12) Auburn
 #&gt; 14  20191019 NCAAF moneyline     1H                     Houston
@@ -389,11 +392,11 @@
 #&gt; 62  20191019 NCAAF moneyline     1H                        Duke
 #&gt; 63  20191019 NCAAF moneyline     1H                Rhode Island
 #&gt; 64  20191019 NCAAF moneyline     1H                Old Dominion
-#&gt; 65  20191019 NCAAF moneyline     1H    Southeast Missouri State
-#&gt; 66  20191019 NCAAF moneyline     1H                      Dayton
-#&gt; 67  20191019 NCAAF moneyline     1H                     Hampton
-#&gt; 68  20191019 NCAAF moneyline     1H                    Bucknell
-#&gt; 69  20191019 NCAAF moneyline     1H                   Charlotte
+#&gt; 65  20191019 NCAAF moneyline     1H                      Dayton
+#&gt; 66  20191019 NCAAF moneyline     1H                     Hampton
+#&gt; 67  20191019 NCAAF moneyline     1H                    Bucknell
+#&gt; 68  20191019 NCAAF moneyline     1H                   Charlotte
+#&gt; 69  20191019 NCAAF moneyline     1H    Southeast Missouri State
 #&gt; 70  20191019 NCAAF moneyline     1H           Stephen F. Austin
 #&gt; 71  20191019 NCAAF moneyline     1H            Northern Arizona
 #&gt; 72  20191019 NCAAF moneyline     1H            Middle Tennessee
@@ -437,13 +440,13 @@
 #&gt; 2                  Texas Tech       7      13       7       7       0       7
 #&gt; 3                  Georgetown       7       3       0       0       7       7
 #&gt; 4                    Illinois       7       6       7       3       0       7
-#&gt; 5                   (16) Iowa       0       7       0      13       6       3
-#&gt; 6                      Marist      14      21       7       7       0       0
-#&gt; 7                        Ohio      14      10       0      14      10      14
-#&gt; 8              South Carolina       3       7       7      21       7       3
-#&gt; 9                  Louisville       3      14       7      21       0       3
-#&gt; 10               Sacred Heart       3      14       0       3       0       0
-#&gt; 11             Boston College       0       3       7      14       7      17
+#&gt; 5              Boston College       0       3       7      14       7      17
+#&gt; 6                   (16) Iowa       0       7       0      13       6       3
+#&gt; 7                      Marist      14      21       7       7       0       0
+#&gt; 8                        Ohio      14      10       0      14      10      14
+#&gt; 9              South Carolina       3       7       7      21       7       3
+#&gt; 10                 Louisville       3      14       7      21       0       3
+#&gt; 11               Sacred Heart       3      14       0       3       0       0
 #&gt; 12               (4) Oklahoma       0      14       0       0      14      14
 #&gt; 13                   Arkansas      17       0      14      20       0       0
 #&gt; 14                Connecticut       3       7       7       7       0       7
@@ -497,11 +500,11 @@
 #&gt; 62              (24) Virginia       0       0       7       7       0      17
 #&gt; 63                     Albany       7       7       7       7       0       6
 #&gt; 64                        UAB       0       3      11       0      14      14
-#&gt; 65         Jacksonville State       0       7       3      14       0       7
-#&gt; 66                    Stetson       0       7       7       7       7      14
-#&gt; 67                   Campbell       3       7       0       6       7      10
-#&gt; 68                     Towson       0       7       0       0      21      21
-#&gt; 69           Western Kentucky       7       7       0       0       7      10
+#&gt; 65                    Stetson       0       7       7       7       7      14
+#&gt; 66                   Campbell       3       7       0       6       7      10
+#&gt; 67                     Towson       0       7       0       0      21      21
+#&gt; 68           Western Kentucky       7       7       0       0       7      10
+#&gt; 69         Jacksonville State       0       7       3      14       0       7
 #&gt; 70          Abilene Christian       7       7       0      10       0       0
 #&gt; 71                Weber State       7      14       0       7       7       7
 #&gt; 72                North Texas       3      13       0      14       7      10
@@ -545,13 +548,13 @@
 #&gt; 2        10       7         34         24      -220      +184      -302
 #&gt; 3         0       0         10         14                              
 #&gt; 4         7      10         23         24                         -1997
-#&gt; 5         7      10         20         26                          +502
-#&gt; 6         0       7         49          7                              
-#&gt; 7         7      14         38         45      +203      -245      +244
-#&gt; 8        10       7         38         27      -160      +140      -126
-#&gt; 9         0       7         45         10                         -1110
-#&gt; 10        6       0         20          6                              
-#&gt; 11        7      14         24         45      -155      +135      -159
+#&gt; 5         7      14         24         45      -155      +135      -159
+#&gt; 6         7      10         20         26                          +502
+#&gt; 7         0       7         49          7                              
+#&gt; 8         7      14         38         45      +203      -245      +244
+#&gt; 9        10       7         38         27      -160      +140      -126
+#&gt; 10        0       7         45         10                         -1110
+#&gt; 11        6       0         20          6                              
 #&gt; 12       21       3         14         52                              
 #&gt; 13       10       0         51         10                          -863
 #&gt; 14        3       7         24         17                         -1000
@@ -605,11 +608,11 @@
 #&gt; 62       24       7         14         48      +144      -165      +153
 #&gt; 63       22       7         28         35                              
 #&gt; 64        7       3         14         38      +447      -600      +507
-#&gt; 65        0      14         24         21                              
-#&gt; 66       17       0         21         38                              
-#&gt; 67        0      14         16         31                              
-#&gt; 68       14       0          7         56                              
-#&gt; 69       13       0         14         30      +222      -270      +212
+#&gt; 65       17       0         21         38                              
+#&gt; 66        0      14         16         31                              
+#&gt; 67       14       0          7         56                              
+#&gt; 68       13       0         14         30      +222      -270      +212
+#&gt; 69        0      14         24         21                              
 #&gt; 70        0      14         24         31                              
 #&gt; 71       16      21         28         51                              
 #&gt; 72        3      13         30         33      +203      -245      +193
@@ -653,13 +656,13 @@
 #&gt; 2        +239       -265       +225       -255       +211  -275  +230    -245
 #&gt; 3                   +270       -330                                          
 #&gt; 4        +954      -2650      +1430                                          
-#&gt; 5        -777       +550       -800                        +535  -700    +475
-#&gt; 6                  -3750      +1875                                          
-#&gt; 7        -310       +245       -290       +267       -330  +265  -315    +240
-#&gt; 8        +107       -145       +125       -132       +112  -135  +115    -160
-#&gt; 9        +646      -1100       +700                       -1200  +825        
-#&gt; 10                  +135       -155                                          
-#&gt; 11       +135       -160       +140       -170       +148  -160  +140    -165
+#&gt; 5        +135       -160       +140       -170       +148  -160  +140    -165
+#&gt; 6        -777       +550       -800                        +535  -700    +475
+#&gt; 7                  -3750      +1875                                          
+#&gt; 8        -310       +245       -290       +267       -330  +265  -315    +240
+#&gt; 9        +107       -145       +125       -132       +112  -135  +115    -160
+#&gt; 10       +646      -1100       +700                       -1200  +825        
+#&gt; 11                  +135       -155                                          
 #&gt; 12                 +2500      -5000                                          
 #&gt; 13       +541       -800       +550                        -800  +600    -800
 #&gt; 14       +601      -1000       +650                        -900  +675   -1100
@@ -713,11 +716,11 @@
 #&gt; 62       -182       +145       -165       +144       -166  +147  -167    +130
 #&gt; 63                  +185       -225                                          
 #&gt; 64       -790       +500       -700       +416       -550  +480  -605    +425
-#&gt; 65                  +165       -190                                          
-#&gt; 66                  -230       +190                                          
-#&gt; 67                  +160       -185                                          
-#&gt; 68                 +1350      -2300                                          
-#&gt; 69       -263       +245       -290       +218       -265  +250  -300    +215
+#&gt; 65                  -230       +190                                          
+#&gt; 66                  +160       -185                                          
+#&gt; 67                 +1350      -2300                                          
+#&gt; 68       -263       +245       -290       +218       -265  +250  -300    +215
+#&gt; 69                  +165       -190                                          
 #&gt; 70                  +245       -290                                          
 #&gt; 71                  +350       -440                                          
 #&gt; 72       -237       +185       -225       +176       -210  +180  -210    +175
@@ -761,13 +764,13 @@
 #&gt; 2      +180      -305      +245                            -260      +220
 #&gt; 3                +270      -330                                          
 #&gt; 4               -1810     +1160                                          
-#&gt; 5      -850      +535      -710                            +600      -800
-#&gt; 6                                                                        
-#&gt; 7      -340      +250      -310                            +245      -310
-#&gt; 8      +120      -135      +115                            -145      +125
-#&gt; 9               -1055      +755                           -1100      +725
-#&gt; 10               +135      -155                                          
-#&gt; 11     +125      -165      +145                            -165      +145
+#&gt; 5      +125      -165      +145                            -165      +145
+#&gt; 6      -850      +535      -710                            +600      -800
+#&gt; 7                                                                        
+#&gt; 8      -340      +250      -310                            +245      -310
+#&gt; 9      +120      -135      +115                            -145      +125
+#&gt; 10              -1055      +755                           -1100      +725
+#&gt; 11               +135      -155                                          
 #&gt; 12              +2550     -5050                                          
 #&gt; 13     +460      -730      +555                            -700      +525
 #&gt; 14     +575      -915      +665                           -1000      +650
@@ -821,11 +824,11 @@
 #&gt; 62     -170      +150      -170                            +145      -165
 #&gt; 63               +190      -225                                          
 #&gt; 64     -700      +495      -645                            +500      -650
-#&gt; 65               +165      -190                                          
-#&gt; 66               -225      +190                                          
-#&gt; 67               +160      -185                                          
-#&gt; 68              +1355     -2205                                          
-#&gt; 69     -295      +225      -275                            +230      -280
+#&gt; 65               -225      +190                                          
+#&gt; 66               +160      -185                                          
+#&gt; 67              +1355     -2205                                          
+#&gt; 68     -295      +225      -275                            +230      -280
+#&gt; 69               +165      -190                                          
 #&gt; 70               +240      -300                                          
 #&gt; 71               +350      -440                                          
 #&gt; 72     -240      +185      -215                            +190      -230
@@ -869,13 +872,13 @@
 #&gt; 2       -255     +211       -275       +230
 #&gt; 3                                          
 #&gt; 4                                          
-#&gt; 5                           +535       -700
-#&gt; 6                                          
-#&gt; 7       +267     -330       +265       -315
-#&gt; 8       -132     +112       -135       +115
-#&gt; 9                          -1200       +825
-#&gt; 10                                         
-#&gt; 11      -170     +148       -160       +140
+#&gt; 5       -170     +148       -160       +140
+#&gt; 6                           +535       -700
+#&gt; 7                                          
+#&gt; 8       +267     -330       +265       -315
+#&gt; 9       -132     +112       -135       +115
+#&gt; 10                         -1200       +825
+#&gt; 11                                         
 #&gt; 12                                         
 #&gt; 13                          -800       +600
 #&gt; 14                          -900       +675
@@ -932,8 +935,8 @@
 #&gt; 65                                         
 #&gt; 66                                         
 #&gt; 67                                         
-#&gt; 68                                         
-#&gt; 69      +218     -265       +250       -300
+#&gt; 68      +218     -265       +250       -300
+#&gt; 69                                         
 #&gt; 70                                         
 #&gt; 71                                         
 #&gt; 72      +176     -210       +180       -210
@@ -1079,7 +1082,8 @@
 #&gt; 104 https://classic.sportsbookreview.com/betting-odds/college-football/money-line/1st-half/?date=20191019
 #&gt; 105 https://classic.sportsbookreview.com/betting-odds/college-football/money-line/1st-half/?date=20191019
 #&gt; 106 https://classic.sportsbookreview.com/betting-odds/college-football/money-line/1st-half/?date=20191019
-#&gt; 107 https://classic.sportsbookreview.com/betting-odds/college-football/money-line/1st-half/?date=20191019</div><div class='input'></div></pre>
+#&gt; 107 https://classic.sportsbookreview.com/betting-odds/college-football/money-line/1st-half/?date=20191019</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

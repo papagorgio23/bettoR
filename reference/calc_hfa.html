@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Expected Value — expected_value • bettoR</title>
+<title>Calculate a team's Home Field Advantage — calc_hfa • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,10 @@
 
 
 
-<meta property="og:title" content="Expected Value — expected_value" />
-<meta property="og:description" content="This function calculates the expected value for a given bet." />
+<meta property="og:title" content="Calculate a team's Home Field Advantage — calc_hfa" />
+<meta property="og:description" content="Calculate the percentage of time team A beats team B at home based of the
+percentage of time team A wins on a neutral field and the league average win
+percentage at home." />
 
 
 
@@ -114,43 +116,39 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Expected Value</h1>
-    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/expected_value.R'><code>R/expected_value.R</code></a></small>
-    <div class="hidden name"><code>expected_value.Rd</code></div>
+    <h1>Calculate a team's Home Field Advantage</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/calc_hfa.R'><code>R/calc_hfa.R</code></a></small>
+    <div class="hidden name"><code>calc_hfa.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function calculates the expected value for a given bet.</p>
+    <p>Calculate the percentage of time team A beats team B at home based of the
+percentage of time team A wins on a neutral field and the league average win
+percentage at home.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>expected_value</span>(<span class='kw'>payout</span>, <span class='kw'>risk</span>, <span class='kw'>win_prob</span>)</pre>
+    <pre class="usage"><span class='fu'>calc_hfa</span>(<span class='kw'>win_p_neutral</span>, <span class='kw'>win_p_leag_hm</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>payout</th>
-      <td><p>The dollar amount won if the bet pays out (500)</p></td>
+      <th>win_p_neutral</th>
+      <td><p>percentage of time team A beats team B on neutral field.</p></td>
     </tr>
     <tr>
-      <th>risk</th>
-      <td><p>The dollar amount risked (550)</p></td>
-    </tr>
-    <tr>
-      <th>win_prob</th>
-      <td><p>The probability that the bet wins (0.54)</p></td>
+      <th>win_p_leag_hm</th>
+      <td><p>league average win percentage for home teams.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Expected Value of a bet</p>
+    <p>numeric scalar between 0 and 1</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>expected_value</span>(<span class='fl'>100</span>, <span class='fl'>110</span>, <span class='fl'>0.55</span>)
-</div><div class='output co'>#&gt; [1] 5.5</div><div class='input'><span class='fu'>expected_value</span>(<span class='fl'>175</span>, <span class='fl'>100</span>, <span class='fl'>0.35</span>)
-</div><div class='output co'>#&gt; [1] -3.75</div><div class='input'>
-</div></pre>
+    <p>See post by Ganchrow at the SBR forum for details <a href='https://www.sportsbookreview.com/forum/handicapper-think-tank/122312-home-field-advantage.html'>Home field advantage</a></p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
