@@ -27,7 +27,7 @@
 #'
 #' @param start_date Date of sporting events
 #'
-#' @return dataframe conatining betting lines for the given day
+#' @return dataframe containing betting lines for the given day
 #'
 #' @examples get_lines(sport = "NFL", bet_type = "spread", period = "full", start_date = "20191222")
 #' @examples get_lines(sport = "NBA", bet_type = "total", period = "2Q", start_date = "20191221")
@@ -38,8 +38,7 @@
 get_lines <- function(sport = "NFL",
                       bet_type = "spread",
                       period = "full",
-                      start_date = "20191222"){
-
+                      start_date = "20191222") {
   ## Error handling
   if (is.na(as.Date(as.character(start_date), "%Y%m%d"))) {
     stop("Start Date format is wrong")
@@ -96,24 +95,35 @@ get_lines <- function(sport = "NFL",
 
   ## need to loop eventually...
   # url to scrape
-  oddsURL <- glue::glue("https://classic.sportsbookreview.com/betting-odds/{SPORT}/{TYPE}/{PERIOD}/?date={DATE}")
+  oddsURL <-
+    glue::glue(
+      "https://classic.sportsbookreview.com/betting-odds/{SPORT}/{TYPE}/{PERIOD}/?date={DATE}"
+    )
 
   if (PERIOD == "full") {
-    oddsURL <- glue::glue("https://classic.sportsbookreview.com/betting-odds/{SPORT}/{TYPE}/?date={DATE}")
+    oddsURL <-
+      glue::glue(
+        "https://classic.sportsbookreview.com/betting-odds/{SPORT}/{TYPE}/?date={DATE}"
+      )
   }
 
   ## Spread bets don't need a Type in the url
   if (TYPE == "spread") {
-    oddsURL <- glue::glue("https://classic.sportsbookreview.com/betting-odds/{SPORT}/{PERIOD}/?date={DATE}")
+    oddsURL <-
+      glue::glue(
+        "https://classic.sportsbookreview.com/betting-odds/{SPORT}/{PERIOD}/?date={DATE}"
+      )
     ## Full game & Spread bets don't need Period or Type in the url
     if (PERIOD == "full") {
-      oddsURL <- glue::glue("https://classic.sportsbookreview.com/betting-odds/{SPORT}/?date={DATE}")
+      oddsURL <-
+        glue::glue("https://classic.sportsbookreview.com/betting-odds/{SPORT}/?date={DATE}")
     }
   }
 
   ## need to loop eventually...
   oddspage <- xml2::read_html(oddsURL)
-  node <- rvest::html_nodes(oddspage, "div.event-holder.holder-complete")
+  node <-
+    rvest::html_nodes(oddspage, "div.event-holder.holder-complete")
   games <- length(node)
 
   for (game in 1:games) {
@@ -150,12 +160,14 @@ get_lines <- function(sport = "NFL",
     kids <- rvest::html_children(kids)[4]
 
     # away score
-    away_score <- rvest::html_node(rvest::html_children(kids)[1],"span.first.total") %>%
+    away_score <-
+      rvest::html_node(rvest::html_children(kids)[1], "span.first.total") %>%
       rvest::html_text() %>%
       as.integer()
 
     # home score
-    home_score <- rvest::html_node(rvest::html_children(kids)[2],"span.total") %>%
+    home_score <-
+      rvest::html_node(rvest::html_children(kids)[2], "span.total") %>%
       rvest::html_text() %>%
       as.integer()
 
@@ -239,91 +251,158 @@ get_lines <- function(sport = "NFL",
 
 
     ## dataframe results
-    game_lines <- as.data.frame(t(c(DATE,
-                                    sport,
-                                    bet_type,
-                                    period,
-                                    awayTeam,
-                                    homeTeam,
-                                    away_1,
-                                    away_2,
-                                    away_3,
-                                    away_4,
-                                    home_1,
-                                    home_2,
-                                    home_3,
-                                    home_4,
-                                    away_score,
-                                    home_score,
-                                    away_open,
-                                    home_open,
-                                    pinnacle1,
-                                    pinnacle2,
-                                    fiveDimes1,
-                                    fiveDimes2,
-                                    bookmaker1,
-                                    bookmaker2,
-                                    BOL1,
-                                    BOL2,
-                                    Bovada1,
-                                    Bovada2,
-                                    Heritage1,
-                                    Heritage2,
-                                    Intertops1,
-                                    Intertops2,
-                                    youwager1,
-                                    youwager2,
-                                    justbet1,
-                                    justbet2,
-                                    sportsbet1,
-                                    sportsbet2,
-                                    oddsURL
-    )))
+    game_lines <- as.data.frame(t(
+      c(
+        DATE,
+        sport,
+        bet_type,
+        period,
+        awayTeam,
+        homeTeam,
+        away_1,
+        away_2,
+        away_3,
+        away_4,
+        home_1,
+        home_2,
+        home_3,
+        home_4,
+        away_score,
+        home_score,
+        away_open,
+        home_open,
+        pinnacle1,
+        pinnacle2,
+        fiveDimes1,
+        fiveDimes2,
+        bookmaker1,
+        bookmaker2,
+        BOL1,
+        BOL2,
+        Bovada1,
+        Bovada2,
+        Heritage1,
+        Heritage2,
+        Intertops1,
+        Intertops2,
+        youwager1,
+        youwager2,
+        justbet1,
+        justbet2,
+        sportsbet1,
+        sportsbet2,
+        oddsURL
+      )
+    ))
 
     ## save game results
     final_lines <- rbind(final_lines, game_lines)
   }
 
   # name columns
-  colnames(final_lines) <- c("Date",
-                             "Sport",
-                             "bet_type",
-                             "period",
-                             "away_Team",
-                             "home_Team",
-                             "away_1Q",
-                             "away_2Q",
-                             "away_3Q",
-                             "away_4Q",
-                             "home_1Q",
-                             "home_2Q",
-                             "home_3Q",
-                             "home_4Q",
-                             "away_score",
-                             "home_score",
-                             "away_open",
-                             "home_open",
-                             "pinnacle1",
-                             "pinnacle2",
-                             "fiveDimes1",
-                             "fiveDimes2",
-                             "bookmaker1",
-                             "bookmaker2",
-                             "BOL1",
-                             "BOL2",
-                             "Bovada1",
-                             "Bovada2",
-                             "Heritage1",
-                             "Heritage2",
-                             "Intertops1",
-                             "Intertops2",
-                             "youwager1",
-                             "youwager2",
-                             "justbet1",
-                             "justbet2",
-                             "sportsbet1",
-                             "sportsbet2",
-                             "oddsURL")
+  colnames(final_lines) <- c(
+    "Date",
+    "Sport",
+    "bet_type",
+    "period",
+    "away_Team",
+    "home_Team",
+    "away_1Q",
+    "away_2Q",
+    "away_3Q",
+    "away_4Q",
+    "home_1Q",
+    "home_2Q",
+    "home_3Q",
+    "home_4Q",
+    "away_score",
+    "home_score",
+    "away_open",
+    "home_open",
+    "away_pinnacle",
+    "home_pinnacle",
+    "away_fiveDimes",
+    "home_fiveDimes",
+    "away_bookmaker",
+    "home_bookmaker",
+    "away_BOL",
+    "home_BOL",
+    "away_Bovada",
+    "home_Bovada",
+    "away_Heritage",
+    "home_Heritage",
+    "away_Intertops",
+    "home_Intertops",
+    "away_youwager",
+    "home_youwager",
+    "away_justbet",
+    "home_justbet",
+    "away_sportsbet",
+    "home_sportsbet",
+    "oddsURL"
+  )
+
+  odds_columns <-  c(
+    "away_open",
+    "home_open",
+    "away_pinnacle",
+    "home_pinnacle",
+    "away_fiveDimes",
+    "home_fiveDimes",
+    "away_bookmaker",
+    "home_bookmaker",
+    "away_BOL",
+    "home_BOL",
+    "away_Bovada",
+    "home_Bovada",
+    "away_Heritage",
+    "home_Heritage",
+    "away_Intertops",
+    "home_Intertops",
+    "away_youwager",
+    "home_youwager",
+    "away_justbet",
+    "home_justbet",
+    "away_sportsbet",
+    "home_sportsbet"
+  )
+
+  # split columns
+  final_lines <- final_lines %>%
+    dplyr::mutate_at(
+      .vars = dplyr::vars(dplyr::all_of(odds_columns)),
+      .funs = ~ stringr::str_replace_all(., "½", ".5")
+    ) %>%
+    dplyr::mutate_at(
+      .vars = dplyr::vars(dplyr::all_of(odds_columns)),
+      .funs = ~ stringr::str_replace_all(., "PK", "0 ")
+    ) %>%
+    dplyr::mutate_at(
+      .vars = dplyr::vars(dplyr::all_of(odds_columns)),
+      .funs = ~ stringr::str_replace_all(., "[^0-9+-.]", " ")
+    ) %>%
+    tidyr::separate(.data$away_open, c("away_open_line", "away_open_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_open, c("home_open_line", "home_open_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_pinnacle, c("away_pinnacle_line", "away_pinnacle_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_pinnacle, c("home_pinnacle_line", "home_pinnacle_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_fiveDimes, c("away_fiveDimes_line", "away_fiveDimes_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_fiveDimes, c("home_fiveDimes_line", "home_fiveDimes_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_bookmaker, c("away_bookmaker_line", "away_bookmaker_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_bookmaker, c("home_bookmaker_line", "home_bookmaker_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_BOL, c("away_BOL_line", "away_BOL_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_BOL, c("home_BOL_line", "home_BOL_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_Bovada, c("away_Bovada_line", "away_Bovada_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_Bovada, c("home_Bovada_line", "home_Bovada_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_Heritage, c("away_Heritage_line", "away_Heritage_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_Heritage, c("home_Heritage_line", "home_Heritage_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_Intertops, c("away_Intertops_line", "away_Intertops_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_Intertops, c("home_Intertops_line", "home_Intertops_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_youwager, c("away_youwager_line", "away_youwager_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_youwager, c("home_youwager_line", "home_youwager_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_justbet, c("away_justbet_line", "away_justbet_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_justbet, c("home_justbet_line", "home_justbet_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_sportsbet, c("away_sportsbet_line", "away_sportsbet_odds"), sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_sportsbet, c("home_sportsbet_line", "home_sportsbet_odds"), sep = "[[:space:]]")
 
 
   # Done and done

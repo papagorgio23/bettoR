@@ -43,7 +43,7 @@ get_lines(
 \item{start_date}{Date of sporting events}
 }
 \value{
-dataframe conatining betting lines for the given day
+dataframe containing betting lines for the given day
 }
 \description{
 This function scrapes the sportsbookreview.com website to return betting lines

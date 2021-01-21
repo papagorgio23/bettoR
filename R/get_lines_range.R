@@ -39,7 +39,7 @@ get_lines_range <- function(sport = "NFL",
                             bet_type = "spread",
                             period = "full",
                             start_date = 20191222,
-                            end_date = 20191223){
+                            end_date = 20191223) {
   ## Error handling
   if (is.na(as.Date(as.character(start_date), "%Y%m%d"))) {
     stop("Start Date format is wrong")
@@ -53,45 +53,70 @@ get_lines_range <- function(sport = "NFL",
                as.Date(as.character(end_date), "%Y%m%d"),
                "day")
 
-  df_names <- c("Date",
-                "Sport",
-                "bet_type",
-                "period",
-                "away_Team",
-                "home_Team",
-                "away_1Q",
-                "away_2Q",
-                "away_3Q",
-                "away_4Q",
-                "home_1Q",
-                "home_2Q",
-                "home_3Q",
-                "home_4Q",
-                "away_score",
-                "home_score",
-                "away_open",
-                "home_open",
-                "pinnacle1",
-                "pinnacle2",
-                "fiveDimes1",
-                "fiveDimes2",
-                "bookmaker1",
-                "bookmaker2",
-                "BOL1",
-                "BOL2",
-                "Bovada1",
-                "Bovada2",
-                "Heritage1",
-                "Heritage2",
-                "Intertops1",
-                "Intertops2",
-                "youwager1",
-                "youwager2",
-                "justbet1",
-                "justbet2",
-                "sportsbet1",
-                "sportsbet2",
-                "oddsURL")
+  df_names <-
+    c(
+      "Date",
+      "Sport",
+      "bet_type",
+      "period",
+      "away_Team",
+      "home_Team",
+      "away_1Q",
+      "away_2Q",
+      "away_3Q",
+      "away_4Q",
+      "home_1Q",
+      "home_2Q",
+      "home_3Q",
+      "home_4Q",
+      "away_score",
+      "home_score",
+      "away_open_line",
+      "away_open_odds",
+      "home_open_line",
+      "home_open_odds",
+      "away_pinnacle_line",
+      "away_pinnacle_odds",
+      "home_pinnacle_line",
+      "home_pinnacle_odds",
+      "away_fiveDimes_line",
+      "away_fiveDimes_odds",
+      "home_fiveDimes_line",
+      "home_fiveDimes_odds",
+      "away_bookmaker_line",
+      "away_bookmaker_odds",
+      "home_bookmaker_line",
+      "home_bookmaker_odds",
+      "away_BOL_line",
+      "away_BOL_odds",
+      "home_BOL_line",
+      "home_BOL_odds",
+      "away_Bovada_line",
+      "away_Bovada_odds",
+      "home_Bovada_line",
+      "home_Bovada_odds",
+      "away_Heritage_line",
+      "away_Heritage_odds",
+      "home_Heritage_line",
+      "home_Heritage_odds",
+      "away_Intertops_line",
+      "away_Intertops_odds",
+      "home_Intertops_line",
+      "home_Intertops_odds",
+      "away_youwager_line",
+      "away_youwager_odds",
+      "home_youwager_line",
+      "home_youwager_odds",
+      "away_justbet_line",
+      "away_justbet_odds",
+      "home_justbet_line",
+      "home_justbet_odds",
+      "away_sportsbet_line",
+      "away_sportsbet_odds",
+      "home_sportsbet_line",
+      "home_sportsbet_odds",
+      "oddsURL"
+    )
 
   # initialize results
   all_lines <- data.frame()
@@ -99,18 +124,30 @@ get_lines_range <- function(sport = "NFL",
   # loop through the days
   for (day in as.list(range)) {
     current_day <- gsub("-", "", x = day)
-    tryCatch(temp <- get_lines(sport = sport, bet_type = bet_type, period = period, start_date = current_day),
-             error = function(e){
-               print(glue::glue("No games played on {day}"))
-               temp <- data.frame(matrix(ncol = 39, nrow = 0))
-               temp <- colnames(temp) <- df_names
-               })
+    tryCatch(
+      temp <-
+        get_lines(
+          sport = sport,
+          bet_type = bet_type,
+          period = period,
+          start_date = current_day
+        ),
+      error = function(e) {
+        print(glue::glue("No games played on {day}"))
+        temp <- data.frame(matrix(ncol = 61, nrow = 0))
+        temp <- colnames(temp) <- df_names
+      }
+    )
     all_lines <- rbind(all_lines, temp)
   }
 
   all_lines <- dplyr::distinct(all_lines)
 
   # Done and done
-  message(glue::glue("\n\nCompleted Scrape: \n\nSport - {sport}\nBet Type - {bet_type} \nPeriod - {period} \nDates - {start_date} - {end_date}\nTotal Games - {nrow(all_lines)} \n\n"))
+  message(
+    glue::glue(
+      "\n\nCompleted Scrape: \n\nSport - {sport}\nBet Type - {bet_type} \nPeriod - {period} \nDates - {start_date} - {end_date}\nTotal Games - {nrow(all_lines)} \n\n"
+    )
+  )
   return(all_lines)
 }
