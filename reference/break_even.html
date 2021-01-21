@@ -47,6 +47,8 @@ Gives you the percent chance you need to break even on the bet" />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -81,12 +83,6 @@ Gives you the percent chance you need to break even on the bet" />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -99,7 +95,7 @@ Gives you the percent chance you need to break even on the bet" />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/papagorgio23/bettoR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -127,7 +123,7 @@ It also factors in parlay bets with the number of legs needed to convert to payo
 Gives you the percent chance you need to break even on the bet</p>
     </div>
 
-    <pre class="usage"><span class='fu'>break_even</span>(<span class='kw'>risk</span>, <span class='kw'>rtrn</span>, legs = <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>break_even</span><span class='op'>(</span><span class='va'>risk</span>, <span class='va'>rtrn</span>, legs <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,8 +147,8 @@ Gives you the percent chance you need to break even on the bet</p>
     <p>prob</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>break_even</span>(<span class='fl'>110</span>, <span class='fl'>210</span>, <span class='fl'>1</span>)
-</div><div class='output co'>#&gt; [1] 0.5238095</div><div class='input'><span class='fu'>break_even</span>(<span class='fl'>50</span>, <span class='fl'>750</span>, <span class='fl'>4</span>)
+    <pre class="examples"><div class='input'><span class='fu'>break_even</span><span class='op'>(</span><span class='fl'>110</span>, <span class='fl'>210</span>, <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 0.5238095</div><div class='input'><span class='fu'>break_even</span><span class='op'>(</span><span class='fl'>50</span>, <span class='fl'>750</span>, <span class='fl'>4</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] 0.5081327</div><div class='input'>
 </div></pre>
   </div>
@@ -170,7 +166,7 @@ Gives you the percent chance you need to break even on the bet</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

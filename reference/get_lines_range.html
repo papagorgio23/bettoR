@@ -45,6 +45,8 @@
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -79,12 +81,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -97,7 +93,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/papagorgio23/bettoR/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -123,13 +119,13 @@
     <p>This function scrapes the sportsbookreview.com website to return betting lines</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_lines_range</span>(
-  sport = <span class='st'>"NFL"</span>,
-  bet_type = <span class='st'>"spread"</span>,
-  period = <span class='st'>"full"</span>,
-  start_date = <span class='fl'>20191222</span>,
-  end_date = <span class='fl'>20191223</span>
-)</pre>
+    <pre class="usage"><span class='fu'>get_lines_range</span><span class='op'>(</span>
+  sport <span class='op'>=</span> <span class='st'>"NFL"</span>,
+  bet_type <span class='op'>=</span> <span class='st'>"spread"</span>,
+  period <span class='op'>=</span> <span class='st'>"full"</span>,
+  start_date <span class='op'>=</span> <span class='fl'>20191222</span>,
+  end_date <span class='op'>=</span> <span class='fl'>20191223</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,7 +176,7 @@
     <p>dataframe conatining betting lines for the given day</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_lines_range</span>(sport = <span class='st'>"NFL"</span>, bet_type = <span class='st'>"spread"</span>, period = <span class='st'>"full"</span>, start_date = <span class='fl'>20191222</span>, end_date = <span class='fl'>20191231</span>)
+    <pre class="examples"><div class='input'><span class='fu'>get_lines_range</span><span class='op'>(</span>sport <span class='op'>=</span> <span class='st'>"NFL"</span>, bet_type <span class='op'>=</span> <span class='st'>"spread"</span>, period <span class='op'>=</span> <span class='st'>"full"</span>, start_date <span class='op'>=</span> <span class='fl'>20191222</span>, end_date <span class='op'>=</span> <span class='fl'>20191231</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191222</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191223</span></div><div class='output co'>#&gt; No games played on 2019-12-24
 #&gt; No games played on 2019-12-25
 #&gt; No games played on 2019-12-26
@@ -402,7 +398,7 @@
 #&gt; 26 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
 #&gt; 27 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
 #&gt; 28 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
-#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229</div><div class='input'><span class='fu'>get_lines_range</span>(sport = <span class='st'>"NBA"</span>, bet_type = <span class='st'>"moneyline"</span>, period = <span class='st'>"1H"</span>, start_date = <span class='fl'>20191230</span>, end_date = <span class='fl'>20200105</span>)
+#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229</div><div class='input'><span class='fu'>get_lines_range</span><span class='op'>(</span>sport <span class='op'>=</span> <span class='st'>"NBA"</span>, bet_type <span class='op'>=</span> <span class='st'>"moneyline"</span>, period <span class='op'>=</span> <span class='st'>"1H"</span>, start_date <span class='op'>=</span> <span class='fl'>20191230</span>, end_date <span class='op'>=</span> <span class='fl'>20200105</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191230</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191231</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200101</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200102</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200103</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200104</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200105</span></div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Completed Scrape: </span>
 #&gt; <span class='message'></span>
@@ -419,7 +415,7 @@
 #&gt; 6  20191230   NBA moneyline     1H       Phoenix      Portland      19      36
 #&gt; 7  20191231   NBA moneyline     1H  Philadelphia       Indiana      27      16
 #&gt; 8  20191231   NBA moneyline     1H        Boston     Charlotte      24      26
-#&gt; 9  20191231   NBA moneyline     1H L.A. Clippers    Sacramento      28      29
+#&gt; 9  20191231   NBA moneyline     1H            LA    Sacramento      28      29
 #&gt; 10 20191231   NBA moneyline     1H     Cleveland       Toronto      25      18
 #&gt; 11 20191231   NBA moneyline     1H  Golden State   San Antonio      32      23
 #&gt; 12 20191231   NBA moneyline     1H        Denver       Houston      26      26
@@ -436,14 +432,14 @@
 #&gt; 23 20200102   NBA moneyline     1H      Brooklyn        Dallas      30      35
 #&gt; 24 20200102   NBA moneyline     1H Oklahoma City   San Antonio      27      19
 #&gt; 25 20200102   NBA moneyline     1H       Memphis    Sacramento      42      18
-#&gt; 26 20200102   NBA moneyline     1H       Detroit L.A. Clippers      33      30
+#&gt; 26 20200102   NBA moneyline     1H       Detroit            LA      33      30
 #&gt; 27 20200103   NBA moneyline     1H         Miami       Orlando      22      22
 #&gt; 28 20200103   NBA moneyline     1H       Atlanta        Boston      32      23
 #&gt; 29 20200103   NBA moneyline     1H      Portland    Washington      27      39
 #&gt; 30 20200103   NBA moneyline     1H  Philadelphia       Houston      27      26
 #&gt; 31 20200103   NBA moneyline     1H      New York       Phoenix      37      24
 #&gt; 32 20200103   NBA moneyline     1H   New Orleans   L.A. Lakers      30      32
-#&gt; 33 20200104   NBA moneyline     1H       Memphis L.A. Clippers      40      25
+#&gt; 33 20200104   NBA moneyline     1H       Memphis            LA      40      25
 #&gt; 34 20200104   NBA moneyline     1H       Toronto      Brooklyn      24      24
 #&gt; 35 20200104   NBA moneyline     1H          Utah       Orlando      33      19
 #&gt; 36 20200104   NBA moneyline     1H Oklahoma City     Cleveland      34      32
@@ -454,7 +450,7 @@
 #&gt; 41 20200104   NBA moneyline     1H     Charlotte        Dallas      32      25
 #&gt; 42 20200104   NBA moneyline     1H   San Antonio     Milwaukee      31      35
 #&gt; 43 20200104   NBA moneyline     1H   New Orleans    Sacramento      25      27
-#&gt; 44 20200105   NBA moneyline     1H      New York L.A. Clippers      45      24
+#&gt; 44 20200105   NBA moneyline     1H      New York            LA      45      24
 #&gt; 45 20200105   NBA moneyline     1H      Portland         Miami      19      27
 #&gt; 46 20200105   NBA moneyline     1H     Minnesota     Cleveland      24      42
 #&gt; 47 20200105   NBA moneyline     1H       Memphis       Phoenix      27      35
@@ -720,7 +716,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

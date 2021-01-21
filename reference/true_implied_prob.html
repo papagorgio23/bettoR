@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>True Expected Probability — true_probability • bettoR</title>
+<title>True Implied Probability of Winning (American Odds) — true_implied_prob • bettoR</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="True Expected Probability — true_probability" />
-<meta property="og:description" content="This function calculates the fair odds for a bet." />
+<meta property="og:title" content="True Implied Probability of Winning (American Odds) — true_implied_prob" />
+<meta property="og:description" content="This function provides the true implied win probability for a bet." />
 
 
 
@@ -110,27 +110,23 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>True Expected Probability</h1>
-    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/true_probability.R'><code>R/true_probability.R</code></a></small>
-    <div class="hidden name"><code>true_probability.Rd</code></div>
+    <h1>True Implied Probability of Winning (American Odds)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/papagorgio23/bettoR/blob/master/R/true_implied_prob.R'><code>R/true_implied_prob.R</code></a></small>
+    <div class="hidden name"><code>true_implied_prob.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function calculates the fair odds for a bet.</p>
+    <p>This function provides the true implied win probability for a bet.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>true_probability</span><span class='op'>(</span>line <span class='op'>=</span> <span class='op'>-</span><span class='fl'>110</span>, odds <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>110</span>, <span class='op'>-</span><span class='fl'>110</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"us"</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>true_implied_prob</span><span class='op'>(</span><span class='va'>odds</span>, type <span class='op'>=</span> <span class='st'>"us"</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>line</th>
-      <td><p>Line for the specific bet (-115)</p></td>
-    </tr>
-    <tr>
       <th>odds</th>
-      <td><p>Vector with all lines for a wager (-115, -105)</p></td>
+      <td><p>American Odds of the bet</p></td>
     </tr>
     <tr>
       <th>type</th>
@@ -144,14 +140,30 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>True Expected probability of bet</p>
+    <p>Implied probability of winning or the "Break Even" percentage</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>true_probability</span><span class='op'>(</span><span class='fl'>1.8</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1.8</span>, <span class='fl'>2.1</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"dec"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 0.5385</div><div class='input'><span class='fu'>true_probability</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>115</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>115</span>, <span class='op'>-</span><span class='fl'>105</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 0.5108</div><div class='input'><span class='fu'>true_probability</span><span class='op'>(</span><span class='fl'>258</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>285</span>, <span class='op'>-</span><span class='fl'>122</span>, <span class='fl'>258</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 0.2566</div><div class='input'><span class='fu'>true_probability</span><span class='op'>(</span>line <span class='op'>=</span> <span class='op'>-</span><span class='fl'>100</span>, odds <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>100</span>, <span class='op'>-</span><span class='fl'>120</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 0.4783</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>true_implied_prob</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>150</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   true_prob imp_prob
+#&gt; 1         1      0.6</div><div class='input'><span class='fu'>true_implied_prob</span><span class='op'>(</span><span class='fl'>360</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   true_prob imp_prob
+#&gt; 1         1   0.2174</div><div class='input'><span class='fu'>true_implied_prob</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>360</span>, <span class='op'>-</span><span class='fl'>500</span>, <span class='op'>-</span><span class='fl'>110</span>, <span class='fl'>140</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   true_prob imp_prob
+#&gt; 1    0.1092   0.2174
+#&gt; 2    0.4185   0.8333
+#&gt; 3    0.2631   0.5238
+#&gt; 4    0.2093   0.4167</div><div class='input'><span class='fu'>true_implied_prob</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3.60</span>, <span class='fl'>5.00</span>, <span class='fl'>1.10</span>, <span class='fl'>1.40</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"dec"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   true_prob imp_prob
+#&gt; 1    0.1322   0.2778
+#&gt; 2    0.0952   0.2000
+#&gt; 3    0.4327   0.9091
+#&gt; 4    0.3399   0.7143</div><div class='input'><span class='fu'>true_implied_prob</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fl'>7</span><span class='op'>/</span><span class='fl'>1</span>, <span class='fl'>20</span><span class='op'>/</span><span class='fl'>1</span>, <span class='fl'>10</span><span class='op'>/</span><span class='fl'>11</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='st'>"frac"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   true_prob imp_prob
+#&gt; 1    0.1733   0.2857
+#&gt; 2    0.4043   0.6667
+#&gt; 3    0.0758   0.1250
+#&gt; 4    0.0289   0.0476
+#&gt; 5    0.3177   0.5238</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
