@@ -59,8 +59,6 @@ get_lines <- function(sport = "NFL",
     stop("Start Date format is wrong")
   }
 
-  # initialize results
-  final_lines <- data.frame()
 
   # Sport for URL
   SPORT <- dplyr::case_when(
@@ -140,6 +138,9 @@ get_lines <- function(sport = "NFL",
   node <-
     rvest::html_nodes(oddspage, "div.event-holder.holder-complete")
   games <- length(node)
+
+  # initialize results
+  final_lines <- data.frame()
 
   for (game in 1:games) {
     # main child
@@ -461,7 +462,14 @@ get_lines <- function(sport = "NFL",
                     sep = "[[:space:]]") %>%
     tidyr::separate(.data$home_sportsbet,
                     c("home_sportsbet_line", "home_sportsbet_odds"),
-                    sep = "[[:space:]]")
+                    sep = "[[:space:]]") %>%
+    dplyr::mutate(game_id = glue::glue(
+      "{DATE}_{sport}_{fix_nfl_names(home_Team)}_{fix_nfl_names(away_Team)}"
+    )) %>%
+    dplyr::select(.data$game_id, dplyr::everything())
+
+  # convert columns to numeric
+  final_lines[, 8:61] <- sapply(final_lines[, 8:61], as.numeric)
 
 
   # Done and done
