@@ -12,7 +12,7 @@
 #' @examples expected_roi(175, 100, 0.35)
 #'
 #' @export
-expected_roi <- function(payout, risk, win_prob){
+expected_roi <- function(payout, risk, win_prob) {
   ## Error handling
   if (!is.numeric(payout)) {
     stop("Payout must be numeric")

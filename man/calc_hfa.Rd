@@ -19,6 +19,10 @@ Calculate the percentage of time team A beats team B at home based of the
 percentage of time team A wins on a neutral field and the league average win
 percentage at home.
 }
+\examples{
+calc_hfa(.142, .61)
+
+}
 \references{
 See post by Ganchrow at the SBR forum for details \href{https://www.sportsbookreview.com/forum/handicapper-think-tank/122312-home-field-advantage.html}{Home field advantage}
 }

@@ -44,10 +44,33 @@ Plot showing the bankroll results of the simulated bets. The function also outpu
 This function simulates and visualizes a bettors bankroll over a number of bets using their edge.
 }
 \examples{
-bankroll_plot(bets = 256, win_rate = 0.55, bet_size = 100, sim_length = 1000, avg_odds = -110, odds_type = "us")
-bankroll_plot(sim_length = 500, avg_odds = -110, win_rate = 0.5455)
-bankroll_plot(sim_length = 250, avg_odds = -115, win_rate = 0.5255, current_bet = 100, current_win = -500)
-bankroll_plot(sim_length = 300, avg_odds = -109, win_rate = 0.57, current_bet = 175, current_win = 5000)
+bankroll_plot(
+  bets = 256,
+  win_rate = 0.55,
+  bet_size = 100,
+  sim_length = 1000,
+  avg_odds = -110,
+  odds_type = "us"
+)
+bankroll_plot(
+  sim_length = 500,
+  avg_odds = -110,
+  win_rate = 0.5455
+)
+bankroll_plot(
+  sim_length = 250,
+  avg_odds = -115,
+  win_rate = 0.5255,
+  current_bet = 100,
+  current_win = -500
+)
+bankroll_plot(
+  sim_length = 300,
+  avg_odds = -109,
+  win_rate = 0.57,
+  current_bet = 175,
+  current_win = 5000
+)
 bankroll_plot()
 
 

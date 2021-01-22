@@ -12,7 +12,7 @@
 #' @examples expected_value(175, 100, 0.35)
 #'
 #' @export
-expected_value <- function(payout, risk, win_prob){
+expected_value <- function(payout, risk, win_prob) {
   ## Error handling
   if (!is.numeric(payout)) {
     stop("Payout must be numeric")

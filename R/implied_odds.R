@@ -18,19 +18,21 @@
 #' @examples implied_odds(c(0.3, 0.2, 0.95, 0.7), type = "frac")
 #'
 #' @export
-implied_odds <- function(prob, type = "us"){
+implied_odds <- function(prob, type = "us") {
   ## Error Handling
   if (!is.numeric(prob)) {
     stop("Probabilities must be numeric")
   }
-  if (!type %in% c("all", "us", "frac", "dec")){
+  if (!type %in% c("all", "us", "frac", "dec")) {
     stop("type must be either: ('all', 'us', 'dec', 'frac')")
   }
   if (type == "all") {
     us <- prob
     us[] <- NA_real_
-    us[which(prob > 0.5)] <- prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
-    us[which(prob <= 0.5)] <- (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
+    us[which(prob > 0.5)] <-
+      prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
+    us[which(prob <= 0.5)] <-
+      (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
 
     dec <- prob
     dec[] <- NA_real_
@@ -39,16 +41,20 @@ implied_odds <- function(prob, type = "us"){
     frac <- dec - 1
     frac <- MASS::fractions(frac)
 
-    odds <- data.frame(Decimal = round(dec, 4),
-                       American = round(us),
-                       Fraction = as.character(frac),
-                       `Implied Probability` = prob)
+    odds <- data.frame(
+      Decimal = round(dec, 4),
+      American = round(us),
+      Fraction = as.character(frac),
+      `Implied Probability` = prob
+    )
   }
   if (type == "us") {
     odds <- prob
     odds[] <- NA_real_
-    odds[which(prob > 0.5)] <- prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
-    odds[which(prob <= 0.5)] <- (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
+    odds[which(prob > 0.5)] <-
+      prob[which(prob > 0.5)] / (1 - prob[which(prob > 0.5)]) * -100
+    odds[which(prob <= 0.5)] <-
+      (1 - prob[which(prob <= 0.5)]) / prob[which(prob <= 0.5)] * 100
     odds <- round(odds)
   }
   if (type == "dec") {

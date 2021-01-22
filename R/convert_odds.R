@@ -21,15 +21,17 @@
 #' @examples convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
 #'
 #' @export
-convert_odds <- function(odds, input = "us", output = "all"){
+convert_odds <- function(odds,
+                         input = "us",
+                         output = "all") {
   ## Error handling
   if (!is.numeric(odds)) {
     stop("Odds must be numeric")
   }
-  if (!input %in% c("us", "frac", "dec", "prob")){
+  if (!input %in% c("us", "frac", "dec", "prob")) {
     stop("Input must be either: ('us', 'dec', 'frac', or 'prob')")
   }
-  if (!output %in% c("all", "us", "frac", "dec", "prob")){
+  if (!output %in% c("all", "us", "frac", "dec", "prob")) {
     stop("Output must be either: ('all', 'us', 'dec', 'frac', or 'prob')")
   }
   ## American Odds
@@ -37,27 +39,33 @@ convert_odds <- function(odds, input = "us", output = "all"){
     if (output == "all") {
       dec <- odds
       dec[] <- NA_real_
-      dec[which(odds <= -100)] <- -100 / odds[which(odds <= -100)] + 1
+      dec[which(odds <= -100)] <-
+        -100 / odds[which(odds <= -100)] + 1
       dec[which(odds >= 100)] <- odds[which(odds >= 100)] / 100 + 1
 
       frac <- dec - 1
       frac <- MASS::fractions(frac)
 
-      new_odds <- data.frame(Decimal = round(dec, 4),
-                             American = odds,
-                             Fraction = as.character(frac),
-                             Implied_Probability = implied_prob(odds = odds, type = "us"))
+      new_odds <- data.frame(
+        Decimal = round(dec, 4),
+        American = odds,
+        Fraction = as.character(frac),
+        Implied_Probability = implied_prob(odds = odds, type = "us")
+      )
     }
     if (output == "dec") {
       new_odds <- odds
       new_odds[] <- NA_real_
-      new_odds[which(odds <= -100)] <- -100 / odds[which(odds <= -100)] + 1
-      new_odds[which(odds >= 100)] <- odds[which(odds >= 100)] / 100 + 1
+      new_odds[which(odds <= -100)] <-
+        -100 / odds[which(odds <= -100)] + 1
+      new_odds[which(odds >= 100)] <-
+        odds[which(odds >= 100)] / 100 + 1
     }
     if (output == "frac") {
       new_odds <- odds
       new_odds[] <- NA_real_
-      new_odds[which(odds <= -100)] <- -100 / odds[which(odds <= -100)]
+      new_odds[which(odds <= -100)] <-
+        -100 / odds[which(odds <= -100)]
       new_odds[which(odds >= 100)] <- odds[which(odds >= 100)] / 100
       new_odds <- MASS::fractions(new_odds)
     }
@@ -82,10 +90,12 @@ convert_odds <- function(odds, input = "us", output = "all"){
       us[which(odds > 2)] <- 100 * (odds[which(odds > 2)] - 1)
       us <- round(us)
 
-      new_odds <- data.frame(Decimal = round(odds, 4),
-                             American = us,
-                             Fraction = as.character(frac),
-                             Implied_Probability = implied_prob(odds, type = "dec"))
+      new_odds <- data.frame(
+        Decimal = round(odds, 4),
+        American = us,
+        Fraction = as.character(frac),
+        Implied_Probability = implied_prob(odds, type = "dec")
+      )
     }
     if (output == "dec") {
       new_odds <- odds
@@ -100,7 +110,8 @@ convert_odds <- function(odds, input = "us", output = "all"){
     if (output == "us") {
       new_odds <- odds
       new_odds[] <- NA_real_
-      new_odds[which(odds > 1)] <- -100 / (odds[which(odds > 1)] - 1)
+      new_odds[which(odds > 1)] <-
+        -100 / (odds[which(odds > 1)] - 1)
       new_odds[which(odds > 2)] <- 100 * (odds[which(odds > 2)] - 1)
       new_odds <- round(new_odds)
     }
@@ -117,10 +128,12 @@ convert_odds <- function(odds, input = "us", output = "all"){
       us[which(dec > 2)] <- 100 * (dec[which(dec > 2)] - 1)
       us <- round(us)
 
-      new_odds <- data.frame(Decimal = round(dec, 4),
-                             American = us,
-                             Fraction = as.character(frac),
-                             Implied_Probability = implied_prob(odds = odds, type = "frac"))
+      new_odds <- data.frame(
+        Decimal = round(dec, 4),
+        American = us,
+        Fraction = as.character(frac),
+        Implied_Probability = implied_prob(odds = odds, type = "frac")
+      )
     }
     if (output == "dec") {
       new_odds <- odds + 1
@@ -135,7 +148,8 @@ convert_odds <- function(odds, input = "us", output = "all"){
       odds <- odds + 1
       new_odds <- odds
       new_odds[] <- NA_real_
-      new_odds[which(odds > 1)] <- -100 / (odds[which(odds > 1)] - 1)
+      new_odds[which(odds > 1)] <-
+        -100 / (odds[which(odds > 1)] - 1)
       new_odds[which(odds > 2)] <- 100 * (odds[which(odds > 2)] - 1)
       new_odds <- round(new_odds)
     }
@@ -143,10 +157,13 @@ convert_odds <- function(odds, input = "us", output = "all"){
   ## Probabilities
   if (input == "prob") {
     if (output == "all") {
-      new_odds <- data.frame(Decimal = round(implied_odds(odds, type = "dec"), 4),
-                             American = implied_odds(odds, type = "us"),
-                             Fraction = as.character(implied_odds(odds, type = "frac")),
-                             Implied_Probability = odds)
+      new_odds <-
+        data.frame(
+          Decimal = round(implied_odds(odds, type = "dec"), 4),
+          American = implied_odds(odds, type = "us"),
+          Fraction = as.character(implied_odds(odds, type = "frac")),
+          Implied_Probability = odds
+        )
     }
     if (output == "dec") {
       new_odds <- implied_odds(odds, type = "dec")

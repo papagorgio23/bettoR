@@ -17,12 +17,12 @@
 #' @examples true_implied_prob(c(5/2, 1/2, 7/1, 20/1, 10/11), type = "frac")
 #'
 #' @export
-true_implied_prob <- function(odds, type = "us"){
+true_implied_prob <- function(odds, type = "us") {
   ## Error Handling
   if (!is.numeric(odds)) {
     stop("Odds must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec")){
+  if (!type %in% c("us", "frac", "dec")) {
     stop("type must be either: ('us', 'dec', or 'frac')")
   }
 

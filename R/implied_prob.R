@@ -17,19 +17,21 @@
 #' @examples implied_prob(c(5/2, 1/2, 7/1, 20/1, 10/11), type = "frac")
 #'
 #' @export
-implied_prob <- function(odds, type = "us"){
+implied_prob <- function(odds, type = "us") {
   ## Error Handling
   if (!is.numeric(odds)) {
     stop("Odds must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec")){
+  if (!type %in% c("us", "frac", "dec")) {
     stop("type must be either: ('us', 'dec', or 'frac')")
   }
   if (type == "us") {
     imp_prob <- odds
     imp_prob[] <- NA_real_
-    imp_prob[which(odds <= 0)] <- 1 / (1 - 100 / odds[which(odds <= -100)])
-    imp_prob[which(odds > 0)] <- 1 / (1 + odds[which(odds >= 100)] / 100)
+    imp_prob[which(odds <= 0)] <-
+      1 / (1 - 100 / odds[which(odds <= -100)])
+    imp_prob[which(odds > 0)] <-
+      1 / (1 + odds[which(odds >= 100)] / 100)
     imp_prob
   }
   if (type == "dec") {

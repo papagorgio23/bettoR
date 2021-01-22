@@ -12,7 +12,7 @@
 #' @examples expected_scores(home_line = 10.5, total = 231)
 #'
 #' @export
-expected_scores <- function(home_line, total){
+expected_scores <- function(home_line, total) {
   ## Error handling
   if (!is.numeric(c(home_line, total))) {
     stop("Inputs must be numeric")

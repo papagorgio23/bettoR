@@ -11,7 +11,7 @@
 #' @examples hold_calc(285, -122, 258)
 #'
 #' @export
-hold_calc <- function(...){
+hold_calc <- function(...) {
   lines <- c(...)
   ## Error handling
   if (!is.numeric(lines)) {

@@ -9,10 +9,12 @@
 #'
 #' @return numeric scalar between 0 and 1
 #'
-#' @example calc_hfa(.142, .61)
+#' @examples calc_hfa(.142, .61)
 #'
 #' @references
 #' See post by Ganchrow at the SBR forum for details [Home field advantage](https://www.sportsbookreview.com/forum/handicapper-think-tank/122312-home-field-advantage.html)
+#'
+#' @export
 calc_hfa <- function(win_p_neutral, win_p_leag_hm) {
   ex_input_obj <- expression(win_p_neutral > 0,
                              win_p_neutral < 1,
@@ -28,20 +30,3 @@ calc_hfa <- function(win_p_neutral, win_p_leag_hm) {
   stopifnot(exprObject = ex_output_obj)
   p
 }
-
-
-## tests ----
-testthat::test_that(
-  "calf_hfa should only take values 0 < x < 1",
-  {
-    testthat::expect_error(calc_hfa(1,.5))
-    testthat::expect_error(calc_hfa(.5,1.5))
-    testthat::expect_error(calc_hfa(-5,.25))
-    testthat::expect_error(calc_hfa(0,1))
-  })
-
-testthat::test_that(
-  "Team wins .5 vs opp at neutral site, in .5 hfa league, win p is .5 at home",
-  {
-    testthat::expect_equal(calc_hfa(.5, .5),.5)
-  })

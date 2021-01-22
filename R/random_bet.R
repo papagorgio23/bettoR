@@ -14,6 +14,15 @@
 #' @examples convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
 #'
 #' @export
-random_bet <- function(risk = 110, payout = 100, num_bets = 1, win_rate = 0.55){
-  sample(c(-1 * risk, payout), num_bets, prob = c(1 - win_rate, win_rate), replace = TRUE)
-}
+random_bet <-
+  function(risk = 110,
+           payout = 100,
+           num_bets = 1,
+           win_rate = 0.55) {
+    sample(
+      c(-1 * risk, payout),
+      num_bets,
+      prob = c(1 - win_rate, win_rate),
+      replace = TRUE
+    )
+  }

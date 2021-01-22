@@ -18,11 +18,11 @@
 #' @examples edge_calc(win_prob = c(0.6, 0.7, 0.52, 0.6), odds = c(-110, -150, 140, 150), type = "us")
 #'
 #' @export
-edge_calc <- function(win_prob, odds, type = "us"){
+edge_calc <- function(win_prob, odds, type = "us") {
   if (!is.numeric(win_prob)) {
     stop("Probabilities must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec")){
+  if (!type %in% c("us", "frac", "dec")) {
     stop("Type must be either: 'us' or 'dec' or 'frac'")
   }
   edge <- win_prob - implied_prob(odds, type = type)

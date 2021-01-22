@@ -29,9 +29,24 @@
 #'
 #' @return dataframe containing betting lines for the given day
 #'
-#' @examples get_lines(sport = "NFL", bet_type = "spread", period = "full", start_date = "20191222")
-#' @examples get_lines(sport = "NBA", bet_type = "total", period = "2Q", start_date = "20191221")
-#' @examples get_lines(sport = "NCAAF", bet_type = "moneyline", period = "1H", start_date = "20191019")
+#' @examples get_lines(
+#'   sport = "NFL",
+#'   bet_type = "spread",
+#'   period = "full",
+#'   start_date = "20191222"
+#' )
+#' @examples get_lines(
+#'   sport = "NBA",
+#'   bet_type = "total",
+#'   period = "2Q",
+#'   start_date = "20191221"
+#' )
+#' @examples get_lines(
+#'   sport = "NCAAF",
+#'   bet_type = "moneyline",
+#'   period = "1H",
+#'   start_date = "20191019"
+#' )
 #'
 #' @export
 #'
@@ -371,7 +386,7 @@ get_lines <- function(sport = "NFL",
   final_lines <- final_lines %>%
     dplyr::mutate_at(
       .vars = dplyr::vars(dplyr::all_of(odds_columns)),
-      .funs = ~ stringr::str_replace_all(., "½", ".5")
+      .funs = ~ stringr::str_replace_all(., "\302\275", ".5")
     ) %>%
     dplyr::mutate_at(
       .vars = dplyr::vars(dplyr::all_of(odds_columns)),
@@ -381,28 +396,72 @@ get_lines <- function(sport = "NFL",
       .vars = dplyr::vars(dplyr::all_of(odds_columns)),
       .funs = ~ stringr::str_replace_all(., "[^0-9+-.]", " ")
     ) %>%
-    tidyr::separate(.data$away_open, c("away_open_line", "away_open_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_open, c("home_open_line", "home_open_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_pinnacle, c("away_pinnacle_line", "away_pinnacle_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_pinnacle, c("home_pinnacle_line", "home_pinnacle_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_fiveDimes, c("away_fiveDimes_line", "away_fiveDimes_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_fiveDimes, c("home_fiveDimes_line", "home_fiveDimes_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_bookmaker, c("away_bookmaker_line", "away_bookmaker_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_bookmaker, c("home_bookmaker_line", "home_bookmaker_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_BOL, c("away_BOL_line", "away_BOL_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_BOL, c("home_BOL_line", "home_BOL_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_Bovada, c("away_Bovada_line", "away_Bovada_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_Bovada, c("home_Bovada_line", "home_Bovada_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_Heritage, c("away_Heritage_line", "away_Heritage_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_Heritage, c("home_Heritage_line", "home_Heritage_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_Intertops, c("away_Intertops_line", "away_Intertops_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_Intertops, c("home_Intertops_line", "home_Intertops_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_youwager, c("away_youwager_line", "away_youwager_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_youwager, c("home_youwager_line", "home_youwager_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_justbet, c("away_justbet_line", "away_justbet_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_justbet, c("home_justbet_line", "home_justbet_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$away_sportsbet, c("away_sportsbet_line", "away_sportsbet_odds"), sep = "[[:space:]]") %>%
-    tidyr::separate(.data$home_sportsbet, c("home_sportsbet_line", "home_sportsbet_odds"), sep = "[[:space:]]")
+    tidyr::separate(.data$away_open,
+                    c("away_open_line", "away_open_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_open,
+                    c("home_open_line", "home_open_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_pinnacle,
+                    c("away_pinnacle_line", "away_pinnacle_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_pinnacle,
+                    c("home_pinnacle_line", "home_pinnacle_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_fiveDimes,
+                    c("away_fiveDimes_line", "away_fiveDimes_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_fiveDimes,
+                    c("home_fiveDimes_line", "home_fiveDimes_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_bookmaker,
+                    c("away_bookmaker_line", "away_bookmaker_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_bookmaker,
+                    c("home_bookmaker_line", "home_bookmaker_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_BOL,
+                    c("away_BOL_line", "away_BOL_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_BOL,
+                    c("home_BOL_line", "home_BOL_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_Bovada,
+                    c("away_Bovada_line", "away_Bovada_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_Bovada,
+                    c("home_Bovada_line", "home_Bovada_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_Heritage,
+                    c("away_Heritage_line", "away_Heritage_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_Heritage,
+                    c("home_Heritage_line", "home_Heritage_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_Intertops,
+                    c("away_Intertops_line", "away_Intertops_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_Intertops,
+                    c("home_Intertops_line", "home_Intertops_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_youwager,
+                    c("away_youwager_line", "away_youwager_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_youwager,
+                    c("home_youwager_line", "home_youwager_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_justbet,
+                    c("away_justbet_line", "away_justbet_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_justbet,
+                    c("home_justbet_line", "home_justbet_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$away_sportsbet,
+                    c("away_sportsbet_line", "away_sportsbet_odds"),
+                    sep = "[[:space:]]") %>%
+    tidyr::separate(.data$home_sportsbet,
+                    c("home_sportsbet_line", "home_sportsbet_odds"),
+                    sep = "[[:space:]]")
 
 
   # Done and done

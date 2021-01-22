@@ -27,7 +27,9 @@ Imports:
     rvest,
     xml2,
     dplyr,
-    scales
+    scales,
+    tidyr,
+    stringr
 Suggests: 
     testthat,
     knitr,

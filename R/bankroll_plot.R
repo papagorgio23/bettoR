@@ -16,10 +16,33 @@
 #'
 #' @return Plot showing the bankroll results of the simulated bets. The function also outputs the percentage of positive and negative final bankroll over the course of the simulation.
 #'
-#' @examples bankroll_plot(bets = 256, win_rate = 0.55, bet_size = 100, sim_length = 1000, avg_odds = -110, odds_type = "us")
-#' @examples bankroll_plot(sim_length = 500, avg_odds = -110, win_rate = 0.5455)
-#' @examples bankroll_plot(sim_length = 250, avg_odds = -115, win_rate = 0.5255, current_bet = 100, current_win = -500)
-#' @examples bankroll_plot(sim_length = 300, avg_odds = -109, win_rate = 0.57, current_bet = 175, current_win = 5000)
+#' @examples bankroll_plot(
+#'   bets = 256,
+#'   win_rate = 0.55,
+#'   bet_size = 100,
+#'   sim_length = 1000,
+#'   avg_odds = -110,
+#'   odds_type = "us"
+#' )
+#' @examples bankroll_plot(
+#'   sim_length = 500,
+#'   avg_odds = -110,
+#'   win_rate = 0.5455
+#' )
+#' @examples bankroll_plot(
+#'   sim_length = 250,
+#'   avg_odds = -115,
+#'   win_rate = 0.5255,
+#'   current_bet = 100,
+#'   current_win = -500
+#' )
+#' @examples bankroll_plot(
+#'   sim_length = 300,
+#'   avg_odds = -109,
+#'   win_rate = 0.57,
+#'   current_bet = 175,
+#'   current_win = 5000
+#' )
 #' @examples bankroll_plot()
 #'
 #'

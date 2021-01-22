@@ -16,7 +16,7 @@
 #' @examples bet_calc(risk = 25, odds = 20/1, type = "frac")
 #'
 #' @export
-bet_calc <- function(risk, odds, type = "us"){
+bet_calc <- function(risk, odds, type = "us") {
   ## Error handling
   if (!is.numeric(risk)) {
     stop("Risk amount must be numeric")
@@ -24,7 +24,7 @@ bet_calc <- function(risk, odds, type = "us"){
   if (!is.numeric(odds)) {
     stop("Odds must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec", "prob")){
+  if (!type %in% c("us", "frac", "dec", "prob")) {
     stop("type must be either: ('us', 'dec', 'frac')")
   }
 

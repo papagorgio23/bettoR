@@ -25,7 +25,10 @@
 #' @references [Kelly Criterion wikipedia](https://en.wikipedia.org/wiki/Kelly_criterion) page
 #'
 #' @export
-kelly <- function(win_prob, odds, type = "dec", kelly_type = "full"){
+kelly <- function(win_prob,
+                  odds,
+                  type = "dec",
+                  kelly_type = "full") {
   ## Error handling
   if (!is.numeric(win_prob)) {
     stop("Win Probability must be numeric")
@@ -36,12 +39,13 @@ kelly <- function(win_prob, odds, type = "dec", kelly_type = "full"){
   if (!is.numeric(odds)) {
     stop("Odds must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec")){
+  if (!type %in% c("us", "frac", "dec")) {
     stop("type must be either: ('us', 'dec', 'frac')")
   }
 
   # Convert to fractional odds for the equation
-  odds <- as.numeric(convert_odds(odds, input = type, output = "frac"))
+  odds <-
+    as.numeric(convert_odds(odds, input = type, output = "frac"))
 
   # Kelly Criterion equation
   kelly <- round(((odds * win_prob) - (1 - win_prob)) / odds, 4)

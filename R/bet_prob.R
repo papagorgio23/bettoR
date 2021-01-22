@@ -23,7 +23,7 @@
 #'
 #'
 #' @export
-bet_prob <- function(pred_spread, spread, sport = "NBA"){
+bet_prob <- function(pred_spread, spread, sport = "NBA") {
   ## Error handling
   if (!is.numeric(pred_spread)) {
     stop("Spread must be numeric")
@@ -31,36 +31,42 @@ bet_prob <- function(pred_spread, spread, sport = "NBA"){
   if (!is.numeric(spread)) {
     stop("Spread must be numeric")
   }
-  if (!sport %in% c("NBA", "NCAAB", "NFL", "NCAAF")){
+  if (!sport %in% c("NBA", "NCAAB", "NFL", "NCAAF")) {
     stop("Sport must be either: ('NBA', 'NCAAB', 'NFL', or 'NCAAF')")
   }
-  if (sport == "NBA"){
+  if (sport == "NBA") {
     sd <- 12
   }
-  if (sport == "NCAAB"){
+  if (sport == "NCAAB") {
     sd <- 10
   }
-  if (sport == "NFL"){
+  if (sport == "NFL") {
     sd <- 13.86
   }
-  if (sport == "NCAAF"){
+  if (sport == "NCAAF") {
     sd <- 16
   }
 
   # This checks if the spread is a whole number or not
   if (spread %% 1 == 0) {
-    win_prob <- 1 - (stats::pnorm(pred_spread + 0.5, mean = spread, sd = sd)) # correct for home winning probability
-    lose_prob <- (stats::pnorm(pred_spread - 0.5, mean = spread, sd = sd)) # correct for away team winning probability
+    win_prob <-
+      1 - (stats::pnorm(pred_spread + 0.5, mean = spread, sd = sd)) # correct for home winning probability
+    lose_prob <-
+      (stats::pnorm(pred_spread - 0.5, mean = spread, sd = sd)) # correct for away team winning probability
     push_prob <- 1 - win_prob - lose_prob
   } else {
-    win_prob <- 1 - (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for home winning probability
-    lose_prob <- (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for away team winning probability
+    win_prob <-
+      1 - (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for home winning probability
+    lose_prob <-
+      (stats::pnorm(pred_spread, mean = spread, sd = sd)) # correct for away team winning probability
     push_prob <- 0
   }
 
-  probs <- data.frame(`Win Probability` = win_prob,
-                      `Lose Probability` = lose_prob,
-                      `Push Probability` = push_prob)
+  probs <- data.frame(
+    `Win Probability` = win_prob,
+    `Lose Probability` = lose_prob,
+    `Push Probability` = push_prob
+  )
 
   return(probs)
 }

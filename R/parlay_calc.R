@@ -16,7 +16,7 @@
 #' @examples parlay_calc(risk = 100, odds = c(-110, -150, -175, -325, -220), type = "us")
 #'
 #' @export
-parlay_calc <- function(risk, odds, type = "us"){
+parlay_calc <- function(risk, odds, type = "us") {
   ## Error handling
   if (!is.numeric(risk)) {
     stop("Risk amount must be numeric")
@@ -24,12 +24,17 @@ parlay_calc <- function(risk, odds, type = "us"){
   if (!is.numeric(odds)) {
     stop("Odds must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec")){
+  if (!type %in% c("us", "frac", "dec")) {
     stop("type must be either: ('us', 'dec', 'frac')")
   }
 
   # add the decimal odds of each leg of the parlay
-  total_odds <- prod(convert_odds(odds = odds, input = type, output = "dec"))
+  total_odds <-
+    prod(convert_odds(
+      odds = odds,
+      input = type,
+      output = "dec"
+    ))
 
   # the magic
   payout <- round(total_odds * risk) - risk

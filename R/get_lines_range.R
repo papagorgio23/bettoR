@@ -28,10 +28,22 @@
 #' @param start_date Start Date of sporting events
 #' @param end_date End Date of sporting events
 #'
-#' @return dataframe conatining betting lines for the given day
+#' @return dataframe containing betting lines for the given day
 #'
-#' @examples get_lines_range(sport = "NFL", bet_type = "spread", period = "full", start_date = 20191222, end_date = 20191231)
-#' @examples get_lines_range(sport = "NBA", bet_type = "moneyline", period = "1H", start_date = 20191230, end_date = 20200105)
+#' @examples get_lines_range(
+#'   sport = "NFL",
+#'   bet_type = "spread",
+#'   period = "full",
+#'   start_date = 20191222,
+#'   end_date = 20191231
+#' )
+#' @examples get_lines_range(
+#'   sport = "NBA",
+#'   bet_type = "moneyline",
+#'   period = "1H",
+#'   start_date = 20191230,
+#'   end_date = 20200105
+#' )
 #'
 #' @export
 #'

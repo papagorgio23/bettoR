@@ -49,8 +49,23 @@ dataframe containing betting lines for the given day
 This function scrapes the sportsbookreview.com website to return betting lines
 }
 \examples{
-get_lines(sport = "NFL", bet_type = "spread", period = "full", start_date = "20191222")
-get_lines(sport = "NBA", bet_type = "total", period = "2Q", start_date = "20191221")
-get_lines(sport = "NCAAF", bet_type = "moneyline", period = "1H", start_date = "20191019")
+get_lines(
+  sport = "NFL",
+  bet_type = "spread",
+  period = "full",
+  start_date = "20191222"
+)
+get_lines(
+  sport = "NBA",
+  bet_type = "total",
+  period = "2Q",
+  start_date = "20191221"
+)
+get_lines(
+  sport = "NCAAF",
+  bet_type = "moneyline",
+  period = "1H",
+  start_date = "20191019"
+)
 
 }

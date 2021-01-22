@@ -17,19 +17,21 @@
 #' @examples true_probability(line = -100, odds = c(-100, -120))
 #'
 #' @export
-true_probability <- function(line = -110, odds = c(-110, -110), type = "us"){
-  ## Error handling
-  if (!is.numeric(c(line, odds))) {
-    stop("Odds must be numeric")
+true_probability <-
+  function(line = -110,
+           odds = c(-110,-110),
+           type = "us") {
+    ## Error handling
+    if (!is.numeric(c(line, odds))) {
+      stop("Odds must be numeric")
+    }
+    if (!type %in% c("us", "frac", "dec")) {
+      stop("Type must be either: 'us' or 'dec' or 'frac'")
+    }
+
+    # implied probability divided by the sum of all implied probabilities for the wager
+    true_prob <-
+      round(implied_prob(odds = line, type = type) / sum(implied_prob(odds = odds, type = type)), 4)
+
+    return(true_prob)
   }
-  if (!type %in% c("us", "frac", "dec")){
-    stop("Type must be either: 'us' or 'dec' or 'frac'")
-  }
-
-  # implied probability divided by the sum of all implied probabilities for the wager
-  true_prob <- round(implied_prob(odds = line, type = type) / sum(implied_prob(odds = odds, type = type)), 4)
-
-  return(true_prob)
-}
-
-

@@ -25,43 +25,49 @@
 #' @references [https://en.wikipedia.org/wiki/Kelly_criterion](https://en.wikipedia.org/wiki/Kelly_criterion)
 #'
 #' @export
-kelly_bet <- function(unit_size, win_prob, odds, type = "dec", kelly_type = "full"){
-  ## Error handling
-  if (!is.numeric(unit_size)) {
-    stop("Unit size must be numeric")
-  }
-  if (!is.numeric(win_prob)) {
-    stop("Win Probability must be numeric")
-  }
-  if (win_prob < 0 | win_prob > 1) {
-    stop("Win Probability must be between 0-1")
-  }
-  if (!is.numeric(odds)) {
-    stop("Odds must be numeric")
-  }
-  if (!type %in% c("us", "frac", "dec")){
-    stop("type must be either: ('us', 'dec', 'frac')")
-  }
+kelly_bet <-
+  function(unit_size,
+           win_prob,
+           odds,
+           type = "dec",
+           kelly_type = "full") {
+    ## Error handling
+    if (!is.numeric(unit_size)) {
+      stop("Unit size must be numeric")
+    }
+    if (!is.numeric(win_prob)) {
+      stop("Win Probability must be numeric")
+    }
+    if (win_prob < 0 | win_prob > 1) {
+      stop("Win Probability must be between 0-1")
+    }
+    if (!is.numeric(odds)) {
+      stop("Odds must be numeric")
+    }
+    if (!type %in% c("us", "frac", "dec")) {
+      stop("type must be either: ('us', 'dec', 'frac')")
+    }
 
-  # Convert to fractional odds for the equation
-  odds <- as.numeric(convert_odds(odds, input = type, output = "frac"))
+    # Convert to fractional odds for the equation
+    odds <-
+      as.numeric(convert_odds(odds, input = type, output = "frac"))
 
-  # Kelly Criterion equation
-  kelly <- round(((odds * win_prob) - (1 - win_prob)) / odds, 4)
+    # Kelly Criterion equation
+    kelly <- round(((odds * win_prob) - (1 - win_prob)) / odds, 4)
 
-  if (kelly_type == "half") {
-    kelly <- round(kelly / 2, 4)
+    if (kelly_type == "half") {
+      kelly <- round(kelly / 2, 4)
+    }
+
+    if (kelly_type == "quarter") {
+      kelly <- round(kelly / 4, 4)
+    }
+
+    if (kelly_type == "eighth") {
+      kelly <- round(kelly / 8, 4)
+    }
+
+    bet_size <- round(kelly * unit_size * 100)
+
+    return(bet_size)
   }
-
-  if (kelly_type == "quarter") {
-    kelly <- round(kelly / 4, 4)
-  }
-
-  if (kelly_type == "eighth") {
-    kelly <- round(kelly / 8, 4)
-  }
-
-  bet_size <- round(kelly * unit_size * 100)
-
-  return(bet_size)
-}

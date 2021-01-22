@@ -16,7 +16,7 @@
 #' @examples clv_calc(bet_odds = 50/1, closing_odds = 20/1, type = "frac")
 #'
 #' @export
-clv_calc <- function(bet_odds, closing_odds, type = "us"){
+clv_calc <- function(bet_odds, closing_odds, type = "us") {
   ## Error handling
   if (!is.numeric(bet_odds)) {
     stop("Bet Odds must be numeric")
@@ -24,7 +24,7 @@ clv_calc <- function(bet_odds, closing_odds, type = "us"){
   if (!is.numeric(closing_odds)) {
     stop("Closing Odds must be numeric")
   }
-  if (!type %in% c("us", "frac", "dec", "prob")){
+  if (!type %in% c("us", "frac", "dec", "prob")) {
     stop("type must be either: ('us', 'dec', 'frac', or 'prob')")
   }
   ## American Odds
