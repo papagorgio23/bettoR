@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bettoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.2</span>
       </span>
     </div>
 
@@ -173,12 +173,1305 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>dataframe conatining betting lines for the given day</p>
+    <p>dataframe containing betting lines for the given day</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_lines_range</span><span class='op'>(</span>sport <span class='op'>=</span> <span class='st'>"NFL"</span>, bet_type <span class='op'>=</span> <span class='st'>"spread"</span>, period <span class='op'>=</span> <span class='st'>"full"</span>, start_date <span class='op'>=</span> <span class='fl'>20191222</span>, end_date <span class='op'>=</span> <span class='fl'>20191231</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; No games played on 2019-12-22</div><div class='output co'>#&gt; <span class='error'>Error in rbind(all_lines, temp): object 'temp' not found</span></div><div class='input'><span class='fu'>get_lines_range</span><span class='op'>(</span>sport <span class='op'>=</span> <span class='st'>"NBA"</span>, bet_type <span class='op'>=</span> <span class='st'>"moneyline"</span>, period <span class='op'>=</span> <span class='st'>"1H"</span>, start_date <span class='op'>=</span> <span class='fl'>20191230</span>, end_date <span class='op'>=</span> <span class='fl'>20200105</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; No games played on 2019-12-30</div><div class='output co'>#&gt; <span class='error'>Error in rbind(all_lines, temp): object 'temp' not found</span></div><div class='input'>
+    <pre class="examples"><div class='input'><span class='fu'>get_lines_range</span><span class='op'>(</span>
+  sport <span class='op'>=</span> <span class='st'>"NFL"</span>,
+  bet_type <span class='op'>=</span> <span class='st'>"spread"</span>,
+  period <span class='op'>=</span> <span class='st'>"full"</span>,
+  start_date <span class='op'>=</span> <span class='fl'>20191222</span>,
+  end_date <span class='op'>=</span> <span class='fl'>20191231</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191222</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191223</span></div><div class='output co'>#&gt; No games played on 2019-12-24
+#&gt; No games played on 2019-12-25
+#&gt; No games played on 2019-12-26
+#&gt; No games played on 2019-12-27
+#&gt; No games played on 2019-12-28</div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191229</span></div><div class='output co'>#&gt; No games played on 2019-12-30
+#&gt; No games played on 2019-12-31</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Completed Scrape: </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Sport - NFL</span>
+#&gt; <span class='message'>Bet Type - spread </span>
+#&gt; <span class='message'>Period - full </span>
+#&gt; <span class='message'>Dates - 20191222 - 20191231</span>
+#&gt; <span class='message'>Total Games - 29 </span></div><div class='output co'>#&gt;        Date Sport bet_type period     away_Team     home_Team away_1Q away_2Q
+#&gt; 1  20191222   NFL   spread   full   N.Y. Giants    Washington      14      14
+#&gt; 2  20191222   NFL   spread   full    Cincinnati         Miami       0       6
+#&gt; 3  20191222   NFL   spread   full   New Orleans     Tennessee       0      10
+#&gt; 4  20191222   NFL   spread   full    Pittsburgh     N.Y. Jets       0      10
+#&gt; 5  20191222   NFL   spread   full     Baltimore     Cleveland       0      14
+#&gt; 6  20191222   NFL   spread   full      Carolina  Indianapolis       0       3
+#&gt; 7  20191222   NFL   spread   full  Jacksonville       Atlanta       0       3
+#&gt; 8  20191222   NFL   spread   full     Las Vegas L.A. Chargers       7       7
+#&gt; 9  20191222   NFL   spread   full       Detroit        Denver       3       7
+#&gt; 10 20191222   NFL   spread   full       Arizona       Seattle       7      10
+#&gt; 11 20191222   NFL   spread   full        Dallas  Philadelphia       0       6
+#&gt; 12 20191222   NFL   spread   full   Kansas City       Chicago       7      10
+#&gt; 13 20191223   NFL   spread   full     Green Bay     Minnesota       3       6
+#&gt; 14 20191229   NFL   spread   full   New Orleans      Carolina      14      21
+#&gt; 15 20191229   NFL   spread   full       Chicago     Minnesota       6       5
+#&gt; 16 20191229   NFL   spread   full       Atlanta     Tampa Bay      10       6
+#&gt; 17 20191229   NFL   spread   full         Miami   New England       3       7
+#&gt; 18 20191229   NFL   spread   full     Green Bay       Detroit       0       3
+#&gt; 19 20191229   NFL   spread   full     Cleveland    Cincinnati       7       9
+#&gt; 20 20191229   NFL   spread   full L.A. Chargers   Kansas City       0       7
+#&gt; 21 20191229   NFL   spread   full     N.Y. Jets       Buffalo       0       3
+#&gt; 22 20191229   NFL   spread   full    Pittsburgh     Baltimore       0       7
+#&gt; 23 20191229   NFL   spread   full       Arizona     L.A. Rams       7       3
+#&gt; 24 20191229   NFL   spread   full     Las Vegas        Denver       0       3
+#&gt; 25 20191229   NFL   spread   full     Tennessee       Houston       7       7
+#&gt; 26 20191229   NFL   spread   full    Washington        Dallas       0      10
+#&gt; 27 20191229   NFL   spread   full  Indianapolis  Jacksonville      10      10
+#&gt; 28 20191229   NFL   spread   full  Philadelphia   N.Y. Giants       3       7
+#&gt; 29 20191229   NFL   spread   full San Francisco       Seattle      10       3
+#&gt;    away_3Q away_4Q home_1Q home_2Q home_3Q home_4Q away_score home_score
+#&gt; 1        7       0       6       7       7       7         41         35
+#&gt; 2        6      23       0      14       7       7         35         38
+#&gt; 3       21       7      14       0       7       7         38         28
+#&gt; 4        0       0       7       3       3       3         10         16
+#&gt; 5        7      10       0       6       3       6         31         15
+#&gt; 6        3       0      14       7       3      14          6         38
+#&gt; 7        3       6      14       3       0       7         12         24
+#&gt; 8        7       3       0       7       7       3         24         17
+#&gt; 9        7       0       0      10       3      14         17         27
+#&gt; 10       3       7       7       0       0       6         27         13
+#&gt; 11       0       3      10       0       7       0          9         17
+#&gt; 12       0       9       0       0       3       0         26          3
+#&gt; 13       8       6       3       7       0       0         23         10
+#&gt; 14       7       0       0       3       7       0         42         10
+#&gt; 15       7       3       0       6       0      13         21         19
+#&gt; 16       0       6       6       0      22       0         28         22
+#&gt; 17       7      10       0      10       7       7         27         24
+#&gt; 18       7      13       7      10       0       3         23         20
+#&gt; 19       0       7      13       7       3      10         23         33
+#&gt; 20       7       7       3       7      14       7         21         31
+#&gt; 21       0      10       0       0       3       3         13          6
+#&gt; 22       3       0       6      10       0      12         10         28
+#&gt; 23       7       7       3      14       0      14         24         31
+#&gt; 24       0      12       0      10       3       3         15         16
+#&gt; 25       7      14       7       0       7       0         35         14
+#&gt; 26       6       0       6      14      17      10         16         47
+#&gt; 27       0       0       3      13       8      14         20         38
+#&gt; 28       7      17       0       3      14       0         34         17
+#&gt; 29       6       7       0       0       7      14         26         21
+#&gt;    away_open_line away_open_odds home_open_line home_open_odds
+#&gt; 1            +2.5           -105           -2.5           -115
+#&gt; 2            +2.5           -115           -2.5           -105
+#&gt; 3              -1           -110             +1           -110
+#&gt; 4              -3           -110             +3           -110
+#&gt; 5              -7           -110             +7           -110
+#&gt; 6            +6.5           -110           -6.5           -110
+#&gt; 7              +7           -110             -7           -110
+#&gt; 8            +6.5           -110           -6.5           -110
+#&gt; 9            +6.5           -110           -6.5           -110
+#&gt; 10            +10           -110            -10           -110
+#&gt; 11             -1           -110             +1           -110
+#&gt; 12             -4           -110             +4           -110
+#&gt; 13           +4.5           -110           -4.5           -110
+#&gt; 14            -11           -110            +11           -110
+#&gt; 15             +7           +100             -7           -120
+#&gt; 16           +2.5           -105           -2.5           -115
+#&gt; 17          +16.5           -110          -16.5           -110
+#&gt; 18            -10           -105            +10           -115
+#&gt; 19             -3           -110             +3           -110
+#&gt; 20             +7           +100             -7           -120
+#&gt; 21             +5           -131             -5           +108
+#&gt; 22             +1           -110             -1           -110
+#&gt; 23             +7           +100             -7           -120
+#&gt; 24           +4.5           -110           -4.5           -110
+#&gt; 25             +1           -110             -1           -110
+#&gt; 26            +14           -110            -14           -110
+#&gt; 27             -1           -110             +1           -110
+#&gt; 28             -4           -110             +4           -110
+#&gt; 29              0           -110              0           -110
+#&gt;    away_pinnacle_line away_pinnacle_odds home_pinnacle_line home_pinnacle_odds
+#&gt; 1                  -1               -106                 +1               -104
+#&gt; 2                -1.5               -106               +1.5               -104
+#&gt; 3                -3.5               +103               +3.5               -113
+#&gt; 4                  -3               -116                 +3               +105
+#&gt; 5                -9.5               -104               +9.5               -106
+#&gt; 6                +7.5               -122               -7.5               +110
+#&gt; 7                +7.5               -114               -7.5               +103
+#&gt; 8                +7.5               -113               -7.5               +103
+#&gt; 9                +9.5               +102               -9.5               -112
+#&gt; 10                 +8               -111                 -8               +101
+#&gt; 11                 -2               +101                 +2               -112
+#&gt; 12               -6.5               -109               +6.5               -101
+#&gt; 13                 +4               -102                 -4               -108
+#&gt; 14              -13.5               -106              +13.5               -104
+#&gt; 15               -5.5               -110               +5.5               -100
+#&gt; 16                 +1               +101                 -1               -111
+#&gt; 17              +17.5               -109              -17.5               -102
+#&gt; 18              -13.5               +103              +13.5               -114
+#&gt; 19               -2.5               -107               +2.5               -103
+#&gt; 20                +10               -110                -10               -100
+#&gt; 21               -1.5               -110               +1.5               -100
+#&gt; 22                 -2               -113                 +2               +102
+#&gt; 23                 +7               -118                 -7               +107
+#&gt; 24               +5.5               -110               -5.5               -101
+#&gt; 25                -10               +106                +10               -117
+#&gt; 26                +13               -105                -13               -105
+#&gt; 27                 -5               -109                 +5               -101
+#&gt; 28                 -4               -102                 +4               -108
+#&gt; 29               -3.5               +101               +3.5               -112
+#&gt;    away_fiveDimes_line away_fiveDimes_odds home_fiveDimes_line
+#&gt; 1                   -1                -107                  +1
+#&gt; 2                   -2                -104                  +2
+#&gt; 3                   -3                -118                  +3
+#&gt; 4                   -3                -108                  +3
+#&gt; 5                  -10                -101                 +10
+#&gt; 6                   +7                -102                  -7
+#&gt; 7                 +7.5                -110                -7.5
+#&gt; 8                 +7.5                -107                -7.5
+#&gt; 9                 +8.5                -105                -8.5
+#&gt; 10                +7.5                -105                -7.5
+#&gt; 11                  -2                -102                  +2
+#&gt; 12                  -7                +110                  +7
+#&gt; 13                +4.5                -105                -4.5
+#&gt; 14                 -14                -102                 +14
+#&gt; 15                  -5                -107                  +5
+#&gt; 16                  +1                -103                  -1
+#&gt; 17                 +17                -101                 -17
+#&gt; 18               -13.5                -102               +13.5
+#&gt; 19                -2.5                -105                +2.5
+#&gt; 20                 +10                -110                 -10
+#&gt; 21                -1.5                -105                +1.5
+#&gt; 22                -2.5                -118                +2.5
+#&gt; 23                  +7                -115                  -7
+#&gt; 24                +5.5                -105                -5.5
+#&gt; 25                 -10                -105                 +10
+#&gt; 26               +12.5                -105               -12.5
+#&gt; 27                -5.5                -102                +5.5
+#&gt; 28                -3.5                -109                +3.5
+#&gt; 29                -3.5                +102                +3.5
+#&gt;    home_fiveDimes_odds away_bookmaker_line away_bookmaker_odds
+#&gt; 1                 -103                  -3                -113
+#&gt; 2                 -106                -2.5                -110
+#&gt; 3                 +108                -3.5                -117
+#&gt; 4                 -102                  -3                -110
+#&gt; 5                 -109                -9.5                -116
+#&gt; 6                 -108                  +7                -110
+#&gt; 7                 +100                  +7                -101
+#&gt; 8                 -103                  +7                -101
+#&gt; 9                 -105                  +9                -110
+#&gt; 10                -105                +9.5                -109
+#&gt; 11                -108                  -2                -108
+#&gt; 12                -120                -6.5                -118
+#&gt; 13                -105                  +7                -112
+#&gt; 14                -108                 -14                +100
+#&gt; 15                -103                -4.5                -105
+#&gt; 16                -107                +1.5                -119
+#&gt; 17                -109               +15.5                -112
+#&gt; 18                -108               -13.5                -119
+#&gt; 19                -105                -2.5                -110
+#&gt; 20                +100                  +7                -112
+#&gt; 21                -105                -2.5                -117
+#&gt; 22                +108                  -2                -101
+#&gt; 23                +105                +6.5                -112
+#&gt; 24                -105                +3.5                -112
+#&gt; 25                -105                -9.5                -113
+#&gt; 26                -105               +10.5                -115
+#&gt; 27                -108                -4.5                -110
+#&gt; 28                -101                -4.5                -117
+#&gt; 29                -112                  -3                -128
+#&gt;    home_bookmaker_line home_bookmaker_odds away_BOL_line away_BOL_odds
+#&gt; 1                   +3                -116            -1          -120
+#&gt; 2                 +2.5                -110             0          -128
+#&gt; 3                 +3.5                -112          -3.5          -110
+#&gt; 4                   +3                -119            -3          -113
+#&gt; 5                 +9.5                -113         -10.5          -101
+#&gt; 6                   -7                -110            +7          -110
+#&gt; 7                   -7                -119          +7.5          -115
+#&gt; 8                   -7                -120          +7.5          -115
+#&gt; 9                   -9                -110            +9          -110
+#&gt; 10                -9.5                -108            +8          -110
+#&gt; 11                  +2                -108            -2          -110
+#&gt; 12                +6.5                -111          -6.5          -117
+#&gt; 13                  -7                -117            +4          -109
+#&gt; 14                 +14                -120           -14          -105
+#&gt; 15                +4.5                -111            -5          -110
+#&gt; 16                -1.5                -110             0          -102
+#&gt; 17               -15.5                -117           +17          -105
+#&gt; 18               +13.5                -110           -13          -110
+#&gt; 19                +2.5                -110          -2.5          -116
+#&gt; 20                  -7                -117          +9.5          -105
+#&gt; 21                +2.5                -112            -1          -113
+#&gt; 22                  +2                -130            -2          -115
+#&gt; 23                -6.5                -108            +7          -120
+#&gt; 24                -3.5                -117          +5.5          -115
+#&gt; 25                +9.5                -116           -10          -105
+#&gt; 26               -10.5                -102         +12.5          -105
+#&gt; 27                +4.5                -109            -5          -114
+#&gt; 28                +4.5                -112            -4          -110
+#&gt; 29                  +3                -103          -3.5          +100
+#&gt;    home_BOL_line home_BOL_odds away_Bovada_line away_Bovada_odds
+#&gt; 1             +1          +100             -1.5             -115
+#&gt; 2              0          +108             -1.5             -115
+#&gt; 3           +3.5          -110             -3.5             -120
+#&gt; 4             +3          -107               -3             -130
+#&gt; 5          +10.5          -119            -10.5             -105
+#&gt; 6             -7          -110               +7             -115
+#&gt; 7           -7.5          -105             +7.5             -110
+#&gt; 8           -7.5          -105             +7.5             -115
+#&gt; 9             -9          -110               +8             -115
+#&gt; 10            -8          -110               +8             -105
+#&gt; 11            +2          -110               -3             +105
+#&gt; 12          +6.5          -103             -7.5             -110
+#&gt; 13            -4          -111               +4             -110
+#&gt; 14           +14          -115              -14             -115
+#&gt; 15            +5          -110               -4             -120
+#&gt; 16             0          -118               -1             -105
+#&gt; 17           -17          -115            +17.5             -115
+#&gt; 18           +13          -110            -13.5             -115
+#&gt; 19          +2.5          -104               -3             -105
+#&gt; 20          -9.5          -115              +10             -105
+#&gt; 21            +1          -107                0             -110
+#&gt; 22            +2          -105               -1             -115
+#&gt; 23            -7          +100               +7             -105
+#&gt; 24          -5.5          -105               +4             +100
+#&gt; 25           +10          -115              -10             -115
+#&gt; 26         -12.5          -115              +13             -115
+#&gt; 27            +5          -106               -6             -110
+#&gt; 28            +4          -110               -4             -115
+#&gt; 29          +3.5          -120               -3             -130
+#&gt;    home_Bovada_line home_Bovada_odds away_Heritage_line away_Heritage_odds
+#&gt; 1              +1.5             -105               -1.5               -105
+#&gt; 2              +1.5             -105               -1.5               -110
+#&gt; 3              +3.5             +100                 -3               -120
+#&gt; 4                +3             +110                 -3               -105
+#&gt; 5             +10.5             -115                -10               -105
+#&gt; 6                -7             -105                 +7               -105
+#&gt; 7              -7.5             -110               +7.5               -110
+#&gt; 8              -7.5             -105               +7.5               -105
+#&gt; 9                -8             -105                 +8               -105
+#&gt; 10               -8             -115               +7.5               -105
+#&gt; 11               +3             -125               -2.5               -105
+#&gt; 12             +7.5             -110                 -7               +110
+#&gt; 13               -4             -110                 +4               -105
+#&gt; 14              +14             -105                -14               -105
+#&gt; 15               +4             +100                 -3               -115
+#&gt; 16               +1             -115                  0               -105
+#&gt; 17            -17.5             -105              +16.5               -105
+#&gt; 18            +13.5             -105              -11.5               -105
+#&gt; 19               +3             -115               -1.5               -105
+#&gt; 20              -10             -115                +10               -110
+#&gt; 21                0             -110                  0               -105
+#&gt; 22               +1             -105                 -2               -105
+#&gt; 23               -7             -115                 +7               -115
+#&gt; 24               -4             -120               +4.5               -105
+#&gt; 25              +10             -105               -9.5               -105
+#&gt; 26              -13             -105              +12.5               -105
+#&gt; 27               +6             -110               -5.5               -105
+#&gt; 28               +4             -105               -3.5               -105
+#&gt; 29               +3             +110                 -3               -120
+#&gt;    home_Heritage_line home_Heritage_odds away_Intertops_line
+#&gt; 1                +1.5               -105                  -1
+#&gt; 2                +1.5               +100                -1.5
+#&gt; 3                  +3               +110                -3.5
+#&gt; 4                  +3               -105                  -3
+#&gt; 5                 +10               -105                 -10
+#&gt; 6                  -7               -105                  +7
+#&gt; 7                -7.5               +100                +7.5
+#&gt; 8                -7.5               -105                +7.5
+#&gt; 9                  -8               -105                  +8
+#&gt; 10               -7.5               -105                  +8
+#&gt; 11               +2.5               -105                  -2
+#&gt; 12                 +7               -120                  -7
+#&gt; 13                 -4               -105                  +4
+#&gt; 14                +14               -105                 -14
+#&gt; 15                 +3               +105                  -5
+#&gt; 16                  0               -105                +1.5
+#&gt; 17              -16.5               -105                 +17
+#&gt; 18              +11.5               -105                 -13
+#&gt; 19               +1.5               -105                -2.5
+#&gt; 20                -10               +100                +9.5
+#&gt; 21                  0               -105                  -1
+#&gt; 22                 +2               -105                  -2
+#&gt; 23                 -7               +105                  +7
+#&gt; 24               -4.5               -105                  +5
+#&gt; 25               +9.5               -105                 -10
+#&gt; 26              -12.5               -105               +12.5
+#&gt; 27               +5.5               -105                -5.5
+#&gt; 28               +3.5               -105                  -4
+#&gt; 29                 +3               +110                -3.5
+#&gt;    away_Intertops_odds home_Intertops_line home_Intertops_odds
+#&gt; 1                 -115                  +1                -105
+#&gt; 2                 -115                +1.5                -105
+#&gt; 3                 -105                +3.5                -115
+#&gt; 4                 -120                  +3                +100
+#&gt; 5                 -105                 +10                -115
+#&gt; 6                 -110                  -7                -110
+#&gt; 7                 -115                -7.5                -105
+#&gt; 8                 -115                -7.5                -105
+#&gt; 9                 -110                  -8                -110
+#&gt; 10                -110                  -8                -110
+#&gt; 11                -110                  +2                -110
+#&gt; 12                -110                  +7                -110
+#&gt; 13                -115                  -4                -105
+#&gt; 14                -110                 +14                -110
+#&gt; 15                -110                  +5                -110
+#&gt; 16                -110                -1.5                -110
+#&gt; 17                -105                 -17                -115
+#&gt; 18                -115                 +13                -105
+#&gt; 19                -115                +2.5                -105
+#&gt; 20                -110                -9.5                -110
+#&gt; 21                -115                  +1                -105
+#&gt; 22                -115                  +2                -105
+#&gt; 23                -115                  -7                -105
+#&gt; 24                -105                  -5                -115
+#&gt; 25                -105                 +10                -115
+#&gt; 26                -115               -12.5                -105
+#&gt; 27                -110                +5.5                -110
+#&gt; 28                -110                  +4                -110
+#&gt; 29                +100                +3.5                -120
+#&gt;    away_youwager_line away_youwager_odds home_youwager_line home_youwager_odds
+#&gt; 1                -1.5               -110               +1.5               -110
+#&gt; 2                -1.5               -115               +1.5               -105
+#&gt; 3                -3.5               -105               +3.5               -115
+#&gt; 4                  -3               -120                 +3               +100
+#&gt; 5                 -10               -115                +10               -105
+#&gt; 6                  +7               -110                 -7               -110
+#&gt; 7                +7.5               -115               -7.5               -105
+#&gt; 8                +7.5               -115               -7.5               -105
+#&gt; 9                  +8               -110                 -8               -110
+#&gt; 10                 +8               -110                 -8               -110
+#&gt; 11               -2.5               -115               +2.5               -105
+#&gt; 12                 -7               -120                 +7               +100
+#&gt; 13                 +4               -110                 -4               -110
+#&gt; 14                -14               -105                +14               -115
+#&gt; 15               -5.5               -110               +5.5               -110
+#&gt; 16               +1.5               -110               -1.5               -110
+#&gt; 17                +17               -105                -17               -115
+#&gt; 18              -13.5               -110              +13.5               -110
+#&gt; 19               -2.5               -110               +2.5               -110
+#&gt; 20                +10               -115                -10               -105
+#&gt; 21               -1.5               -110               +1.5               -110
+#&gt; 22                 -2               -110                 +2               -110
+#&gt; 23                 +7               -105                 -7               -115
+#&gt; 24                 +5               -110                 -5               -110
+#&gt; 25                -10               -110                +10               -110
+#&gt; 26                +13               -120                -13               +100
+#&gt; 27               -5.5               -110               +5.5               -110
+#&gt; 28               -3.5               -115               +3.5               -105
+#&gt; 29               -3.5               +100               +3.5               -120
+#&gt;    away_justbet_line away_justbet_odds home_justbet_line home_justbet_odds
+#&gt; 1                 -3              -113                +3              -116
+#&gt; 2               -2.5              -110              +2.5              -110
+#&gt; 3               -3.5              -117              +3.5              -112
+#&gt; 4                 -3              -110                +3              -119
+#&gt; 5               -9.5              -116              +9.5              -113
+#&gt; 6                 +7              -110                -7              -110
+#&gt; 7                 +7              -101                -7              -119
+#&gt; 8                 +7              -101                -7              -120
+#&gt; 9                 +9              -110                -9              -110
+#&gt; 10              +9.5              -109              -9.5              -108
+#&gt; 11                -2              -108                +2              -108
+#&gt; 12              -6.5              -118              +6.5              -111
+#&gt; 13                +7              -112                -7              -117
+#&gt; 14               -14              +100               +14              -120
+#&gt; 15              -4.5              -105              +4.5              -111
+#&gt; 16              +1.5              -119              -1.5              -110
+#&gt; 17             +15.5              -112             -15.5              -117
+#&gt; 18             -13.5              -119             +13.5              -110
+#&gt; 19              -2.5              -110              +2.5              -110
+#&gt; 20                +7              -112                -7              -117
+#&gt; 21              -2.5              -117              +2.5              -112
+#&gt; 22                -2              -101                +2              -130
+#&gt; 23              +6.5              -112              -6.5              -108
+#&gt; 24              +3.5              -112              -3.5              -117
+#&gt; 25              -9.5              -113              +9.5              -116
+#&gt; 26             +10.5              -115             -10.5              -102
+#&gt; 27              -4.5              -110              +4.5              -109
+#&gt; 28              -4.5              -117              +4.5              -112
+#&gt; 29                -3              -128                +3              -103
+#&gt;    away_sportsbet_line away_sportsbet_odds home_sportsbet_line
+#&gt; 1                   -1                -120                  +1
+#&gt; 2                    0                -128                   0
+#&gt; 3                 -3.5                -110                +3.5
+#&gt; 4                   -3                -113                  +3
+#&gt; 5                -10.5                -101               +10.5
+#&gt; 6                   +7                -110                  -7
+#&gt; 7                 +7.5                -115                -7.5
+#&gt; 8                 +7.5                -115                -7.5
+#&gt; 9                   +9                -110                  -9
+#&gt; 10                  +8                -110                  -8
+#&gt; 11                  -2                -110                  +2
+#&gt; 12                -6.5                -117                +6.5
+#&gt; 13                  +4                -109                  -4
+#&gt; 14                 -14                -105                 +14
+#&gt; 15                  -5                -110                  +5
+#&gt; 16                   0                -102                   0
+#&gt; 17                 +17                -105                 -17
+#&gt; 18                 -13                -110                 +13
+#&gt; 19                -2.5                -116                +2.5
+#&gt; 20                +9.5                -105                -9.5
+#&gt; 21                  -1                -113                  +1
+#&gt; 22                  -2                -115                  +2
+#&gt; 23                  +7                -120                  -7
+#&gt; 24                +5.5                -115                -5.5
+#&gt; 25                 -10                -105                 +10
+#&gt; 26               +12.5                -105               -12.5
+#&gt; 27                  -5                -114                  +5
+#&gt; 28                  -4                -110                  +4
+#&gt; 29                -3.5                +100                +3.5
+#&gt;    home_sportsbet_odds
+#&gt; 1                 +100
+#&gt; 2                 +108
+#&gt; 3                 -110
+#&gt; 4                 -107
+#&gt; 5                 -119
+#&gt; 6                 -110
+#&gt; 7                 -105
+#&gt; 8                 -105
+#&gt; 9                 -110
+#&gt; 10                -110
+#&gt; 11                -110
+#&gt; 12                -103
+#&gt; 13                -111
+#&gt; 14                -115
+#&gt; 15                -110
+#&gt; 16                -118
+#&gt; 17                -115
+#&gt; 18                -110
+#&gt; 19                -104
+#&gt; 20                -115
+#&gt; 21                -107
+#&gt; 22                -105
+#&gt; 23                +100
+#&gt; 24                -105
+#&gt; 25                -115
+#&gt; 26                -115
+#&gt; 27                -106
+#&gt; 28                -110
+#&gt; 29                -120
+#&gt;                                                                          oddsURL
+#&gt; 1  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 2  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 3  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 4  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 5  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 6  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 7  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 8  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 9  https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 10 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 11 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 12 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191222
+#&gt; 13 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191223
+#&gt; 14 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 15 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 16 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 17 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 18 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 19 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 20 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 21 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 22 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 23 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 24 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 25 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 26 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 27 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 28 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229
+#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nfl-football/?date=20191229</div><div class='input'><span class='fu'>get_lines_range</span><span class='op'>(</span>
+  sport <span class='op'>=</span> <span class='st'>"NBA"</span>,
+  bet_type <span class='op'>=</span> <span class='st'>"moneyline"</span>,
+  period <span class='op'>=</span> <span class='st'>"1H"</span>,
+  start_date <span class='op'>=</span> <span class='fl'>20191230</span>,
+  end_date <span class='op'>=</span> <span class='fl'>20200105</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191230</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 7 rows [1, 2, 3, 4, 5, 6, 7].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20191231</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 4 rows [1, 2, 3, 4].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200101</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 9 rows [1, 2, 3, 4, 5, 6, 7, 8, 9].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200102</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [1, 2, 3, 4, 5, 6].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200103</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 11 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200104</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 5 rows [1, 2, 3, 4, 5].</span></div><div class='output co'>#&gt; <span class='message'>Scraped Day: 20200105</span></div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Completed Scrape: </span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>Sport - NBA</span>
+#&gt; <span class='message'>Bet Type - moneyline </span>
+#&gt; <span class='message'>Period - 1H </span>
+#&gt; <span class='message'>Dates - 20191230 - 20200105</span>
+#&gt; <span class='message'>Total Games - 48 </span></div><div class='output co'>#&gt;        Date Sport  bet_type period     away_Team     home_Team away_1Q away_2Q
+#&gt; 1  20191230   NBA moneyline     1H         Miami    Washington      39      24
+#&gt; 2  20191230   NBA moneyline     1H       Atlanta       Orlando      25      22
+#&gt; 3  20191230   NBA moneyline     1H      Brooklyn     Minnesota      29      21
+#&gt; 4  20191230   NBA moneyline     1H     Milwaukee       Chicago      31      24
+#&gt; 5  20191230   NBA moneyline     1H       Detroit          Utah      21      19
+#&gt; 6  20191230   NBA moneyline     1H       Phoenix      Portland      19      36
+#&gt; 7  20191231   NBA moneyline     1H  Philadelphia       Indiana      27      16
+#&gt; 8  20191231   NBA moneyline     1H        Boston     Charlotte      24      26
+#&gt; 9  20191231   NBA moneyline     1H            LA    Sacramento      28      29
+#&gt; 10 20191231   NBA moneyline     1H     Cleveland       Toronto      25      18
+#&gt; 11 20191231   NBA moneyline     1H  Golden State   San Antonio      32      23
+#&gt; 12 20191231   NBA moneyline     1H        Denver       Houston      26      26
+#&gt; 13 20191231   NBA moneyline     1H        Dallas Oklahoma City      32      19
+#&gt; 14 20200101   NBA moneyline     1H       Orlando    Washington      31      31
+#&gt; 15 20200101   NBA moneyline     1H      Portland      New York      27      21
+#&gt; 16 20200101   NBA moneyline     1H     Minnesota     Milwaukee      23      28
+#&gt; 17 20200101   NBA moneyline     1H       Phoenix   L.A. Lakers      17      24
+#&gt; 18 20200102   NBA moneyline     1H     Charlotte     Cleveland      31      21
+#&gt; 19 20200102   NBA moneyline     1H        Denver       Indiana      27      35
+#&gt; 20 20200102   NBA moneyline     1H       Toronto         Miami      20      19
+#&gt; 21 20200102   NBA moneyline     1H          Utah       Chicago      25      22
+#&gt; 22 20200102   NBA moneyline     1H  Golden State     Minnesota      19      22
+#&gt; 23 20200102   NBA moneyline     1H      Brooklyn        Dallas      30      35
+#&gt; 24 20200102   NBA moneyline     1H Oklahoma City   San Antonio      27      19
+#&gt; 25 20200102   NBA moneyline     1H       Memphis    Sacramento      42      18
+#&gt; 26 20200102   NBA moneyline     1H       Detroit            LA      33      30
+#&gt; 27 20200103   NBA moneyline     1H         Miami       Orlando      22      22
+#&gt; 28 20200103   NBA moneyline     1H       Atlanta        Boston      32      23
+#&gt; 29 20200103   NBA moneyline     1H      Portland    Washington      27      39
+#&gt; 30 20200103   NBA moneyline     1H  Philadelphia       Houston      27      26
+#&gt; 31 20200103   NBA moneyline     1H      New York       Phoenix      37      24
+#&gt; 32 20200103   NBA moneyline     1H   New Orleans   L.A. Lakers      30      32
+#&gt; 33 20200104   NBA moneyline     1H       Memphis            LA      40      25
+#&gt; 34 20200104   NBA moneyline     1H       Toronto      Brooklyn      24      24
+#&gt; 35 20200104   NBA moneyline     1H          Utah       Orlando      33      19
+#&gt; 36 20200104   NBA moneyline     1H Oklahoma City     Cleveland      34      32
+#&gt; 37 20200104   NBA moneyline     1H       Indiana       Atlanta      26      34
+#&gt; 38 20200104   NBA moneyline     1H        Denver    Washington      19      36
+#&gt; 39 20200104   NBA moneyline     1H        Boston       Chicago      30      25
+#&gt; 40 20200104   NBA moneyline     1H       Detroit  Golden State      25      31
+#&gt; 41 20200104   NBA moneyline     1H     Charlotte        Dallas      32      25
+#&gt; 42 20200104   NBA moneyline     1H   San Antonio     Milwaukee      31      35
+#&gt; 43 20200104   NBA moneyline     1H   New Orleans    Sacramento      25      27
+#&gt; 44 20200105   NBA moneyline     1H      New York            LA      45      24
+#&gt; 45 20200105   NBA moneyline     1H      Portland         Miami      19      27
+#&gt; 46 20200105   NBA moneyline     1H     Minnesota     Cleveland      24      42
+#&gt; 47 20200105   NBA moneyline     1H       Memphis       Phoenix      27      35
+#&gt; 48 20200105   NBA moneyline     1H       Detroit   L.A. Lakers      22      25
+#&gt;    away_3Q away_4Q home_1Q home_2Q home_3Q home_4Q away_score home_score
+#&gt; 1       18      24      29      42      19      33        105        123
+#&gt; 2       27      27      21      36      15      21        101         93
+#&gt; 3       30      23      12      27      22      25        115        122
+#&gt; 4       40      28      20      32      25      25        123        102
+#&gt; 5       18      23      19      20      29      36         81        104
+#&gt; 6       28      39      38      26      25      27        122        116
+#&gt; 7       23      31      29      38      29      19         97        115
+#&gt; 8       30      29      18      25      30      19        109         92
+#&gt; 9       31      17      23      17      33      14        105         87
+#&gt; 10      26      28      27      32      27      31         97        117
+#&gt; 11      20      25      13      25      28      24        113        117
+#&gt; 12      37      15      38      31      23      38        104        130
+#&gt; 13      27      23      20      30      27      29        101        106
+#&gt; 14      32      28      29      29      25      18        122        101
+#&gt; 15      29      16      25      26      32      34         93        117
+#&gt; 16      20      33      19      33      25      29        104        106
+#&gt; 17      38      28      43      31      27      16        107        117
+#&gt; 18      30      27      29      30      26      21        109        106
+#&gt; 19      30      32      37      27      24      28        124        116
+#&gt; 20      21      16      18      24      21      21         76         84
+#&gt; 21      29      26      22      29      19      28        102         98
+#&gt; 22      26      17      34      24      23      18         84         99
+#&gt; 23      28      18      31      29      33      30        111        123
+#&gt; 24      28      35      27      28      21      27        109        103
+#&gt; 25      37      26      26      37      27      38        123        128
+#&gt; 26      16      33      30      39      37      20        112        126
+#&gt; 27      35       6      27      29      28      21         85        105
+#&gt; 28      25      26      19      34      29      27        106        109
+#&gt; 29      25      31      31      27      20      25        122        103
+#&gt; 30      31      24      20      40      36      22        108        118
+#&gt; 31      26      25      29      22      32      37        112        120
+#&gt; 32      21      30      42      32      31      18        113        123
+#&gt; 33      39      36      27      30      23      34        140        114
+#&gt; 34      35      38      33      19      28      22        121        102
+#&gt; 35      24      33      25      22      28      21        109         96
+#&gt; 36      25      30      27      26      26      27        121        106
+#&gt; 37      35      16      43      21      32      20        111        116
+#&gt; 38      35      24      31      30      34      33        114        128
+#&gt; 39      30      26      28      24      21      31        111        104
+#&gt; 40      27      28      23      36      21      24        111        104
+#&gt; 41      23      23      20      20      24      40        123        120
+#&gt; 42      25      27      29      42      32      24        118        127
+#&gt; 43      24      41      26      22      32      35        117        115
+#&gt; 44      31      32      29      47      38      21        132        135
+#&gt; 45      35      30      31      34      29      28        111        122
+#&gt; 46      28      24      20      28      31      24        118        103
+#&gt; 47      34      25      31      26      20      37        121        114
+#&gt; 48      32      20      23      33      19      31         99        106
+#&gt;    away_open_line away_open_odds home_open_line home_open_odds
+#&gt; 1            -230           &lt;NA&gt;           +192           &lt;NA&gt;
+#&gt; 2            +281           &lt;NA&gt;           -350           &lt;NA&gt;
+#&gt; 3            -135           &lt;NA&gt;           +115           &lt;NA&gt;
+#&gt; 4            -180           &lt;NA&gt;           +155           &lt;NA&gt;
+#&gt; 5            +263           &lt;NA&gt;           -325           &lt;NA&gt;
+#&gt; 6            +140           &lt;NA&gt;           -160           &lt;NA&gt;
+#&gt; 7            -120           &lt;NA&gt;           +100           &lt;NA&gt;
+#&gt; 8            -185           &lt;NA&gt;           +160           &lt;NA&gt;
+#&gt; 9            -190           &lt;NA&gt;           +163           &lt;NA&gt;
+#&gt; 10           +230           &lt;NA&gt;           -280           &lt;NA&gt;
+#&gt; 11           +289           &lt;NA&gt;           -360           &lt;NA&gt;
+#&gt; 12           +140           &lt;NA&gt;           -160           &lt;NA&gt;
+#&gt; 13           -135           &lt;NA&gt;           +115           &lt;NA&gt;
+#&gt; 14           -140           &lt;NA&gt;           +120           &lt;NA&gt;
+#&gt; 15           -145           &lt;NA&gt;           +125           &lt;NA&gt;
+#&gt; 16           +837           &lt;NA&gt;          -1400           &lt;NA&gt;
+#&gt; 17           +306           &lt;NA&gt;           -385           &lt;NA&gt;
+#&gt; 18           +100           &lt;NA&gt;           -120           &lt;NA&gt;
+#&gt; 19           +100           &lt;NA&gt;           -120           &lt;NA&gt;
+#&gt; 20           +155           &lt;NA&gt;           -180           &lt;NA&gt;
+#&gt; 21           -140           &lt;NA&gt;           +120           &lt;NA&gt;
+#&gt; 22           +130           &lt;NA&gt;           -150           &lt;NA&gt;
+#&gt; 23           +184           &lt;NA&gt;           -220           &lt;NA&gt;
+#&gt; 24           +105           &lt;NA&gt;           -125           &lt;NA&gt;
+#&gt; 25           +130           &lt;NA&gt;           -150           &lt;NA&gt;
+#&gt; 26           +358           &lt;NA&gt;           -460           &lt;NA&gt;
+#&gt; 27           -120           &lt;NA&gt;           +100           &lt;NA&gt;
+#&gt; 28           +317           &lt;NA&gt;           -400           &lt;NA&gt;
+#&gt; 29           -165           &lt;NA&gt;           +144           &lt;NA&gt;
+#&gt; 30           +148           &lt;NA&gt;           -170           &lt;NA&gt;
+#&gt; 31           +170           &lt;NA&gt;           -200           &lt;NA&gt;
+#&gt; 32           +281           &lt;NA&gt;           -350           &lt;NA&gt;
+#&gt; 33           +260           &lt;NA&gt;           -320           &lt;NA&gt;
+#&gt; 34           -105           &lt;NA&gt;           -115           &lt;NA&gt;
+#&gt; 35           -140           &lt;NA&gt;           +120           &lt;NA&gt;
+#&gt; 36           -180           &lt;NA&gt;           +155           &lt;NA&gt;
+#&gt; 37           -215           &lt;NA&gt;           +180           &lt;NA&gt;
+#&gt; 38           -340           &lt;NA&gt;           +274           &lt;NA&gt;
+#&gt; 39           -115           &lt;NA&gt;           -105           &lt;NA&gt;
+#&gt; 40           -130           &lt;NA&gt;           +110           &lt;NA&gt;
+#&gt; 41           +306           &lt;NA&gt;           -385           &lt;NA&gt;
+#&gt; 42           +306           &lt;NA&gt;           -385           &lt;NA&gt;
+#&gt; 43           +115           &lt;NA&gt;           -135           &lt;NA&gt;
+#&gt; 44           +218           &lt;NA&gt;           -265           &lt;NA&gt;
+#&gt; 45           +155           &lt;NA&gt;           -180           &lt;NA&gt;
+#&gt; 46           -120           &lt;NA&gt;           +100           &lt;NA&gt;
+#&gt; 47           +172           &lt;NA&gt;           -205           &lt;NA&gt;
+#&gt; 48           +562           &lt;NA&gt;           -800           &lt;NA&gt;
+#&gt;    away_pinnacle_line away_pinnacle_odds home_pinnacle_line home_pinnacle_odds
+#&gt; 1                -284               &lt;NA&gt;               +239               &lt;NA&gt;
+#&gt; 2                +295               &lt;NA&gt;               -361               &lt;NA&gt;
+#&gt; 3                -157               &lt;NA&gt;               +138               &lt;NA&gt;
+#&gt; 4                -222               &lt;NA&gt;               +191               &lt;NA&gt;
+#&gt; 5                +231               &lt;NA&gt;               -273               &lt;NA&gt;
+#&gt; 6                +135               &lt;NA&gt;               -153               &lt;NA&gt;
+#&gt; 7                +130               &lt;NA&gt;               -147               &lt;NA&gt;
+#&gt; 8                -197               &lt;NA&gt;               +171               &lt;NA&gt;
+#&gt; 9                -179               &lt;NA&gt;               +157               &lt;NA&gt;
+#&gt; 10               +194               &lt;NA&gt;               -226               &lt;NA&gt;
+#&gt; 11               +278               &lt;NA&gt;               -337               &lt;NA&gt;
+#&gt; 12               +174               &lt;NA&gt;               -201               &lt;NA&gt;
+#&gt; 13               -128               &lt;NA&gt;               +114               &lt;NA&gt;
+#&gt; 14               -125               &lt;NA&gt;               +111               &lt;NA&gt;
+#&gt; 15               -145               &lt;NA&gt;               +128               &lt;NA&gt;
+#&gt; 16               +756               &lt;NA&gt;              -1161               &lt;NA&gt;
+#&gt; 17               +265               &lt;NA&gt;               -319               &lt;NA&gt;
+#&gt; 18               +108               &lt;NA&gt;               -122               &lt;NA&gt;
+#&gt; 19               -103               &lt;NA&gt;               -109               &lt;NA&gt;
+#&gt; 20               +146               &lt;NA&gt;               -167               &lt;NA&gt;
+#&gt; 21               -125               &lt;NA&gt;               +111               &lt;NA&gt;
+#&gt; 22               +120               &lt;NA&gt;               -135               &lt;NA&gt;
+#&gt; 23               +214               &lt;NA&gt;               -251               &lt;NA&gt;
+#&gt; 24               +118               &lt;NA&gt;               -133               &lt;NA&gt;
+#&gt; 25               +139               &lt;NA&gt;               -158               &lt;NA&gt;
+#&gt; 26               +345               &lt;NA&gt;               -434               &lt;NA&gt;
+#&gt; 27               +105               &lt;NA&gt;               -118               &lt;NA&gt;
+#&gt; 28               +285               &lt;NA&gt;               -348               &lt;NA&gt;
+#&gt; 29               -181               &lt;NA&gt;               +158               &lt;NA&gt;
+#&gt; 30               +144               &lt;NA&gt;               -164               &lt;NA&gt;
+#&gt; 31               +175               &lt;NA&gt;               -201               &lt;NA&gt;
+#&gt; 32               +279               &lt;NA&gt;               -339               &lt;NA&gt;
+#&gt; 33               +246               &lt;NA&gt;               -293               &lt;NA&gt;
+#&gt; 34               +104               &lt;NA&gt;               -117               &lt;NA&gt;
+#&gt; 35               -149               &lt;NA&gt;               +132               &lt;NA&gt;
+#&gt; 36               -195               &lt;NA&gt;               +170               &lt;NA&gt;
+#&gt; 37               -216               &lt;NA&gt;               +186               &lt;NA&gt;
+#&gt; 38               -371               &lt;NA&gt;               +302               &lt;NA&gt;
+#&gt; 39               +104               &lt;NA&gt;               -116               &lt;NA&gt;
+#&gt; 40               -121               &lt;NA&gt;               +107               &lt;NA&gt;
+#&gt; 41               +268               &lt;NA&gt;               -324               &lt;NA&gt;
+#&gt; 42               +278               &lt;NA&gt;               -338               &lt;NA&gt;
+#&gt; 43               +103               &lt;NA&gt;               -116               &lt;NA&gt;
+#&gt; 44               +240               &lt;NA&gt;               -286               &lt;NA&gt;
+#&gt; 45               +136               &lt;NA&gt;               -154               &lt;NA&gt;
+#&gt; 46               -180               &lt;NA&gt;               +158               &lt;NA&gt;
+#&gt; 47               +164               &lt;NA&gt;               -188               &lt;NA&gt;
+#&gt; 48               +495               &lt;NA&gt;               -673               &lt;NA&gt;
+#&gt;    away_fiveDimes_line away_fiveDimes_odds home_fiveDimes_line
+#&gt; 1                 -320                &lt;NA&gt;                +260
+#&gt; 2                 +300                &lt;NA&gt;                -360
+#&gt; 3                 -150                &lt;NA&gt;                +130
+#&gt; 4                 -240                &lt;NA&gt;                +200
+#&gt; 5                 +230                &lt;NA&gt;                -270
+#&gt; 6                 +135                &lt;NA&gt;                -155
+#&gt; 7                 +120                &lt;NA&gt;                -140
+#&gt; 8                 -190                &lt;NA&gt;                +165
+#&gt; 9                 -175                &lt;NA&gt;                +155
+#&gt; 10                +205                &lt;NA&gt;                -245
+#&gt; 11                +270                &lt;NA&gt;                -330
+#&gt; 12                +175                &lt;NA&gt;                -210
+#&gt; 13                -135                &lt;NA&gt;                +115
+#&gt; 14                -140                &lt;NA&gt;                +120
+#&gt; 15                -150                &lt;NA&gt;                +130
+#&gt; 16                +775                &lt;NA&gt;               -1200
+#&gt; 17                +280                &lt;NA&gt;                -340
+#&gt; 18                +105                &lt;NA&gt;                -125
+#&gt; 19                -110                &lt;NA&gt;                -110
+#&gt; 20                +150                &lt;NA&gt;                -170
+#&gt; 21                -125                &lt;NA&gt;                +105
+#&gt; 22                +115                &lt;NA&gt;                -135
+#&gt; 23                +210                &lt;NA&gt;                -250
+#&gt; 24                +115                &lt;NA&gt;                -135
+#&gt; 25                +145                &lt;NA&gt;                -165
+#&gt; 26                +360                &lt;NA&gt;                -450
+#&gt; 27                -105                &lt;NA&gt;                -115
+#&gt; 28                +310                &lt;NA&gt;                -370
+#&gt; 29                -200                &lt;NA&gt;                +170
+#&gt; 30                +160                &lt;NA&gt;                -185
+#&gt; 31                +170                &lt;NA&gt;                -200
+#&gt; 32                +310                &lt;NA&gt;                -370
+#&gt; 33                +250                &lt;NA&gt;                -300
+#&gt; 34                +105                &lt;NA&gt;                -125
+#&gt; 35                -145                &lt;NA&gt;                +125
+#&gt; 36                -200                &lt;NA&gt;                +170
+#&gt; 37                -215                &lt;NA&gt;                +178
+#&gt; 38                -365                &lt;NA&gt;                +305
+#&gt; 39                +100                &lt;NA&gt;                -120
+#&gt; 40                -130                &lt;NA&gt;                +110
+#&gt; 41                +285                &lt;NA&gt;                -345
+#&gt; 42                +300                &lt;NA&gt;                -360
+#&gt; 43                +113                &lt;NA&gt;                -133
+#&gt; 44                +230                &lt;NA&gt;                -270
+#&gt; 45                +130                &lt;NA&gt;                -150
+#&gt; 46                -170                &lt;NA&gt;                +150
+#&gt; 47                +170                &lt;NA&gt;                -200
+#&gt; 48                +518                &lt;NA&gt;                -735
+#&gt;    home_fiveDimes_odds away_bookmaker_line away_bookmaker_odds
+#&gt; 1                 &lt;NA&gt;                -300                &lt;NA&gt;
+#&gt; 2                 &lt;NA&gt;                +267                &lt;NA&gt;
+#&gt; 3                 &lt;NA&gt;                -155                &lt;NA&gt;
+#&gt; 4                 &lt;NA&gt;                -230                &lt;NA&gt;
+#&gt; 5                 &lt;NA&gt;                +234                &lt;NA&gt;
+#&gt; 6                 &lt;NA&gt;                +128                &lt;NA&gt;
+#&gt; 7                 &lt;NA&gt;                +130                &lt;NA&gt;
+#&gt; 8                 &lt;NA&gt;                -185                &lt;NA&gt;
+#&gt; 9                 &lt;NA&gt;                -185                &lt;NA&gt;
+#&gt; 10                &lt;NA&gt;                +180                &lt;NA&gt;
+#&gt; 11                &lt;NA&gt;                +260                &lt;NA&gt;
+#&gt; 12                &lt;NA&gt;                +176                &lt;NA&gt;
+#&gt; 13                &lt;NA&gt;                -125                &lt;NA&gt;
+#&gt; 14                &lt;NA&gt;                -135                &lt;NA&gt;
+#&gt; 15                &lt;NA&gt;                -140                &lt;NA&gt;
+#&gt; 16                &lt;NA&gt;                +912                &lt;NA&gt;
+#&gt; 17                &lt;NA&gt;                +252                &lt;NA&gt;
+#&gt; 18                &lt;NA&gt;                +105                &lt;NA&gt;
+#&gt; 19                &lt;NA&gt;                -110                &lt;NA&gt;
+#&gt; 20                &lt;NA&gt;                +145                &lt;NA&gt;
+#&gt; 21                &lt;NA&gt;                -130                &lt;NA&gt;
+#&gt; 22                &lt;NA&gt;                +120                &lt;NA&gt;
+#&gt; 23                &lt;NA&gt;                +203                &lt;NA&gt;
+#&gt; 24                &lt;NA&gt;                +110                &lt;NA&gt;
+#&gt; 25                &lt;NA&gt;                +140                &lt;NA&gt;
+#&gt; 26                &lt;NA&gt;                +384                &lt;NA&gt;
+#&gt; 27                &lt;NA&gt;                -105                &lt;NA&gt;
+#&gt; 28                &lt;NA&gt;                +281                &lt;NA&gt;
+#&gt; 29                &lt;NA&gt;                -181                &lt;NA&gt;
+#&gt; 30                &lt;NA&gt;                +151                &lt;NA&gt;
+#&gt; 31                &lt;NA&gt;                +167                &lt;NA&gt;
+#&gt; 32                &lt;NA&gt;                +256                &lt;NA&gt;
+#&gt; 33                &lt;NA&gt;                +272                &lt;NA&gt;
+#&gt; 34                &lt;NA&gt;                +114                &lt;NA&gt;
+#&gt; 35                &lt;NA&gt;                -147                &lt;NA&gt;
+#&gt; 36                &lt;NA&gt;                -205                &lt;NA&gt;
+#&gt; 37                &lt;NA&gt;                -200                &lt;NA&gt;
+#&gt; 38                &lt;NA&gt;                -384                &lt;NA&gt;
+#&gt; 39                &lt;NA&gt;                +100                &lt;NA&gt;
+#&gt; 40                &lt;NA&gt;                -135                &lt;NA&gt;
+#&gt; 41                &lt;NA&gt;                +274                &lt;NA&gt;
+#&gt; 42                &lt;NA&gt;                +306                &lt;NA&gt;
+#&gt; 43                &lt;NA&gt;                -105                &lt;NA&gt;
+#&gt; 44                &lt;NA&gt;                +274                &lt;NA&gt;
+#&gt; 45                &lt;NA&gt;                +135                &lt;NA&gt;
+#&gt; 46                &lt;NA&gt;                -170                &lt;NA&gt;
+#&gt; 47                &lt;NA&gt;                +176                &lt;NA&gt;
+#&gt; 48                &lt;NA&gt;                +461                &lt;NA&gt;
+#&gt;    home_bookmaker_line home_bookmaker_odds away_BOL_line away_BOL_odds
+#&gt; 1                 +245                &lt;NA&gt;          -300          &lt;NA&gt;
+#&gt; 2                 -330                &lt;NA&gt;          +265          &lt;NA&gt;
+#&gt; 3                 +135                &lt;NA&gt;          -155          &lt;NA&gt;
+#&gt; 4                 +192                &lt;NA&gt;          -240          &lt;NA&gt;
+#&gt; 5                 -285                &lt;NA&gt;          +230          &lt;NA&gt;
+#&gt; 6                 -148                &lt;NA&gt;          +135          &lt;NA&gt;
+#&gt; 7                 -150                &lt;NA&gt;          +130          &lt;NA&gt;
+#&gt; 8                 +160                &lt;NA&gt;          -190          &lt;NA&gt;
+#&gt; 9                 +160                &lt;NA&gt;          -180          &lt;NA&gt;
+#&gt; 10                -215                &lt;NA&gt;          +210          &lt;NA&gt;
+#&gt; 11                -320                &lt;NA&gt;          +270          &lt;NA&gt;
+#&gt; 12                -210                &lt;NA&gt;          +165          &lt;NA&gt;
+#&gt; 13                +105                &lt;NA&gt;          -135          &lt;NA&gt;
+#&gt; 14                +115                &lt;NA&gt;          -135          &lt;NA&gt;
+#&gt; 15                +120                &lt;NA&gt;          -145          &lt;NA&gt;
+#&gt; 16               -1600                &lt;NA&gt;          +750          &lt;NA&gt;
+#&gt; 17                -310                &lt;NA&gt;          +255          &lt;NA&gt;
+#&gt; 18                -125                &lt;NA&gt;          +100          &lt;NA&gt;
+#&gt; 19                -110                &lt;NA&gt;          -105          &lt;NA&gt;
+#&gt; 20                -167                &lt;NA&gt;          +150          &lt;NA&gt;
+#&gt; 21                +110                &lt;NA&gt;          -130          &lt;NA&gt;
+#&gt; 22                -140                &lt;NA&gt;          +115          &lt;NA&gt;
+#&gt; 23                -245                &lt;NA&gt;          +220          &lt;NA&gt;
+#&gt; 24                -130                &lt;NA&gt;          +115          &lt;NA&gt;
+#&gt; 25                -160                &lt;NA&gt;          +140          &lt;NA&gt;
+#&gt; 26                -500                &lt;NA&gt;          +340          &lt;NA&gt;
+#&gt; 27                -115                &lt;NA&gt;          -115          &lt;NA&gt;
+#&gt; 28                -350                &lt;NA&gt;          +285          &lt;NA&gt;
+#&gt; 29                +156                &lt;NA&gt;          -190          &lt;NA&gt;
+#&gt; 30                -175                &lt;NA&gt;          +151          &lt;NA&gt;
+#&gt; 31                -196                &lt;NA&gt;          +170          &lt;NA&gt;
+#&gt; 32                -316                &lt;NA&gt;          +275          &lt;NA&gt;
+#&gt; 33                -337                &lt;NA&gt;          +255          &lt;NA&gt;
+#&gt; 34                -134                &lt;NA&gt;          +105          &lt;NA&gt;
+#&gt; 35                +127                &lt;NA&gt;          -148          &lt;NA&gt;
+#&gt; 36                +172                &lt;NA&gt;          -182          &lt;NA&gt;
+#&gt; 37                +170                &lt;NA&gt;          -195          &lt;NA&gt;
+#&gt; 38                +306                &lt;NA&gt;          -375          &lt;NA&gt;
+#&gt; 39                -120                &lt;NA&gt;          -120          &lt;NA&gt;
+#&gt; 40                +115                &lt;NA&gt;          -128          &lt;NA&gt;
+#&gt; 41                -340                &lt;NA&gt;          +285          &lt;NA&gt;
+#&gt; 42                -385                &lt;NA&gt;          +300          &lt;NA&gt;
+#&gt; 43                -115                &lt;NA&gt;          +110          &lt;NA&gt;
+#&gt; 44                -340                &lt;NA&gt;          +240          &lt;NA&gt;
+#&gt; 45                -155                &lt;NA&gt;          +145          &lt;NA&gt;
+#&gt; 46                +148                &lt;NA&gt;          -180          &lt;NA&gt;
+#&gt; 47                -210                &lt;NA&gt;          +165          &lt;NA&gt;
+#&gt; 48                -624                &lt;NA&gt;          +525          &lt;NA&gt;
+#&gt;    home_BOL_line home_BOL_odds away_Bovada_line away_Bovada_odds
+#&gt; 1           +240          &lt;NA&gt;             -330             &lt;NA&gt;
+#&gt; 2           -335          &lt;NA&gt;             +285             &lt;NA&gt;
+#&gt; 3           +135          &lt;NA&gt;             -165             &lt;NA&gt;
+#&gt; 4           +200          &lt;NA&gt;             -290             &lt;NA&gt;
+#&gt; 5           -280          &lt;NA&gt;             +220             &lt;NA&gt;
+#&gt; 6           -155          &lt;NA&gt;             +120             &lt;NA&gt;
+#&gt; 7           -150          &lt;NA&gt;             +110             &lt;NA&gt;
+#&gt; 8           +165          &lt;NA&gt;             -215             &lt;NA&gt;
+#&gt; 9           +160          &lt;NA&gt;             -200             &lt;NA&gt;
+#&gt; 10          -250          &lt;NA&gt;             +200             &lt;NA&gt;
+#&gt; 11          -340          &lt;NA&gt;             +260             &lt;NA&gt;
+#&gt; 12          -190          &lt;NA&gt;             +165             &lt;NA&gt;
+#&gt; 13          +115          &lt;NA&gt;             -150             &lt;NA&gt;
+#&gt; 14          +115          &lt;NA&gt;             -135             &lt;NA&gt;
+#&gt; 15          +125          &lt;NA&gt;             -160             &lt;NA&gt;
+#&gt; 16         -1200          &lt;NA&gt;             +600             &lt;NA&gt;
+#&gt; 17          -325          &lt;NA&gt;             +275             &lt;NA&gt;
+#&gt; 18          -120          &lt;NA&gt;             +100             &lt;NA&gt;
+#&gt; 19          -115          &lt;NA&gt;             -120             &lt;NA&gt;
+#&gt; 20          -170          &lt;NA&gt;             +135             &lt;NA&gt;
+#&gt; 21          +110          &lt;NA&gt;             -135             &lt;NA&gt;
+#&gt; 22          -135          &lt;NA&gt;             +105             &lt;NA&gt;
+#&gt; 23          -260          &lt;NA&gt;             +205             &lt;NA&gt;
+#&gt; 24          -135          &lt;NA&gt;             +110             &lt;NA&gt;
+#&gt; 25          -160          &lt;NA&gt;             +125             &lt;NA&gt;
+#&gt; 26          -425          &lt;NA&gt;             +350             &lt;NA&gt;
+#&gt; 27          -105          &lt;NA&gt;             -120             &lt;NA&gt;
+#&gt; 28          -360          &lt;NA&gt;             +285             &lt;NA&gt;
+#&gt; 29          +165          &lt;NA&gt;             -215             &lt;NA&gt;
+#&gt; 30          -171          &lt;NA&gt;             +150             &lt;NA&gt;
+#&gt; 31          -195          &lt;NA&gt;             +165             &lt;NA&gt;
+#&gt; 32          -350          &lt;NA&gt;             +270             &lt;NA&gt;
+#&gt; 33          -325          &lt;NA&gt;             +275             &lt;NA&gt;
+#&gt; 34          -125          &lt;NA&gt;             -105             &lt;NA&gt;
+#&gt; 35          +128          &lt;NA&gt;             -145             &lt;NA&gt;
+#&gt; 36          +162          &lt;NA&gt;             -200             &lt;NA&gt;
+#&gt; 37          +170          &lt;NA&gt;             -220             &lt;NA&gt;
+#&gt; 38          +300          &lt;NA&gt;             -420             &lt;NA&gt;
+#&gt; 39          +100          &lt;NA&gt;             -105             &lt;NA&gt;
+#&gt; 40          +108          &lt;NA&gt;             -135             &lt;NA&gt;
+#&gt; 41          -360          &lt;NA&gt;             +270             &lt;NA&gt;
+#&gt; 42          -375          &lt;NA&gt;             +300             &lt;NA&gt;
+#&gt; 43          -130          &lt;NA&gt;             +100             &lt;NA&gt;
+#&gt; 44          -300          &lt;NA&gt;             +220             &lt;NA&gt;
+#&gt; 45          -165          &lt;NA&gt;             +145             &lt;NA&gt;
+#&gt; 46          +160          &lt;NA&gt;             -190             &lt;NA&gt;
+#&gt; 47          -190          &lt;NA&gt;             +160             &lt;NA&gt;
+#&gt; 48          -750          &lt;NA&gt;             +460             &lt;NA&gt;
+#&gt;    home_Bovada_line home_Bovada_odds away_Heritage_line away_Heritage_odds
+#&gt; 1              +235             &lt;NA&gt;               -315               &lt;NA&gt;
+#&gt; 2              -420             &lt;NA&gt;               +280               &lt;NA&gt;
+#&gt; 3              +125             &lt;NA&gt;               -155               &lt;NA&gt;
+#&gt; 4              +210             &lt;NA&gt;               -235               &lt;NA&gt;
+#&gt; 5              -300             &lt;NA&gt;               +220               &lt;NA&gt;
+#&gt; 6              -160             &lt;NA&gt;               +140               &lt;NA&gt;
+#&gt; 7              -145             &lt;NA&gt;               +130               &lt;NA&gt;
+#&gt; 8              +160             &lt;NA&gt;               -190               &lt;NA&gt;
+#&gt; 9              +150             &lt;NA&gt;               -185               &lt;NA&gt;
+#&gt; 10             -275             &lt;NA&gt;               +205               &lt;NA&gt;
+#&gt; 11             -370             &lt;NA&gt;               +265               &lt;NA&gt;
+#&gt; 12             -220             &lt;NA&gt;               +175               &lt;NA&gt;
+#&gt; 13             +115             &lt;NA&gt;               -135               &lt;NA&gt;
+#&gt; 14             +105             &lt;NA&gt;               -135               &lt;NA&gt;
+#&gt; 15             +120             &lt;NA&gt;               -150               &lt;NA&gt;
+#&gt; 16            -1200             &lt;NA&gt;               +740               &lt;NA&gt;
+#&gt; 17             -400             &lt;NA&gt;               +255               &lt;NA&gt;
+#&gt; 18             -130             &lt;NA&gt;               +105               &lt;NA&gt;
+#&gt; 19             -110             &lt;NA&gt;               -105               &lt;NA&gt;
+#&gt; 20             -180             &lt;NA&gt;               +145               &lt;NA&gt;
+#&gt; 21             +105             &lt;NA&gt;               -130               &lt;NA&gt;
+#&gt; 22             -135             &lt;NA&gt;               +115               &lt;NA&gt;
+#&gt; 23             -280             &lt;NA&gt;               +205               &lt;NA&gt;
+#&gt; 24             -145             &lt;NA&gt;               +115               &lt;NA&gt;
+#&gt; 25             -165             &lt;NA&gt;               +140               &lt;NA&gt;
+#&gt; 26             -550             &lt;NA&gt;               +360               &lt;NA&gt;
+#&gt; 27             -110             &lt;NA&gt;               -120               &lt;NA&gt;
+#&gt; 28             -420             &lt;NA&gt;               +290               &lt;NA&gt;
+#&gt; 29             +160             &lt;NA&gt;               -205               &lt;NA&gt;
+#&gt; 30             -200             &lt;NA&gt;               +150               &lt;NA&gt;
+#&gt; 31             -220             &lt;NA&gt;               +170               &lt;NA&gt;
+#&gt; 32             -390             &lt;NA&gt;               +280               &lt;NA&gt;
+#&gt; 33             -400             &lt;NA&gt;               +260               &lt;NA&gt;
+#&gt; 34             -125             &lt;NA&gt;               +105               &lt;NA&gt;
+#&gt; 35             +110             &lt;NA&gt;               -145               &lt;NA&gt;
+#&gt; 36             +150             &lt;NA&gt;               -190               &lt;NA&gt;
+#&gt; 37             +165             &lt;NA&gt;               -205               &lt;NA&gt;
+#&gt; 38             +285             &lt;NA&gt;               -390               &lt;NA&gt;
+#&gt; 39             -125             &lt;NA&gt;               +100               &lt;NA&gt;
+#&gt; 40             +105             &lt;NA&gt;               -130               &lt;NA&gt;
+#&gt; 41             -390             &lt;NA&gt;               +280               &lt;NA&gt;
+#&gt; 42             -450             &lt;NA&gt;               +280               &lt;NA&gt;
+#&gt; 43             -130             &lt;NA&gt;               +105               &lt;NA&gt;
+#&gt; 44             -300             &lt;NA&gt;               +235               &lt;NA&gt;
+#&gt; 45             -190             &lt;NA&gt;               +145               &lt;NA&gt;
+#&gt; 46             +145             &lt;NA&gt;               -170               &lt;NA&gt;
+#&gt; 47             -215             &lt;NA&gt;               +170               &lt;NA&gt;
+#&gt; 48             -800             &lt;NA&gt;               +525               &lt;NA&gt;
+#&gt;    home_Heritage_line home_Heritage_odds away_Intertops_line
+#&gt; 1                +255               &lt;NA&gt;                    
+#&gt; 2                -350               &lt;NA&gt;                    
+#&gt; 3                +135               &lt;NA&gt;                    
+#&gt; 4                +200               &lt;NA&gt;                    
+#&gt; 5                -270               &lt;NA&gt;                    
+#&gt; 6                -160               &lt;NA&gt;                    
+#&gt; 7                -150               &lt;NA&gt;                    
+#&gt; 8                +165               &lt;NA&gt;                    
+#&gt; 9                +160               &lt;NA&gt;                    
+#&gt; 10               -245               &lt;NA&gt;                    
+#&gt; 11               -325               &lt;NA&gt;                    
+#&gt; 12               -205               &lt;NA&gt;                    
+#&gt; 13               +115               &lt;NA&gt;                    
+#&gt; 14               +115               &lt;NA&gt;                    
+#&gt; 15               +130               &lt;NA&gt;                    
+#&gt; 16              -1040               &lt;NA&gt;                    
+#&gt; 17               -315               &lt;NA&gt;                    
+#&gt; 18               -125               &lt;NA&gt;                    
+#&gt; 19               -115               &lt;NA&gt;                    
+#&gt; 20               -165               &lt;NA&gt;                    
+#&gt; 21               +110               &lt;NA&gt;                    
+#&gt; 22               -135               &lt;NA&gt;                    
+#&gt; 23               -245               &lt;NA&gt;                    
+#&gt; 24               -135               &lt;NA&gt;                    
+#&gt; 25               -160               &lt;NA&gt;                    
+#&gt; 26               -450               &lt;NA&gt;                    
+#&gt; 27               +100               &lt;NA&gt;                    
+#&gt; 28               -360               &lt;NA&gt;                    
+#&gt; 29               +175               &lt;NA&gt;                    
+#&gt; 30               -170               &lt;NA&gt;                    
+#&gt; 31               -195               &lt;NA&gt;                    
+#&gt; 32               -350               &lt;NA&gt;                    
+#&gt; 33               -320               &lt;NA&gt;                    
+#&gt; 34               -125               &lt;NA&gt;                    
+#&gt; 35               +125               &lt;NA&gt;                    
+#&gt; 36               +165               &lt;NA&gt;                    
+#&gt; 37               +175               &lt;NA&gt;                    
+#&gt; 38               +310               &lt;NA&gt;                    
+#&gt; 39               -120               &lt;NA&gt;                    
+#&gt; 40               +110               &lt;NA&gt;                    
+#&gt; 41               -350               &lt;NA&gt;                    
+#&gt; 42               -350               &lt;NA&gt;                    
+#&gt; 43               -125               &lt;NA&gt;                    
+#&gt; 44               -285               &lt;NA&gt;                    
+#&gt; 45               -165               &lt;NA&gt;                    
+#&gt; 46               +150               &lt;NA&gt;                    
+#&gt; 47               -195               &lt;NA&gt;                    
+#&gt; 48               -675               &lt;NA&gt;                    
+#&gt;    away_Intertops_odds home_Intertops_line home_Intertops_odds
+#&gt; 1                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 2                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 3                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 4                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 5                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 6                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 7                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 8                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 9                 &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 10                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 11                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 12                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 13                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 14                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 15                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 16                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 17                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 18                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 19                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 20                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 21                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 22                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 23                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 24                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 25                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 26                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 27                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 28                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 29                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 30                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 31                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 32                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 33                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 34                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 35                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 36                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 37                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 38                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 39                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 40                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 41                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 42                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 43                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 44                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 45                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 46                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 47                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt; 48                &lt;NA&gt;                                    &lt;NA&gt;
+#&gt;    away_youwager_line away_youwager_odds home_youwager_line home_youwager_odds
+#&gt; 1                -310               &lt;NA&gt;               +245               &lt;NA&gt;
+#&gt; 2                +280               &lt;NA&gt;               -360               &lt;NA&gt;
+#&gt; 3                -150               &lt;NA&gt;               +130               &lt;NA&gt;
+#&gt; 4                -240               &lt;NA&gt;               +200               &lt;NA&gt;
+#&gt; 5                +230               &lt;NA&gt;               -270               &lt;NA&gt;
+#&gt; 6                +130               &lt;NA&gt;               -150               &lt;NA&gt;
+#&gt; 7                +120               &lt;NA&gt;               -150               &lt;NA&gt;
+#&gt; 8                -190               &lt;NA&gt;               +165               &lt;NA&gt;
+#&gt; 9                -180               &lt;NA&gt;               +160               &lt;NA&gt;
+#&gt; 10               +210               &lt;NA&gt;               -250               &lt;NA&gt;
+#&gt; 11               +270               &lt;NA&gt;               -350               &lt;NA&gt;
+#&gt; 12               +175               &lt;NA&gt;               -210               &lt;NA&gt;
+#&gt; 13               -145               &lt;NA&gt;               +125               &lt;NA&gt;
+#&gt; 14               -130               &lt;NA&gt;               +110               &lt;NA&gt;
+#&gt; 15               -150               &lt;NA&gt;               +130               &lt;NA&gt;
+#&gt; 16                                  &lt;NA&gt;                                  &lt;NA&gt;
+#&gt; 17               +280               &lt;NA&gt;               -340               &lt;NA&gt;
+#&gt; 18               +103               &lt;NA&gt;               -123               &lt;NA&gt;
+#&gt; 19                                  &lt;NA&gt;                                  &lt;NA&gt;
+#&gt; 20               +150               &lt;NA&gt;               -170               &lt;NA&gt;
+#&gt; 21               -125               &lt;NA&gt;               +105               &lt;NA&gt;
+#&gt; 22               +115               &lt;NA&gt;               -135               &lt;NA&gt;
+#&gt; 23               +210               &lt;NA&gt;               -250               &lt;NA&gt;
+#&gt; 24               +115               &lt;NA&gt;               -135               &lt;NA&gt;
+#&gt; 25               +145               &lt;NA&gt;               -165               &lt;NA&gt;
+#&gt; 26               +360               &lt;NA&gt;               -450               &lt;NA&gt;
+#&gt; 27                                  &lt;NA&gt;                                  &lt;NA&gt;
+#&gt; 28               +310               &lt;NA&gt;               -370               &lt;NA&gt;
+#&gt; 29               -200               &lt;NA&gt;               +170               &lt;NA&gt;
+#&gt; 30               +155               &lt;NA&gt;               -175               &lt;NA&gt;
+#&gt; 31               +170               &lt;NA&gt;               -200               &lt;NA&gt;
+#&gt; 32               +310               &lt;NA&gt;               -370               &lt;NA&gt;
+#&gt; 33               +250               &lt;NA&gt;               -300               &lt;NA&gt;
+#&gt; 34               +100               &lt;NA&gt;               -120               &lt;NA&gt;
+#&gt; 35               -145               &lt;NA&gt;               +125               &lt;NA&gt;
+#&gt; 36               -200               &lt;NA&gt;               +170               &lt;NA&gt;
+#&gt; 37               -210               &lt;NA&gt;               +175               &lt;NA&gt;
+#&gt; 38               -365               &lt;NA&gt;               +305               &lt;NA&gt;
+#&gt; 39                                  &lt;NA&gt;                                  &lt;NA&gt;
+#&gt; 40               -130               &lt;NA&gt;               +110               &lt;NA&gt;
+#&gt; 41               +285               &lt;NA&gt;               -345               &lt;NA&gt;
+#&gt; 42               +300               &lt;NA&gt;               -360               &lt;NA&gt;
+#&gt; 43               +113               &lt;NA&gt;               -133               &lt;NA&gt;
+#&gt; 44               +225               &lt;NA&gt;               -270               &lt;NA&gt;
+#&gt; 45               +140               &lt;NA&gt;               -160               &lt;NA&gt;
+#&gt; 46               -170               &lt;NA&gt;               +150               &lt;NA&gt;
+#&gt; 47               +165               &lt;NA&gt;               -190               &lt;NA&gt;
+#&gt; 48               +535               &lt;NA&gt;               -710               &lt;NA&gt;
+#&gt;    away_justbet_line away_justbet_odds home_justbet_line home_justbet_odds
+#&gt; 1               -300              &lt;NA&gt;              +245              &lt;NA&gt;
+#&gt; 2               +267              &lt;NA&gt;              -330              &lt;NA&gt;
+#&gt; 3               -155              &lt;NA&gt;              +135              &lt;NA&gt;
+#&gt; 4               -230              &lt;NA&gt;              +192              &lt;NA&gt;
+#&gt; 5               +234              &lt;NA&gt;              -285              &lt;NA&gt;
+#&gt; 6               +128              &lt;NA&gt;              -148              &lt;NA&gt;
+#&gt; 7               +130              &lt;NA&gt;              -150              &lt;NA&gt;
+#&gt; 8               -185              &lt;NA&gt;              +160              &lt;NA&gt;
+#&gt; 9               -185              &lt;NA&gt;              +160              &lt;NA&gt;
+#&gt; 10              +180              &lt;NA&gt;              -215              &lt;NA&gt;
+#&gt; 11              +260              &lt;NA&gt;              -320              &lt;NA&gt;
+#&gt; 12              +176              &lt;NA&gt;              -210              &lt;NA&gt;
+#&gt; 13              -125              &lt;NA&gt;              +105              &lt;NA&gt;
+#&gt; 14              -135              &lt;NA&gt;              +115              &lt;NA&gt;
+#&gt; 15              -140              &lt;NA&gt;              +120              &lt;NA&gt;
+#&gt; 16              +912              &lt;NA&gt;             -1600              &lt;NA&gt;
+#&gt; 17              +252              &lt;NA&gt;              -310              &lt;NA&gt;
+#&gt; 18              +105              &lt;NA&gt;              -125              &lt;NA&gt;
+#&gt; 19              -110              &lt;NA&gt;              -110              &lt;NA&gt;
+#&gt; 20              +145              &lt;NA&gt;              -167              &lt;NA&gt;
+#&gt; 21              -130              &lt;NA&gt;              +110              &lt;NA&gt;
+#&gt; 22              +120              &lt;NA&gt;              -140              &lt;NA&gt;
+#&gt; 23              +203              &lt;NA&gt;              -245              &lt;NA&gt;
+#&gt; 24              +110              &lt;NA&gt;              -130              &lt;NA&gt;
+#&gt; 25              +140              &lt;NA&gt;              -160              &lt;NA&gt;
+#&gt; 26              +384              &lt;NA&gt;              -500              &lt;NA&gt;
+#&gt; 27              -105              &lt;NA&gt;              -115              &lt;NA&gt;
+#&gt; 28              +281              &lt;NA&gt;              -350              &lt;NA&gt;
+#&gt; 29              -181              &lt;NA&gt;              +156              &lt;NA&gt;
+#&gt; 30              +148              &lt;NA&gt;              -170              &lt;NA&gt;
+#&gt; 31              +167              &lt;NA&gt;              -196              &lt;NA&gt;
+#&gt; 32              +256              &lt;NA&gt;              -316              &lt;NA&gt;
+#&gt; 33              +272              &lt;NA&gt;              -337              &lt;NA&gt;
+#&gt; 34              +114              &lt;NA&gt;              -134              &lt;NA&gt;
+#&gt; 35              -147              &lt;NA&gt;              +127              &lt;NA&gt;
+#&gt; 36              -205              &lt;NA&gt;              +172              &lt;NA&gt;
+#&gt; 37              -200              &lt;NA&gt;              +170              &lt;NA&gt;
+#&gt; 38              -384              &lt;NA&gt;              +306              &lt;NA&gt;
+#&gt; 39              +100              &lt;NA&gt;              -120              &lt;NA&gt;
+#&gt; 40              -135              &lt;NA&gt;              +115              &lt;NA&gt;
+#&gt; 41              +274              &lt;NA&gt;              -340              &lt;NA&gt;
+#&gt; 42              +306              &lt;NA&gt;              -385              &lt;NA&gt;
+#&gt; 43              -105              &lt;NA&gt;              -115              &lt;NA&gt;
+#&gt; 44              +274              &lt;NA&gt;              -340              &lt;NA&gt;
+#&gt; 45              +135              &lt;NA&gt;              -155              &lt;NA&gt;
+#&gt; 46              -170              &lt;NA&gt;              +148              &lt;NA&gt;
+#&gt; 47              +176              &lt;NA&gt;              -210              &lt;NA&gt;
+#&gt; 48              +461              &lt;NA&gt;              -624              &lt;NA&gt;
+#&gt;    away_sportsbet_line away_sportsbet_odds home_sportsbet_line
+#&gt; 1                 -300                &lt;NA&gt;                +240
+#&gt; 2                 +265                &lt;NA&gt;                -335
+#&gt; 3                 -155                &lt;NA&gt;                +135
+#&gt; 4                 -240                &lt;NA&gt;                +200
+#&gt; 5                 +230                &lt;NA&gt;                -280
+#&gt; 6                 +135                &lt;NA&gt;                -155
+#&gt; 7                 +130                &lt;NA&gt;                -150
+#&gt; 8                 -190                &lt;NA&gt;                +165
+#&gt; 9                 -180                &lt;NA&gt;                +160
+#&gt; 10                +210                &lt;NA&gt;                -250
+#&gt; 11                +270                &lt;NA&gt;                -340
+#&gt; 12                +165                &lt;NA&gt;                -190
+#&gt; 13                -135                &lt;NA&gt;                +115
+#&gt; 14                -135                &lt;NA&gt;                +115
+#&gt; 15                -145                &lt;NA&gt;                +125
+#&gt; 16                +750                &lt;NA&gt;               -1200
+#&gt; 17                +255                &lt;NA&gt;                -325
+#&gt; 18                +100                &lt;NA&gt;                -120
+#&gt; 19                -105                &lt;NA&gt;                -115
+#&gt; 20                +150                &lt;NA&gt;                -170
+#&gt; 21                -130                &lt;NA&gt;                +110
+#&gt; 22                +115                &lt;NA&gt;                -135
+#&gt; 23                +220                &lt;NA&gt;                -260
+#&gt; 24                +115                &lt;NA&gt;                -135
+#&gt; 25                +140                &lt;NA&gt;                -160
+#&gt; 26                +340                &lt;NA&gt;                -425
+#&gt; 27                -115                &lt;NA&gt;                -105
+#&gt; 28                +285                &lt;NA&gt;                -360
+#&gt; 29                -190                &lt;NA&gt;                +165
+#&gt; 30                +151                &lt;NA&gt;                -171
+#&gt; 31                +170                &lt;NA&gt;                -195
+#&gt; 32                +275                &lt;NA&gt;                -350
+#&gt; 33                +255                &lt;NA&gt;                -325
+#&gt; 34                +105                &lt;NA&gt;                -125
+#&gt; 35                -148                &lt;NA&gt;                +128
+#&gt; 36                -182                &lt;NA&gt;                +162
+#&gt; 37                -195                &lt;NA&gt;                +170
+#&gt; 38                -375                &lt;NA&gt;                +300
+#&gt; 39                -120                &lt;NA&gt;                +100
+#&gt; 40                -128                &lt;NA&gt;                +108
+#&gt; 41                +285                &lt;NA&gt;                -360
+#&gt; 42                +300                &lt;NA&gt;                -375
+#&gt; 43                +110                &lt;NA&gt;                -130
+#&gt; 44                +240                &lt;NA&gt;                -300
+#&gt; 45                +145                &lt;NA&gt;                -165
+#&gt; 46                -180                &lt;NA&gt;                +160
+#&gt; 47                +165                &lt;NA&gt;                -190
+#&gt; 48                +525                &lt;NA&gt;                -750
+#&gt;    home_sportsbet_odds
+#&gt; 1                 &lt;NA&gt;
+#&gt; 2                 &lt;NA&gt;
+#&gt; 3                 &lt;NA&gt;
+#&gt; 4                 &lt;NA&gt;
+#&gt; 5                 &lt;NA&gt;
+#&gt; 6                 &lt;NA&gt;
+#&gt; 7                 &lt;NA&gt;
+#&gt; 8                 &lt;NA&gt;
+#&gt; 9                 &lt;NA&gt;
+#&gt; 10                &lt;NA&gt;
+#&gt; 11                &lt;NA&gt;
+#&gt; 12                &lt;NA&gt;
+#&gt; 13                &lt;NA&gt;
+#&gt; 14                &lt;NA&gt;
+#&gt; 15                &lt;NA&gt;
+#&gt; 16                &lt;NA&gt;
+#&gt; 17                &lt;NA&gt;
+#&gt; 18                &lt;NA&gt;
+#&gt; 19                &lt;NA&gt;
+#&gt; 20                &lt;NA&gt;
+#&gt; 21                &lt;NA&gt;
+#&gt; 22                &lt;NA&gt;
+#&gt; 23                &lt;NA&gt;
+#&gt; 24                &lt;NA&gt;
+#&gt; 25                &lt;NA&gt;
+#&gt; 26                &lt;NA&gt;
+#&gt; 27                &lt;NA&gt;
+#&gt; 28                &lt;NA&gt;
+#&gt; 29                &lt;NA&gt;
+#&gt; 30                &lt;NA&gt;
+#&gt; 31                &lt;NA&gt;
+#&gt; 32                &lt;NA&gt;
+#&gt; 33                &lt;NA&gt;
+#&gt; 34                &lt;NA&gt;
+#&gt; 35                &lt;NA&gt;
+#&gt; 36                &lt;NA&gt;
+#&gt; 37                &lt;NA&gt;
+#&gt; 38                &lt;NA&gt;
+#&gt; 39                &lt;NA&gt;
+#&gt; 40                &lt;NA&gt;
+#&gt; 41                &lt;NA&gt;
+#&gt; 42                &lt;NA&gt;
+#&gt; 43                &lt;NA&gt;
+#&gt; 44                &lt;NA&gt;
+#&gt; 45                &lt;NA&gt;
+#&gt; 46                &lt;NA&gt;
+#&gt; 47                &lt;NA&gt;
+#&gt; 48                &lt;NA&gt;
+#&gt;                                                                                                oddsURL
+#&gt; 1  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 2  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 3  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 4  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 5  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 6  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191230
+#&gt; 7  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 8  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 9  https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 10 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 11 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 12 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 13 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20191231
+#&gt; 14 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 15 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 16 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 17 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200101
+#&gt; 18 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 19 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 20 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 21 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 22 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 23 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 24 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 25 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 26 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200102
+#&gt; 27 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 28 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 29 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 30 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 31 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 32 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200103
+#&gt; 33 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 34 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 35 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 36 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 37 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 38 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 39 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 40 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 41 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 42 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 43 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200104
+#&gt; 44 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 45 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 46 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 47 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105
+#&gt; 48 https://classic.sportsbookreview.com/betting-odds/nba-basketball/money-line/1st-half/?date=20200105</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
