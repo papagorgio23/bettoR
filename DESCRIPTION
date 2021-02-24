@@ -29,7 +29,8 @@ Imports:
     dplyr,
     scales,
     tidyr,
-    stringr
+    stringr,
+    httr
 Suggests: 
     testthat,
     knitr,
