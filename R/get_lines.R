@@ -133,10 +133,12 @@ get_lines <- function(sport = "NFL",
     }
   }
 
-  ## need to loop eventually...
-  oddspage <- xml2::read_html(oddsURL)
-  node <-
-    rvest::html_nodes(oddspage, "div.event-holder.holder-complete")
+  # for some reason xml2::read_html throwing 463, switching to httr::GET
+  res <- httr::GET(oddsURL)
+  con <- httr::content(res, 'text')
+  oddspage <- xml2::read_html(con)
+
+  node <- rvest::html_nodes(oddspage, "div.event-holder.holder-complete")
   games <- length(node)
 
   # initialize results
