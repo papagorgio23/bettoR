@@ -16,11 +16,33 @@
 #' @return Percentage of bankroll to risk on bet
 #'
 #'
-#' @examples kelly(win_prob = 0.58, odds = -132, type = "us")
-#' @examples kelly(win_prob = 0.53, odds = -105, type = "us", kelly_type = "half")
-#' @examples kelly(win_prob = 0.545, odds = 2.1, type = "dec")
-#' @examples kelly(win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "quarter")
-#' @examples kelly(win_prob = 0.10, odds = 40/1, type = "frac")
+#' @examples kelly(
+#'   win_prob = 0.58,
+#'   odds = -132,
+#'   type = "us"
+#' )
+#' @examples kelly(
+#'   win_prob = 0.53,
+#'   odds = -105,
+#'   type = "us",
+#'   kelly_type = "half"
+#' )
+#' @examples kelly(
+#'   win_prob = 0.545,
+#'   odds = 2.1,
+#'   type = "dec"
+#' )
+#' @examples kelly(
+#'   win_prob = 0.27,
+#'   odds = 5.5,
+#'   type = "dec",
+#'   kelly_type = "quarter"
+#' )
+#' @examples kelly(
+#'   win_prob = 0.10,
+#'   odds = 40/1,
+#'   type = "frac"
+#' )
 #'
 #' @references [Kelly Criterion wikipedia](https://en.wikipedia.org/wiki/Kelly_criterion) page
 #'
