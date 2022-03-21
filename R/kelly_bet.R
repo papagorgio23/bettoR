@@ -16,11 +16,38 @@
 #'
 #' @return Percentage of bankroll to risk on bet
 #'
-#' @examples kelly_bet(unit_size = 100, win_prob = 0.58, odds = -132, type = "us")
-#' @examples kelly_bet(unit_size = 50, win_prob = 0.53, odds = -105, type = "us", kelly_type = "Half")
-#' @examples kelly_bet(unit_size = 500, win_prob = 0.545, odds = 2.1, type = "dec")
-#' @examples kelly_bet(unit_size = 300, win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "Quarter")
-#' @examples kelly_bet(unit_size = 250, win_prob = 0.10, odds = 40/1, type = "frac")
+#' @examples kelly_bet(
+#'   unit_size = 100,
+#'   win_prob = 0.58,
+#'   odds = -132,
+#'   type = "us"
+#' )
+#' @examples kelly_bet(
+#'   unit_size = 50,
+#'   win_prob = 0.53,
+#'   odds = -105,
+#'   type = "us",
+#'   kelly_type = "Half"
+#' )
+#' @examples kelly_bet(
+#'   unit_size = 500,
+#'   win_prob = 0.545,
+#'   odds = 2.1,
+#'   type = "dec"
+#' )
+#' @examples kelly_bet(
+#'   unit_size = 300,
+#'   win_prob = 0.27,
+#'   odds = 5.5,
+#'   type = "dec",
+#'   kelly_type = "Quarter"
+#' )
+#' @examples kelly_bet(
+#'   unit_size = 250,
+#'   win_prob = 0.10,
+#'   odds = 40/1,
+#'   type = "frac"
+#' )
 #'
 #' @references [https://en.wikipedia.org/wiki/Kelly_criterion](https://en.wikipedia.org/wiki/Kelly_criterion)
 #'
