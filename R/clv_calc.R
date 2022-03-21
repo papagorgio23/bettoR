@@ -11,9 +11,21 @@
 #'
 #' @return clv Closing Line Value of your bet
 #'
-#' @examples clv_calc(bet_odds = -110, closing_odds = -132, type = "us")
-#' @examples clv_calc(bet_odds = 2.5, closing_odds = 2.3, type = "dec")
-#' @examples clv_calc(bet_odds = 50/1, closing_odds = 20/1, type = "frac")
+#' @examples clv_calc(
+#'   bet_odds = -110,
+#'   closing_odds = -132,
+#'   type = "us"
+#' )
+#' @examples clv_calc(
+#'   bet_odds = 2.5,
+#'   closing_odds = 2.3,
+#'   type = "dec"
+#' )
+#' @examples clv_calc(
+#'   bet_odds = 50/1,
+#'   closing_odds = 20/1,
+#'   type = "frac"
+#' )
 #'
 #' @export
 clv_calc <- function(bet_odds, closing_odds, type = "us") {
