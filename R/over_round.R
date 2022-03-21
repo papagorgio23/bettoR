@@ -4,11 +4,11 @@
 #'
 #' @param ... Lines for a given bet (-115, -105)
 #'
-#' @return Hold percent
+#' @return Bet's Over Round percent
 #'
-#' @examples hold_calc(-110, -110)
-#' @examples hold_calc(-125, -125)
-#' @examples hold_calc(285, -122, 258)
+#' @examples over_round(-110, -110)
+#' @examples over_round(-125, -125)
+#' @examples over_round(285, -122, 258)
 #'
 #' @export
 over_round <- function(...) {
