@@ -9,9 +9,12 @@
 #'
 #' @return The dollar amount won/lost from the bet
 #'
-#' @examples convert_odds(c(-110, -110))
-#' @examples convert_odds(odds = c(1.1, 2.1, 13, 6.5, 1.909), input = "dec", output = "us")
-#' @examples convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
+#' @examples random_bet(c(
+#'   risk = 110,
+#'   payout = 100,
+#'   num_bets = 1,
+#'   win_rate = 0.55
+#' )
 #'
 #' @export
 random_bet <-
@@ -19,10 +22,10 @@ random_bet <-
            payout = 100,
            num_bets = 1,
            win_rate = 0.55) {
-    sample(
+    return(sample(
       c(-1 * risk, payout),
       num_bets,
       prob = c(1 - win_rate, win_rate),
       replace = TRUE
-    )
+    ))
   }
