@@ -133,6 +133,7 @@ get_lines <- function(sport = "NFL",
     }
   }
 
+
   # connect to site
   res <- httr::GET(oddsURL)
   con <- httr::content(res, 'text')
