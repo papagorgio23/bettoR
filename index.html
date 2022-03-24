@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">bettoR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0.2</span>
       </span>
     </div>
 
@@ -49,7 +51,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/papagorgio23/bettoR/">
+  <a href="https://github.com/papagorgio23/bettoR/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -67,37 +69,37 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="bettor" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#bettor" class="anchor"></a><em>bettoR</em>
+<div class="section level1">
+<div class="page-header"><h1 id="bettor">
+<em>bettoR</em><a class="anchor" aria-label="anchor" href="#bettor"></a>
 </h1></div>
 </div>
-<div id="section" class="section level1">
-<h1 class="hasAnchor">
-<a href="#section" class="anchor"></a><img src="reference/figures/bettoR.png" width="150" align="right">
+<div class="section level1">
+<h1 id="section">
+<img src="reference/figures/bettoR.png" width="150" align="right"><a class="anchor" aria-label="anchor" href="#section"></a>
 </h1>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
 
-<div id="tools-for-sports-betting" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tools-for-sports-betting" class="anchor"></a>Tools for Sports Betting</h2>
+<div class="section level2">
+<h2 id="tools-for-sports-betting">Tools for Sports Betting<a class="anchor" aria-label="anchor" href="#tools-for-sports-betting"></a>
+</h2>
 <p>This package contains tools and functions to help sports bettors make more money!</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install bettoR from <a href="https://github.com/a-i-sports/bettoR">GitHub</a> with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install bettoR from <a href="https://github.com/a-i-sports/bettoR" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"a-i-sports/bettoR"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="examples" class="section level2">
-<h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
-<div id="implied-probability" class="section level4">
-<h4 class="hasAnchor">
-<a href="#implied-probability" class="anchor"></a>Implied Probability</h4>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
+<div class="section level4">
+<h4 id="implied-probability">Implied Probability<a class="anchor" aria-label="anchor" href="#implied-probability"></a>
+</h4>
 <p>Implied probabilities, or break-even win percentage, can easily be found with this function. Here is an example with given odds of -350 (US Odds), 180 (US Odds), 2.5 (Decimal Odds), 4.9 (Decimal Odds), 6-1 (Fractional Odds), 2/7 (Fractional Odds).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/implied_prob.html">implied_prob</a></span><span class="op">(</span><span class="op">-</span><span class="fl">350</span>, type <span class="op">=</span> <span class="st">"us"</span><span class="op">)</span></code></pre></div>
@@ -118,9 +120,9 @@
 <code class="sourceCode R"><span class="fu"><a href="reference/implied_prob.html">implied_prob</a></span><span class="op">(</span><span class="fl">2</span><span class="op">/</span><span class="fl">7</span>, type <span class="op">=</span> <span class="st">"frac"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">## [1] 0.7777778</span></span></code></pre></div>
 </div>
-<div id="odds-from-probabilities" class="section level4">
-<h4 class="hasAnchor">
-<a href="#odds-from-probabilities" class="anchor"></a>Odds from Probabilities</h4>
+<div class="section level4">
+<h4 id="odds-from-probabilities">Odds from Probabilities<a class="anchor" aria-label="anchor" href="#odds-from-probabilities"></a>
+</h4>
 <p>Let’s say you believe a bet has a 75% chance to cover, what would the price be? Using the implied odds function can give you the price based on your probability.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/implied_odds.html">implied_odds</a></span><span class="op">(</span><span class="fl">0.75</span>, type <span class="op">=</span> <span class="st">"us"</span><span class="op">)</span></code></pre></div>
@@ -136,18 +138,18 @@
 <div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">##   Decimal American Fraction Implied.Probability</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="co">## 1  1.3333     -300      1/3                0.75</span></span></code></pre></div>
 </div>
-<div id="converting-odds" class="section level4">
-<h4 class="hasAnchor">
-<a href="#converting-odds" class="anchor"></a>Converting Odds</h4>
+<div class="section level4">
+<h4 id="converting-odds">Converting Odds<a class="anchor" aria-label="anchor" href="#converting-odds"></a>
+</h4>
 <p>Let’s say you want to convert the American Odds you see on the screen (-175) to another type.</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/convert_odds.html">convert_odds</a></span><span class="op">(</span><span class="op">-</span><span class="fl">175</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">##   Decimal American Fraction Implied_Probability</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="co">## 1  1.5714     -175      4/7           0.6363636</span></span></code></pre></div>
 </div>
-<div id="calculate-sportsbooks-hold" class="section level4">
-<h4 class="hasAnchor">
-<a href="#calculate-sportsbooks-hold" class="anchor"></a>Calculate Sportsbook’s hold</h4>
+<div class="section level4">
+<h4 id="calculate-sportsbooks-hold">Calculate Sportsbook’s hold<a class="anchor" aria-label="anchor" href="#calculate-sportsbooks-hold"></a>
+</h4>
 <p>Betting into a market is difficult enough as is but some sportsbooks skew the odds even more in their favor. (-110, -110) is the industry standard. The hold, or vig/juice, for this bet can be found like this:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/hold_calc.html">hold_calc</a></span><span class="op">(</span><span class="op">-</span><span class="fl">110</span>, <span class="op">-</span><span class="fl">110</span><span class="op">)</span></code></pre></div>
@@ -163,11 +165,11 @@
 <p>120% increase in price.</p>
 </div>
 </div>
-<div id="special-thanks" class="section level2">
-<h2 class="hasAnchor">
-<a href="#special-thanks" class="anchor"></a>Special Thanks</h2>
+<div class="section level2">
+<h2 id="special-thanks">Special Thanks<a class="anchor" aria-label="anchor" href="#special-thanks"></a>
+</h2>
 <ul>
-<li>To the entire <a href="https://aisportsfirm.com/home/our-team/">A.I. Sports</a> team!</li>
+<li>To the entire <a href="https://aisportsfirm.com/home/our-team/" class="external-link">A.I. Sports</a> team!</li>
 </ul>
 </div>
 </div>
@@ -176,48 +178,59 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/papagorgio23/bettoR/">https://​github.com/​papagorgio23/​bettoR/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/papagorgio23/bettoR/issues">https://​github.com/​papagorgio23/​bettoR/​issues</a>
-</li>
+<li><a href="https://github.com/papagorgio23/bettoR/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/papagorgio23/bettoR/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing bettoR</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Jason Lee <br><small class="roles"> Author, maintainer </small>  </li>
 <li>Jared Lee <br><small class="roles"> Author, contributor </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/papagorgio23/bettoR/actions"><img src="https://github.com/papagorgio23/bettoR/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://travis-ci.com/github/papagorgio23/bettoR"><img src="https://travis-ci.com/papagorgio23/bettoR.svg?branch=master" alt="Travis build status"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://twitter.com/theFirmAISports"><img src="https://img.shields.io/twitter/follow/theFirmAISports?style=social" alt="Twitter Follow"></a></li>
+<li><a href="https://github.com/papagorgio23/bettoR/actions" class="external-link"><img src="https://github.com/papagorgio23/bettoR/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://travis-ci.com/github/papagorgio23/bettoR" class="external-link"><img src="https://travis-ci.com/papagorgio23/bettoR.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://twitter.com/theFirmAISports" class="external-link"><img src="https://img.shields.io/twitter/follow/theFirmAISports?style=social" alt="Twitter Follow"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Jason Lee, Jared Lee.</p>
+  <p></p>
+<p>Developed by Jason Lee, Jared Lee.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer>
@@ -225,6 +238,8 @@
 
   
 
+
+  
 
   </body>
 </html>
