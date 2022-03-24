@@ -25,8 +25,20 @@ clv Closing Line Value of your bet
 This function calculates the Closing Line Value (CLV) of your bets.
 }
 \examples{
-clv_calc(bet_odds = -110, closing_odds = -132, type = "us")
-clv_calc(bet_odds = 2.5, closing_odds = 2.3, type = "dec")
-clv_calc(bet_odds = 50/1, closing_odds = 20/1, type = "frac")
+clv_calc(
+  bet_odds = -110,
+  closing_odds = -132,
+  type = "us"
+)
+clv_calc(
+  bet_odds = 2.5,
+  closing_odds = 2.3,
+  type = "dec"
+)
+clv_calc(
+  bet_odds = 50/1,
+  closing_odds = 20/1,
+  type = "frac"
+)
 
 }
