@@ -22,8 +22,11 @@ The dollar amount won/lost from the bet
 This function simulates a bet
 }
 \examples{
-convert_odds(c(-110, -110))
-convert_odds(odds = c(1.1, 2.1, 13, 6.5, 1.909), input = "dec", output = "us")
-convert_odds(odds = c(1/10, 11/10, 12/1, 11/2, 10/11), input = "frac", output = "all")
+random_bet(c(
+  risk = 110,
+  payout = 100,
+  num_bets = 1,
+  win_rate = 0.55
+)
 
 }
