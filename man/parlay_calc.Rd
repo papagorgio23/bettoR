@@ -25,8 +25,20 @@ payout Parlay payout
 This function calculates the payout of parlay bets.
 }
 \examples{
-parlay_calc(risk = 75, odds = c(-110, -110, -110), type = "us")
-parlay_calc(risk = 50, odds = c(-110, -110, -110, -110), type = "us")
-parlay_calc(risk = 100, odds = c(-110, -150, -175, -325, -220), type = "us")
+parlay_calc(
+  risk = 75,
+  odds = c(-110, -110, -110),
+  type = "us"
+)
+parlay_calc(
+  risk = 50,
+  odds = c(-110, -110, -110, -110),
+  type = "us"
+)
+parlay_calc(
+  risk = 100,
+  odds = c(-110, -150, -175, -325, -220),
+  type = "us"
+)
 
 }
