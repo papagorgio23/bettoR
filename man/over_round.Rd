@@ -10,14 +10,14 @@ over_round(...)
 \item{...}{Lines for a given bet (-115, -105)}
 }
 \value{
-Hold percent
+Bet's Over Round percent
 }
 \description{
 This function calculates the extra implied probability from each line of the bet. House Edge or Over Round.
 }
 \examples{
-hold_calc(-110, -110)
-hold_calc(-125, -125)
-hold_calc(285, -122, 258)
+over_round(-110, -110)
+over_round(-125, -125)
+over_round(285, -122, 258)
 
 }
