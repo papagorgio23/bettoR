@@ -34,11 +34,38 @@ Percentage of bankroll to risk on bet
 This function calculates the Kelly Criterion and returns the dollar amount to bet in order to maximize returns.
 }
 \examples{
-kelly_bet(unit_size = 100, win_prob = 0.58, odds = -132, type = "us")
-kelly_bet(unit_size = 50, win_prob = 0.53, odds = -105, type = "us", kelly_type = "Half")
-kelly_bet(unit_size = 500, win_prob = 0.545, odds = 2.1, type = "dec")
-kelly_bet(unit_size = 300, win_prob = 0.27, odds = 5.5, type = "dec", kelly_type = "Quarter")
-kelly_bet(unit_size = 250, win_prob = 0.10, odds = 40/1, type = "frac")
+kelly_bet(
+  unit_size = 100,
+  win_prob = 0.58,
+  odds = -132,
+  type = "us"
+)
+kelly_bet(
+  unit_size = 50,
+  win_prob = 0.53,
+  odds = -105,
+  type = "us",
+  kelly_type = "Half"
+)
+kelly_bet(
+  unit_size = 500,
+  win_prob = 0.545,
+  odds = 2.1,
+  type = "dec"
+)
+kelly_bet(
+  unit_size = 300,
+  win_prob = 0.27,
+  odds = 5.5,
+  type = "dec",
+  kelly_type = "Quarter"
+)
+kelly_bet(
+  unit_size = 250,
+  win_prob = 0.10,
+  odds = 40/1,
+  type = "frac"
+)
 
 }
 \references{
