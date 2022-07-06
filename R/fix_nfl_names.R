@@ -10,7 +10,6 @@
 #' @examples fix_nfl_names("CARDINALS")
 #'
 #'
-#' @export
 fix_nfl_names <- function(x){
   x[grep("Arizona", x, ignore.case=TRUE)] <- "ARZ"
   x[grep("Cardinals", x, ignore.case=TRUE)] <- "ARZ"
