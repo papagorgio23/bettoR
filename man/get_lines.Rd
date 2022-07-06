@@ -49,7 +49,7 @@ dataframe containing betting lines for the given day
 This function scrapes the sportsbookreview.com website to return betting lines
 }
 \examples{
-get_lines(
+\dontrun{ get_lines(
   sport = "NFL",
   bet_type = "spread",
   period = "full",
@@ -67,6 +67,6 @@ get_lines(
   period = "1H",
   start_date = "20191019"
 )
-
+}
 
 }
