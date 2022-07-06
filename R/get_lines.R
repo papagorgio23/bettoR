@@ -29,25 +29,26 @@
 #'
 #' @return dataframe containing betting lines for the given day
 #'
-#' @examples get_lines(
+#' @examples
+#' \dontrun{ get_lines(
 #'   sport = "NFL",
 #'   bet_type = "spread",
 #'   period = "full",
 #'   start_date = "20191222"
 #' )
-#' @examples get_lines(
+#' get_lines(
 #'   sport = "NBA",
 #'   bet_type = "total",
 #'   period = "2Q",
 #'   start_date = "20191221"
 #' )
-#' @examples get_lines(
+#' get_lines(
 #'   sport = "NCAAF",
 #'   bet_type = "moneyline",
 #'   period = "1H",
 #'   start_date = "20191019"
 #' )
-#'
+#' }
 #'
 get_lines <- function(sport = "NFL",
                       bet_type = "spread",
