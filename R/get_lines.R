@@ -48,7 +48,6 @@
 #'   start_date = "20191019"
 #' )
 #'
-#' @export
 #'
 get_lines <- function(sport = "NFL",
                       bet_type = "spread",

@@ -45,7 +45,6 @@
 #'   end_date = 20200105
 #' )
 #'
-#' @export
 #'
 get_lines_range <- function(sport = "NFL",
                             bet_type = "spread",
