@@ -9,7 +9,7 @@
 #'
 #' @return The dollar amount won/lost from the bet
 #'
-#' @examples random_bet(c(
+#' @examples random_bet(
 #'   risk = 110,
 #'   payout = 100,
 #'   num_bets = 1,
