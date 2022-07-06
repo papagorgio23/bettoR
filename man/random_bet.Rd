@@ -22,7 +22,7 @@ The dollar amount won/lost from the bet
 This function simulates a bet
 }
 \examples{
-random_bet(c(
+random_bet(
   risk = 110,
   payout = 100,
   num_bets = 1,
