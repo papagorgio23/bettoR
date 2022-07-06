@@ -28,6 +28,10 @@ This function will calculate the edge of a given bet based on your predicted win
 edge_calc(0.75, -175, type = "us")
 edge_calc(0.75, 1.2855, type = "dec")
 edge_calc(0.75, 3/7, type = "frac")
-edge_calc(win_prob = c(0.6, 0.7, 0.52, 0.6), odds = c(-110, -150, 140, 150), type = "us")
+edge_calc(
+  win_prob = c(0.6, 0.7, 0.52, 0.6),
+  odds = c(-110, -150, 140, 150),
+  type = "us"
+)
 
 }
