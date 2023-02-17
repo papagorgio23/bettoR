@@ -1,3 +1,7 @@
+# bettoR 1.0.0.4
+
+* Removed `get_lines` and `get_lines_range` Functions completely. Remove rounding on several functions.
+
 # bettoR 1.0.0.3
 
 * Removed `get_lines` Function. The website that was scraped no longer holds the data we needed.
