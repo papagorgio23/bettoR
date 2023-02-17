@@ -30,11 +30,11 @@ more money!
 ## Installation
 
 You can install bettoR from
-[GitHub](https://github.com/a-i-sports/bettoR) with:
+[GitHub](https://github.com/papagorgio23/bettoR) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("a-i-sports/bettoR")
+devtools::install_github("papagorgio23/bettoR")
 ```
 
 ## Examples
