@@ -4,7 +4,6 @@
 # <img src="man/figures/bettoR.png" width = "150" align="right" />
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- badges: start -->
 
 ![GitHub release (latest by
@@ -26,7 +25,7 @@ Follow](https://img.shields.io/twitter/follow/theFirmAISports?style=social)](htt
 ## Tools for Sports Betting
 
 This package contains tools and functions to help sports bettors make
-more money\!
+more money!
 
 ## Installation
 
@@ -111,8 +110,8 @@ implied_odds(0.75, type = "dec")
 implied_odds(0.75, type = "all")
 ```
 
-    ##   Decimal American Fraction Implied.Probability
-    ## 1  1.3333     -300      1/3                0.75
+    ##    Decimal American Fraction Implied.Probability
+    ## 1 1.333333     -300      1/3                0.75
 
 #### Converting Odds
 
@@ -123,8 +122,8 @@ Let’s say you want to convert the American Odds you see on the screen
 convert_odds(-175)
 ```
 
-    ##   Decimal American Fraction Implied_Probability
-    ## 1  1.5714     -175      4/7           0.6363636
+    ##    Decimal American Fraction Implied_Probability
+    ## 1 1.571429     -175      4/7           0.6363636
 
 #### Calculate Sportsbook’s hold
 
@@ -159,5 +158,5 @@ The increase in juice for this is:
 
 ## Special Thanks
 
-  - To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
-    team\!
+- To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
+  team!
