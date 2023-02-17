@@ -28,10 +28,9 @@ true_implied_prob <- function(odds, type = "us") {
 
   # implied probability divided by the sum of all implied probabilities for the wager
   true_prob <-
-    round(implied_prob(odds = odds, type = type) / sum(implied_prob(odds = odds, type = type)), 4)
+    implied_prob(odds = odds, type = type) / sum(implied_prob(odds = odds, type = type))
 
-  imp_prob <-
-    round(implied_prob(odds = odds, type = type), 4)
+  imp_prob <- implied_prob(odds = odds, type = type)
 
   results <- data.frame(true_prob, imp_prob)
 

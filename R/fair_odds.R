@@ -31,7 +31,7 @@ fair_odds <-
 
     # implied probability divided by the sum of all implied probabilities for the wager
     true_prob <-
-      round(implied_prob(odds = line, type = type) / sum(implied_prob(odds = odds, type = type)), 4)
+      implied_prob(odds = line, type = type) / sum(implied_prob(odds = odds, type = type))
 
     fair_odds <- implied_odds(true_prob, type = type)
 

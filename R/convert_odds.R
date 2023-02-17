@@ -55,7 +55,7 @@ convert_odds <- function(odds,
       frac <- MASS::fractions(frac)
 
       new_odds <- data.frame(
-        Decimal = round(dec, 4),
+        Decimal = dec,
         American = odds,
         Fraction = as.character(frac),
         Implied_Probability = implied_prob(odds = odds, type = "us")
@@ -99,7 +99,7 @@ convert_odds <- function(odds,
       us <- round(us)
 
       new_odds <- data.frame(
-        Decimal = round(odds, 4),
+        Decimal = odds,
         American = us,
         Fraction = as.character(frac),
         Implied_Probability = implied_prob(odds, type = "dec")
@@ -137,7 +137,7 @@ convert_odds <- function(odds,
       us <- round(us)
 
       new_odds <- data.frame(
-        Decimal = round(dec, 4),
+        Decimal = dec,
         American = us,
         Fraction = as.character(frac),
         Implied_Probability = implied_prob(odds = odds, type = "frac")
@@ -167,7 +167,7 @@ convert_odds <- function(odds,
     if (output == "all") {
       new_odds <-
         data.frame(
-          Decimal = round(implied_odds(odds, type = "dec"), 4),
+          Decimal = implied_odds(odds, type = "dec"),
           American = implied_odds(odds, type = "us"),
           Fraction = as.character(implied_odds(odds, type = "frac")),
           Implied_Probability = odds
