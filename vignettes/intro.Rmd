@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+devtools::install_github("papagorgio23/bettoR")
 ```
 
 ```{r setup}
