@@ -12,7 +12,9 @@ Authors@R: c(
            email = "Jared@AISportsfirm.com"))
 Description: A series of tools to help a sports bettor make money.
 License: MIT + file LICENSE
-URL: https://github.com/papagorgio23/bettoR, https://github.com/a-i-sports/bettoR
+URL: https://github.com/papagorgio23/bettoR,
+    https://github.com/a-i-sports/bettoR,
+    https://papagorgio23.github.io/bettoR/
 BugReports: https://github.com/papagorgio23/bettoR/issues
 Encoding: UTF-8
 LazyData: true
