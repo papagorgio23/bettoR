@@ -30,11 +30,11 @@ more money!
 ## Installation
 
 You can install bettoR from
-[GitHub](https://github.com/a-i-sports/bettoR) with:
+[GitHub](https://github.com/papagorgio23/bettoR) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("a-i-sports/bettoR")
+devtools::install_github("papagorgio23/bettoR")
 ```
 
 ## Examples
@@ -110,8 +110,8 @@ implied_odds(0.75, type = "dec")
 implied_odds(0.75, type = "all")
 ```
 
-    ##   Decimal American Fraction Implied.Probability
-    ## 1  1.3333     -300      1/3                0.75
+    ##    Decimal American Fraction Implied.Probability
+    ## 1 1.333333     -300      1/3                0.75
 
 #### Converting Odds
 
@@ -122,8 +122,8 @@ Let’s say you want to convert the American Odds you see on the screen
 convert_odds(-175)
 ```
 
-    ##   Decimal American Fraction Implied_Probability
-    ## 1  1.5714     -175      4/7           0.6363636
+    ##    Decimal American Fraction Implied_Probability
+    ## 1 1.571429     -175      4/7           0.6363636
 
 #### Calculate Sportsbook’s hold
 
@@ -158,5 +158,10 @@ The increase in juice for this is:
 
 ## Special Thanks
 
+<<<<<<< HEAD
 -   To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
     team!
+=======
+- To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
+  team!
+>>>>>>> 04b4a0d177516f94fb68a60ff448c12987d51cb9
