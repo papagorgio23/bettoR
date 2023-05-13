@@ -4,7 +4,6 @@
 # <img src="man/figures/bettoR.png" width = "150" align="right" />
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
 <!-- badges: start -->
 
 ![GitHub release (latest by
@@ -26,7 +25,7 @@ Follow](https://img.shields.io/twitter/follow/theFirmAISports?style=social)](htt
 ## Tools for Sports Betting
 
 This package contains tools and functions to help sports bettors make
-more money\!
+more money!
 
 ## Installation
 
@@ -159,5 +158,5 @@ The increase in juice for this is:
 
 ## Special Thanks
 
-  - To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
-    team\!
+-   To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
+    team!

@@ -25,6 +25,7 @@ https://img.shields.io/codecov/c/github/papagorgio23/bettoR?style=plastic&token=
 [![Coverage Status](https://img.shields.io/codecov/c/github/papagorgio23/bettoR?style=plastic&token=4dcb468f-32ee-42a9-b610-92f9a6d0c896)](https://codecov.io/github/papagorgio23/bettoR?branch=master)-->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Twitter Follow](https://img.shields.io/twitter/follow/theFirmAISports?style=social)](https://twitter.com/theFirmAISports)
+[![R-CMD-check](https://github.com/papagorgio23/bettoR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/papagorgio23/bettoR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 
