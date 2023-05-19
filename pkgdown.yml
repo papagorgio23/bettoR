@@ -1,7 +1,10 @@
-pandoc: 2.7.3
-pkgdown: 2.0.2.9000
-pkgdown_sha: 98d5a5c735eb244cb98b2e6bab1d54bb27c0af95
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
 articles:
   intro: intro.html
-last_built: 2022-03-24T18:53Z
+last_built: 2023-05-19T16:18Z
+urls:
+  reference: https://papagorgio23.github.io/bettoR/reference
+  article: https://papagorgio23.github.io/bettoR/articles
 

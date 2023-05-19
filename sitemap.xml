@@ -1,111 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/intro.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/articles/intro.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/index.html</loc>
   </url>
   <url>
-    <loc>/news/index.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/bankroll_plot.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/bankroll_plot.html</loc>
   </url>
   <url>
-    <loc>/reference/bet_calc.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/bet_calc.html</loc>
   </url>
   <url>
-    <loc>/reference/bet_prob.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/bet_prob.html</loc>
   </url>
   <url>
-    <loc>/reference/bet_prob_plot.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/bet_prob_plot.html</loc>
   </url>
   <url>
-    <loc>/reference/break_even.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/break_even.html</loc>
   </url>
   <url>
-    <loc>/reference/calc_hfa.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/calc_hfa.html</loc>
   </url>
   <url>
-    <loc>/reference/clv_calc.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/clv_calc.html</loc>
   </url>
   <url>
-    <loc>/reference/convert_odds.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/convert_odds.html</loc>
   </url>
   <url>
-    <loc>/reference/edge_calc.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/edge_calc.html</loc>
   </url>
   <url>
-    <loc>/reference/expected_roi.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/expected_roi.html</loc>
   </url>
   <url>
-    <loc>/reference/expected_scores.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/expected_scores.html</loc>
   </url>
   <url>
-    <loc>/reference/expected_value.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/expected_value.html</loc>
   </url>
   <url>
-    <loc>/reference/fair_odds.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/fair_odds.html</loc>
   </url>
   <url>
-    <loc>/reference/fix_nfl_names.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/hold_calc.html</loc>
   </url>
   <url>
-    <loc>/reference/get_lines.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/implied_odds.html</loc>
   </url>
   <url>
-    <loc>/reference/get_lines_range.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/implied_prob.html</loc>
   </url>
   <url>
-    <loc>/reference/hold_calc.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/implied_odds.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/kelly.html</loc>
   </url>
   <url>
-    <loc>/reference/implied_prob.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/kelly_bet.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/over_round.html</loc>
   </url>
   <url>
-    <loc>/reference/kelly.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/parlay_calc.html</loc>
   </url>
   <url>
-    <loc>/reference/kelly_bet.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>/reference/over_round.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/random_bet.html</loc>
   </url>
   <url>
-    <loc>/reference/parlay_calc.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/true_implied_prob.html</loc>
   </url>
   <url>
-    <loc>/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>/reference/random_bet.html</loc>
-  </url>
-  <url>
-    <loc>/reference/true_implied_prob.html</loc>
-  </url>
-  <url>
-    <loc>/reference/true_probability.html</loc>
+    <loc>https://papagorgio23.github.io/bettoR/reference/true_probability.html</loc>
   </url>
 </urlset>
