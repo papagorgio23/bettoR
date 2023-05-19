@@ -7,15 +7,8 @@
 <!-- badges: start -->
 
 ![GitHub release (latest by
-date)](https://img.shields.io/github/v/release/papagorgio23/bettoR) [![R
-build
-status](https://github.com/papagorgio23/bettoR/workflows/R-CMD-check/badge.svg)](https://github.com/papagorgio23/bettoR/actions)
-[![Travis build
-status](https://travis-ci.com/papagorgio23/bettoR.svg?branch=master)](https://travis-ci.com/github/papagorgio23/bettoR)
-<!--[![Coverage Status](https://img.shields.io/coveralls/github/papagorgio23/bettoR)](https://img.shields.io/coveralls/github/papagorgio23/bettoR)
-https://img.shields.io/codecov/c/github/papagorgio23/bettoR?style=plastic&token=4dcb468f-32ee-42a9-b610-92f9a6d0c896
-[![Coverage Status](https://img.shields.io/codecov/c/github/ellessenne/rsimsum/master.svg)](https://codecov.io/github/ellessenne/rsimsum?branch=master) 
-[![Coverage Status](https://img.shields.io/codecov/c/github/papagorgio23/bettoR?style=plastic&token=4dcb468f-32ee-42a9-b610-92f9a6d0c896)](https://codecov.io/github/papagorgio23/bettoR?branch=master)-->
+date)](https://img.shields.io/github/v/release/papagorgio23/bettoR)
+[![R-CMD-check](https://github.com/papagorgio23/bettoR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/papagorgio23/bettoR/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Twitter
@@ -158,10 +151,5 @@ The increase in juice for this is:
 
 ## Special Thanks
 
-<<<<<<< HEAD
--   To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
-    team!
-=======
 - To the entire [A.I. Sports](https://aisportsfirm.com/home/our-team/)
   team!
->>>>>>> 04b4a0d177516f94fb68a60ff448c12987d51cb9
