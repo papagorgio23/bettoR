@@ -13,7 +13,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-devtools::install_github("papagorgio23/bettoR")
+
+# devtools::install_github("papagorgio23/bettoR")
 ```
 
 ```{r setup}
