@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   intro: intro.html
-last_built: 2023-05-19T17:16Z
+last_built: 2023-05-19T17:38Z
 urls:
   reference: https://papagorgio23.github.io/bettoR/reference
   article: https://papagorgio23.github.io/bettoR/articles
